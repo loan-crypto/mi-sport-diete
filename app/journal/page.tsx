@@ -11,6 +11,7 @@ import { useAuth } from "@/lib/auth/context";
 import RequireAuth from "@/components/auth/RequireAuth";
 import { getAllExerciseLogs, getAllMealLogs, todayISO, type ExerciseLog, type MealLog } from "@/lib/supabase/logs";
 import { importLegacyDump } from "@/lib/supabase/importLegacyDump";
+import CalorieCounter from "@/components/tracking/CalorieCounter";
 
 type Tab = "exo" | "meal";
 
@@ -76,6 +77,8 @@ function JournalContent() {
         <h1>{t("journal.title")}</h1>
         <p>{t("journal.subtitle")}</p>
       </div>
+
+      <CalorieCounter />
 
       <div className="journal-tabs">
         <button className={tab === "exo" ? "active" : ""} onClick={() => setTab("exo")}>

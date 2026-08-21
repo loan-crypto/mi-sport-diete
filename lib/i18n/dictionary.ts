@@ -14,6 +14,7 @@ export const UI_STRINGS = {
     "nav.sport": "Sport",
     "nav.progression": "Progression",
     "nav.journal": "Journal",
+    "nav.planificateur": "Planning",
     "footer.tagline": "Mon carnet perso — entraînement & nutrition",
 
     "home.kicker": "Discipline · Sueur · Résultats",
@@ -241,11 +242,18 @@ export const UI_STRINGS = {
     "planner.title": "Planificateur",
     "planner.subtitle": "Organise tes repas et séances sur le calendrier.",
     "planner.addToCalendar": "Ajouter cette semaine au calendrier",
+    "planner.slot.session": "Séance",
+    "planner.prevWeek": "◀ Semaine précédente",
+    "planner.nextWeek": "Semaine suivante ▶",
+    "planner.pickRecipe": "Choisir une recette...",
+    "planner.pickSession": "Choisir une séance...",
+    "planner.remove": "Retirer",
 
     // Nouveau : calories du jour
     "calories.title": "Calories du jour",
     "calories.target": "Objectif",
     "calories.consumed": "Consommé",
+    "calories.setup": "Renseigne ton objectif et ton poids pour voir ton suivi calorique du jour.",
   },
   es: {
     "nav.accueil": "Inicio",
@@ -253,6 +261,7 @@ export const UI_STRINGS = {
     "nav.sport": "Deporte",
     "nav.progression": "Progreso",
     "nav.journal": "Diario",
+    "nav.planificateur": "Planificador",
     "footer.tagline": "Mi cuaderno personal — entrenamiento y nutrición",
 
     "home.kicker": "Disciplina · Sudor · Resultados",
@@ -480,11 +489,18 @@ export const UI_STRINGS = {
     "planner.title": "Planificador",
     "planner.subtitle": "Organiza tus comidas y sesiones en el calendario.",
     "planner.addToCalendar": "Añadir esta semana al calendario",
+    "planner.slot.session": "Sesión",
+    "planner.prevWeek": "◀ Semana anterior",
+    "planner.nextWeek": "Semana siguiente ▶",
+    "planner.pickRecipe": "Elegir una receta...",
+    "planner.pickSession": "Elegir una sesión...",
+    "planner.remove": "Quitar",
 
     // Nuevo: calorías del día
     "calories.title": "Calorías del día",
     "calories.target": "Objetivo",
     "calories.consumed": "Consumido",
+    "calories.setup": "Indica tu objetivo y tu peso para ver tu seguimiento calórico del día.",
   },
 } as const;
 

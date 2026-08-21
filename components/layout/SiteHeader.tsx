@@ -15,6 +15,7 @@ const NAV_LINKS: { href: string; labelKey: UIStringKey }[] = [
   { href: "/diete", labelKey: "nav.diete" },
   { href: "/sport", labelKey: "nav.sport" },
   { href: "/programme", labelKey: "nav.programme" },
+  { href: "/planificateur", labelKey: "nav.planificateur" },
   { href: "/progression", labelKey: "nav.progression" },
   { href: "/journal", labelKey: "nav.journal" },
 ];
