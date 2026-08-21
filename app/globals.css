@@ -73,6 +73,26 @@ html {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Entree en cascade des grilles de cartes (recettes/exercices/hub) — pas
+   besoin de JS/IntersectionObserver, juste un delai par position. */
+.card-grid > *,
+.hub-grid > *,
+.programme-days > * {
+  animation: fadeUp 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.card-grid > *:nth-child(1), .hub-grid > *:nth-child(1), .programme-days > *:nth-child(1) { animation-delay: 0.02s; }
+.card-grid > *:nth-child(2), .hub-grid > *:nth-child(2), .programme-days > *:nth-child(2) { animation-delay: 0.07s; }
+.card-grid > *:nth-child(3), .hub-grid > *:nth-child(3), .programme-days > *:nth-child(3) { animation-delay: 0.12s; }
+.card-grid > *:nth-child(4), .programme-days > *:nth-child(4) { animation-delay: 0.17s; }
+.card-grid > *:nth-child(5) { animation-delay: 0.22s; }
+.card-grid > *:nth-child(6) { animation-delay: 0.27s; }
+.card-grid > *:nth-child(n+7) { animation-delay: 0.3s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .card-grid > *, .hub-grid > *, .programme-days > * { animation: none; }
+}
+
 /* Bande "ruban de chantier" — petite touche brute/gym entre deux
    sections. À utiliser avec parcimonie (voir <StripeDivider/>). */
 .stripe-divider {
@@ -475,6 +495,16 @@ header.site-header {
 .page-header p {
   color: var(--text-muted);
   margin: 0;
+}
+
+.page-header::after {
+  content: "";
+  display: block;
+  margin-top: 22px;
+  height: 4px;
+  width: 64px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
 }
 
 .breadcrumb {
