@@ -1,0 +1,491 @@
+/* ============================================================
+   TRADUCTION FR / ES
+   ------------------------------------------------------------
+   Bouton FR/ES en haut à droite (injecté par js/layout.js). La langue
+   choisie est retenue (localStorage) et s'applique à tout le site.
+
+   - Textes fixes de l'interface (menus, boutons, titres...) : dictionnaire
+     UI_STRINGS ci-dessous, utilisé via t("clé").
+   - Contenu (recettes, exercices, ingrédients...) : chaque objet dans
+     js/data.js peut avoir un sous-objet "es" avec les champs traduits,
+     lu via tData(item, "champ"). Si la traduction manque, le français
+     s'affiche automatiquement (aucun contenu ne disparaît jamais).
+   ============================================================ */
+
+const UI_STRINGS = {
+  fr: {
+    "nav.accueil": "Accueil",
+    "nav.diete": "Diète",
+    "nav.sport": "Sport",
+    "nav.progression": "Progression",
+    "nav.journal": "Journal",
+    "footer.tagline": "Mon carnet perso — entraînement & nutrition",
+
+    "home.title": "Mon carnet perso",
+    "home.subtitle": "Toutes mes recettes, mes ingrédients décortiqués, mes exercices détaillés et mes séances — au même endroit, avec le suivi de mes poids et de mes repas.",
+    "home.diete.title": "Diète",
+    "home.diete.desc": "Mes recettes, les ingrédients, les macros et les photos de mes plats.",
+    "home.sport.title": "Sport",
+    "home.sport.desc": "Mes exercices détaillés et mes séances de callisthénie / musculation.",
+    "home.journal.title": "Journal",
+    "home.journal.desc": "L'historique de mes poids/reps utilisés et des repas que j'ai mangés.",
+
+    "diete.kicker": "Fraîcheur · Énergie · Équilibre",
+    "diete.title": "Diète",
+    "diete.subtitle": "Mes recettes du quotidien, avec les macros calculées automatiquement à partir des ingrédients.",
+    "diete.ingredientsTitle": "Index des ingrédients",
+    "diete.ingredientsSubtitle": "Clique sur un ingrédient pour voir ses valeurs nutritionnelles en détail et savoir s'il est plutôt bon ou mauvais pour tes objectifs.",
+
+    "th.ingredient": "Ingrédient",
+    "th.category": "Catégorie",
+    "th.kcalPer100": "Kcal/100g",
+    "th.proteinPer100": "Protéines/100g",
+    "th.quality": "Qualité",
+    "th.quantity": "Quantité",
+    "th.date": "Date",
+    "th.note": "Note",
+    "th.exercise": "Exercice",
+    "th.recipe": "Recette",
+    "th.weight": "Poids",
+    "th.sets": "Séries",
+    "th.reps": "Reps",
+
+    "action.backToDiet": "Retour à la diète",
+    "action.backToExercices": "Retour aux exercices",
+    "action.backToSeances": "Retour aux séances",
+    "recipe.notFound": "Recette introuvable.",
+    "ingredient.notFound": "Ingrédient introuvable.",
+    "exercice.notFound": "Exercice introuvable.",
+    "seance.notFound": "Séance introuvable.",
+
+    "macro.kcal": "Kcal",
+    "macro.protein": "Protéines",
+    "macro.carbs": "Glucides",
+    "macro.fat": "Lipides",
+    "macro.kcalPer100": "Kcal /100g",
+    "macro.proteinPer100": "Protéines /100g",
+    "macro.carbsPer100": "Glucides /100g",
+    "macro.fatPer100": "Lipides /100g",
+
+    "section.ingredientsFor": "Ingrédients (pour {n} portion)",
+    "section.ingredientsForPlural": "Ingrédients (pour {n} portions)",
+    "section.preparation": "Préparation",
+    "section.mealLog": "Suivi — j'ai mangé ce plat",
+    "section.goodBad": "Le bon & le mauvais",
+    "section.usedIn": "Utilisé dans",
+    "section.video": "Vidéo de démonstration",
+    "section.execution": "Exécution",
+    "section.tips": "Conseil :",
+    "section.progressions": "Progressions",
+    "section.trackingWeightReps": "Suivi — poids & répétitions",
+    "section.exercises": "Exercices",
+    "section.backup": "Sauvegarde",
+
+    "label.before": "Avant",
+    "label.after": "Après",
+    "label.bodyweight": "poids du corps",
+    "label.rest": "repos",
+    "label.face": "Face",
+    "label.back": "Dos",
+
+    "field.date": "Date",
+    "field.noteOptional": "Note (optionnel)",
+    "field.note": "Note",
+    "field.weight": "Poids (kg)",
+    "field.weightOptional": "Poids (kg, optionnel)",
+    "field.sets": "Séries",
+    "field.reps": "Répétitions",
+    "field.photo": "Photo",
+
+    "placeholder.mealNote": "ex: portion réduite, avec riz blanc...",
+    "placeholder.exoNote": "ressenti, fatigue, technique...",
+    "placeholder.weightBodyweight": "0 = poids du corps",
+    "placeholder.sets": "ex: 4",
+    "placeholder.reps": "ex: 8,8,7,6",
+    "placeholder.progressWeight": "ex: 78.5",
+    "placeholder.progressNote": "ressenti, contexte...",
+
+    "btn.add": "Ajouter",
+    "btn.delete": "Supprimer",
+    "btn.export": "Exporter mes données (.json)",
+    "btn.import": "Importer un fichier",
+    "btn.addToProgress": "Ajouter à ma progression",
+
+    "empty.mealLogsForRecipe": "Aucun repas enregistré pour cette recette pour l'instant.",
+    "empty.sessionsForExercise": "Aucune séance enregistrée pour cet exercice pour l'instant.",
+    "empty.noTrainings": "Aucun entraînement enregistré pour l'instant. Va sur une fiche exercice pour ajouter tes poids/reps.",
+    "empty.noMeals": "Aucun repas enregistré pour l'instant. Va sur une fiche recette pour marquer que tu l'as mangée.",
+    "empty.noProgressPhotos": "Aucune photo de progression pour l'instant. Ajoute la première ci-dessus.",
+    "empty.noExerciseForMuscle": "Aucun exercice enregistré pour ce muscle pour l'instant — ajoute-en un dans js/data.js (champ muscles) et il apparaîtra ici.",
+
+    "confirm.deletePhoto": "Supprimer cette photo de progression ?",
+    "status.processingPhoto": "Traitement de la photo...",
+    "status.photoAdded": "Photo ajoutée !",
+    "alert.importSuccess": "Import réussi !",
+    "alert.importError": "Fichier invalide.",
+
+    "sport.kicker": "Discipline · Douleur · Force · Volonté",
+    "sport.title": "Sport",
+    "sport.subtitle": "Mes exercices détaillés (callisthénie & musculation) et mes séances d'entraînement.",
+    "hub.exercices.title": "Exercices",
+    "hub.exercices.desc": "Chaque mouvement expliqué en détail, avec conseils et progressions.",
+    "hub.seances.title": "Séances",
+    "hub.seances.desc": "Mes séances types, avec séries, répétitions et temps de repos.",
+    "hub.musclemap.title": "Carte musculaire",
+    "hub.musclemap.desc": "Clique sur un muscle du corps pour savoir lequel c'est et quels exercices le travaillent.",
+
+    "breadcrumb.exercices": "Exercices",
+    "breadcrumb.seances": "Séances",
+    "breadcrumb.musclemap": "Carte musculaire",
+    "exercices.title": "Exercices",
+    "exercices.subtitle": "Clique sur un exercice pour voir l'exécution détaillée, les conseils et enregistrer tes poids/reps.",
+    "seances.title": "Séances",
+    "seances.subtitle": "Mes séances types. Chaque exercice renvoie vers sa fiche détaillée.",
+    "filter.byMuscle": "Filtré par muscle :",
+
+    "progression.kicker": "Discipline · Constance · Preuves",
+    "progression.title": "Progression",
+    "progression.subtitle": "Tes photos de progression physique, dans l'ordre, avec le poids si tu veux le noter. Tout est stocké uniquement dans ce navigateur — pense à exporter depuis le Journal de temps en temps.",
+
+    "journal.title": "Journal",
+    "journal.subtitle": "Tout ton historique : les poids/reps utilisés sur tes exercices et les repas que tu as mangés. Ces données sont stockées uniquement dans ce navigateur.",
+    "tab.trainings": "Entraînements",
+    "tab.meals": "Repas",
+    "backup.desc": "Ces données vivent uniquement dans ce navigateur. Exporte-les régulièrement pour ne rien perdre, ou pour les transférer sur un autre appareil.",
+
+    "map.title": "Carte musculaire",
+    "map.subtitle": "Clique sur un point du corps pour découvrir le muscle concerné, puis fonce directement sur les exercices qui le travaillent.",
+    "map.note": "<strong>À propos des photos :</strong> ce sont tes propres photos (face et dos). Clique sur un point pour découvrir le muscle concerné et les exercices qui le travaillent.",
+    "map.emptyPrompt": "Choisis un point sur la photo (face ou dos) pour voir le nom du muscle, son rôle, et les exercices qui le ciblent.",
+    "map.exercisesInNotebook": "Exercices déjà dans ton carnet",
+    "map.viewAllForMuscle": "Voir tous les exercices pour ce muscle",
+    "map.partOf": "Fait partie du groupe : {group}",
+
+    "nav.programme": "Programme",
+    "breadcrumb.programme": "Programme",
+    "hub.programme.title": "Générateur de programme",
+    "hub.programme.desc": "Choisis ton objectif et tes jours de dispo, reçois un split complet avec exercices et une guide diète.",
+    "programme.title": "Générateur de programme",
+    "programme.subtitle": "Dis-moi ton objectif et le nombre de jours où tu peux t'entraîner par semaine : je te propose un split complet (avec de vrais exercices de ton carnet) et une orientation diète adaptée.",
+    "programme.field.goal": "Ton objectif",
+    "programme.goal.volume": "Prendre du muscle (volume)",
+    "programme.goal.secher": "Perdre du gras (sèche)",
+    "programme.goal.maintien": "Me maintenir en forme",
+    "programme.field.days": "Jours d'entraînement / semaine",
+    "programme.generate": "Générer mon programme",
+    "programme.dayN": "Jour {n}",
+    "programme.day.push": "Push (pectoraux, épaules, triceps)",
+    "programme.day.pull": "Pull (dos, biceps, trapèzes)",
+    "programme.day.legs": "Legs (jambes complètes)",
+    "programme.day.upper": "Haut du corps",
+    "programme.day.lower": "Bas du corps",
+    "programme.day.fullA": "Corps entier A",
+    "programme.day.fullB": "Corps entier B",
+    "programme.result.splitTitle": "Ton split sur {n} jours / semaine",
+    "programme.result.dietTitle": "Orientation diète",
+    "programme.diet.volume": "Objectif volume : vise un léger surplus calorique (+300 à +500 kcal au-dessus de ton maintien), avec environ 1.8 à 2.2 g de protéines par kg de poids de corps. Privilégie les glucides autour de l'entraînement (avant/après séance) pour bien récupérer.",
+    "programme.diet.secher": "Objectif sèche : vise un déficit modéré (-300 à -500 kcal sous ton maintien), avec une protéine plus élevée (2 à 2.4 g/kg) pour préserver le muscle. Privilégie les légumes riches en fibres pour la satiété, et garde un peu de glucides autour des séances.",
+    "programme.diet.maintien": "Objectif maintien : reste autour de tes calories de maintien, avec 1.6 à 2 g de protéines par kg de poids de corps. Répartis glucides et lipides selon tes préférences et ton niveau d'activité.",
+    "programme.diet.disclaimer": "Ce sont des repères généraux de nutrition sportive, pas un avis médical personnalisé — adapte selon ton ressenti et consulte un professionnel de santé si besoin.",
+    "programme.recipes.breakfast": "Petit-déjeuner",
+    "programme.recipes.meals": "Déjeuner / Dîner",
+    "programme.recipes.snacks": "Collations",
+    "programme.shopping.title": "Liste de courses",
+    "programme.shopping.subtitle": "Choisis le nombre de jours : je répartis tes recettes (petit-déj, déjeuner, dîner, collation) sur la semaine, puis j'additionne tout en une seule liste d'ingrédients à acheter.",
+    "programme.shopping.field.days": "Nombre de jours",
+    "programme.shopping.generate": "Générer ma liste de courses",
+    "programme.shopping.weekTitle": "Aperçu des repas",
+    "programme.shopping.dayN": "Jour {n}",
+    "programme.shopping.listTitle": "Total à acheter",
+    "programme.shopping.emptyRecipes": "Pas encore assez de recettes dans cette catégorie pour remplir tous les jours — ajoute-en dans js/data.js si tu veux plus de variété.",
+    "label.breakfast": "Petit-déj.",
+    "label.lunch": "Déjeuner",
+    "label.dinner": "Dîner",
+    "label.snack": "Collation",
+
+    "difficulty.beginner": "Débutant",
+    "difficulty.intermediate": "Intermédiaire",
+    "difficulty.advanced": "Avancé",
+    "quality.good": "Bon",
+    "quality.bad": "Mauvais",
+    "quality.neutral": "Neutre",
+    "placeholder.addPhoto": "Ajoute une photo",
+    "placeholder.addVideo": "Ajoute une vidéo",
+    "label.exercise": "exercice",
+    "label.exercises": "exercices",
+    "status.errorProcessing": "Erreur lors du traitement de la photo : ",
+    "label.progressAlt": "Progression du {date}"
+  },
+  es: {
+    "nav.accueil": "Inicio",
+    "nav.diete": "Dieta",
+    "nav.sport": "Deporte",
+    "nav.progression": "Progreso",
+    "nav.journal": "Diario",
+    "footer.tagline": "Mi cuaderno personal — entrenamiento y nutrición",
+
+    "home.title": "Mi cuaderno personal",
+    "home.subtitle": "Todas mis recetas, mis ingredientes al detalle, mis ejercicios explicados y mis sesiones — todo en un mismo sitio, con el seguimiento de mis pesos y mis comidas.",
+    "home.diete.title": "Dieta",
+    "home.diete.desc": "Mis recetas, los ingredientes, los macros y las fotos de mis platos.",
+    "home.sport.title": "Deporte",
+    "home.sport.desc": "Mis ejercicios detallados y mis sesiones de calistenia / musculación.",
+    "home.journal.title": "Diario",
+    "home.journal.desc": "El historial de los pesos/repeticiones usados y de las comidas que he comido.",
+
+    "diete.kicker": "Frescura · Energía · Equilibrio",
+    "diete.title": "Dieta",
+    "diete.subtitle": "Mis recetas del día a día, con los macros calculados automáticamente a partir de los ingredientes.",
+    "diete.ingredientsTitle": "Índice de ingredientes",
+    "diete.ingredientsSubtitle": "Haz clic en un ingrediente para ver sus valores nutricionales en detalle y saber si es más bien bueno o malo para tus objetivos.",
+
+    "th.ingredient": "Ingrediente",
+    "th.category": "Categoría",
+    "th.kcalPer100": "Kcal/100g",
+    "th.proteinPer100": "Proteína/100g",
+    "th.quality": "Calidad",
+    "th.quantity": "Cantidad",
+    "th.date": "Fecha",
+    "th.note": "Nota",
+    "th.exercise": "Ejercicio",
+    "th.recipe": "Receta",
+    "th.weight": "Peso",
+    "th.sets": "Series",
+    "th.reps": "Reps",
+
+    "action.backToDiet": "Volver a la dieta",
+    "action.backToExercices": "Volver a los ejercicios",
+    "action.backToSeances": "Volver a las sesiones",
+    "recipe.notFound": "Receta no encontrada.",
+    "ingredient.notFound": "Ingrediente no encontrado.",
+    "exercice.notFound": "Ejercicio no encontrado.",
+    "seance.notFound": "Sesión no encontrada.",
+
+    "macro.kcal": "Kcal",
+    "macro.protein": "Proteína",
+    "macro.carbs": "Carbohidratos",
+    "macro.fat": "Grasas",
+    "macro.kcalPer100": "Kcal /100g",
+    "macro.proteinPer100": "Proteína /100g",
+    "macro.carbsPer100": "Carbohidratos /100g",
+    "macro.fatPer100": "Grasas /100g",
+
+    "section.ingredientsFor": "Ingredientes (para {n} ración)",
+    "section.ingredientsForPlural": "Ingredientes (para {n} raciones)",
+    "section.preparation": "Preparación",
+    "section.mealLog": "Seguimiento — comí este plato",
+    "section.goodBad": "Lo bueno y lo malo",
+    "section.usedIn": "Usado en",
+    "section.video": "Vídeo de demostración",
+    "section.execution": "Ejecución",
+    "section.tips": "Consejo:",
+    "section.progressions": "Progresiones",
+    "section.trackingWeightReps": "Seguimiento — peso y repeticiones",
+    "section.exercises": "Ejercicios",
+    "section.backup": "Copia de seguridad",
+
+    "label.before": "Antes",
+    "label.after": "Después",
+    "label.bodyweight": "peso corporal",
+    "label.rest": "descanso",
+    "label.face": "Cara",
+    "label.back": "Espalda",
+
+    "field.date": "Fecha",
+    "field.noteOptional": "Nota (opcional)",
+    "field.note": "Nota",
+    "field.weight": "Peso (kg)",
+    "field.weightOptional": "Peso (kg, opcional)",
+    "field.sets": "Series",
+    "field.reps": "Repeticiones",
+    "field.photo": "Foto",
+
+    "placeholder.mealNote": "ej: ración reducida, con arroz blanco...",
+    "placeholder.exoNote": "sensación, fatiga, técnica...",
+    "placeholder.weightBodyweight": "0 = peso corporal",
+    "placeholder.sets": "ej: 4",
+    "placeholder.reps": "ej: 8,8,7,6",
+    "placeholder.progressWeight": "ej: 78.5",
+    "placeholder.progressNote": "sensación, contexto...",
+
+    "btn.add": "Añadir",
+    "btn.delete": "Eliminar",
+    "btn.export": "Exportar mis datos (.json)",
+    "btn.import": "Importar un archivo",
+    "btn.addToProgress": "Añadir a mi progreso",
+
+    "empty.mealLogsForRecipe": "Todavía no hay ninguna comida registrada para esta receta.",
+    "empty.sessionsForExercise": "Todavía no hay ninguna sesión registrada para este ejercicio.",
+    "empty.noTrainings": "Todavía no hay ningún entrenamiento registrado. Ve a la ficha de un ejercicio para añadir tus pesos/reps.",
+    "empty.noMeals": "Todavía no hay ninguna comida registrada. Ve a la ficha de una receta para marcar que la comiste.",
+    "empty.noProgressPhotos": "Todavía no hay ninguna foto de progreso. Añade la primera arriba.",
+    "empty.noExerciseForMuscle": "Todavía no hay ningún ejercicio registrado para este músculo — añade uno en js/data.js (campo muscles) y aparecerá aquí.",
+
+    "confirm.deletePhoto": "¿Eliminar esta foto de progreso?",
+    "status.processingPhoto": "Procesando la foto...",
+    "status.photoAdded": "¡Foto añadida!",
+    "alert.importSuccess": "¡Importación correcta!",
+    "alert.importError": "Archivo no válido.",
+
+    "sport.kicker": "Disciplina · Dolor · Fuerza · Voluntad",
+    "sport.title": "Deporte",
+    "sport.subtitle": "Mis ejercicios detallados (calistenia y musculación) y mis sesiones de entrenamiento.",
+    "hub.exercices.title": "Ejercicios",
+    "hub.exercices.desc": "Cada movimiento explicado en detalle, con consejos y progresiones.",
+    "hub.seances.title": "Sesiones",
+    "hub.seances.desc": "Mis sesiones tipo, con series, repeticiones y tiempo de descanso.",
+    "hub.musclemap.title": "Mapa muscular",
+    "hub.musclemap.desc": "Haz clic en un músculo del cuerpo para saber cuál es y qué ejercicios lo trabajan.",
+
+    "breadcrumb.exercices": "Ejercicios",
+    "breadcrumb.seances": "Sesiones",
+    "breadcrumb.musclemap": "Mapa muscular",
+    "exercices.title": "Ejercicios",
+    "exercices.subtitle": "Haz clic en un ejercicio para ver la ejecución detallada, los consejos y registrar tus pesos/reps.",
+    "seances.title": "Sesiones",
+    "seances.subtitle": "Mis sesiones tipo. Cada ejercicio enlaza con su ficha detallada.",
+    "filter.byMuscle": "Filtrado por músculo:",
+
+    "progression.kicker": "Disciplina · Constancia · Pruebas",
+    "progression.title": "Progreso",
+    "progression.subtitle": "Tus fotos de progreso físico, en orden, con el peso si quieres anotarlo. Todo se guarda solo en este navegador — recuerda exportarlo desde el Diario de vez en cuando.",
+
+    "journal.title": "Diario",
+    "journal.subtitle": "Todo tu historial: los pesos/reps usados en tus ejercicios y las comidas que has comido. Estos datos se guardan solo en este navegador.",
+    "tab.trainings": "Entrenamientos",
+    "tab.meals": "Comidas",
+    "backup.desc": "Estos datos viven solo en este navegador. Expórtalos con regularidad para no perder nada, o para transferirlos a otro dispositivo.",
+
+    "map.title": "Mapa muscular",
+    "map.subtitle": "Haz clic en un punto del cuerpo para descubrir el músculo en cuestión, y luego ve directo a los ejercicios que lo trabajan.",
+    "map.note": "<strong>Sobre las fotos:</strong> son tus propias fotos (de frente y de espalda). Haz clic en un punto para descubrir el músculo en cuestión y los ejercicios que lo trabajan.",
+    "map.emptyPrompt": "Elige un punto en la foto (de frente o de espalda) para ver el nombre del músculo, su función, y los ejercicios que lo trabajan.",
+    "map.exercisesInNotebook": "Ejercicios que ya están en tu cuaderno",
+    "map.viewAllForMuscle": "Ver todos los ejercicios para este músculo",
+    "map.partOf": "Forma parte del grupo: {group}",
+
+    "nav.programme": "Programa",
+    "breadcrumb.programme": "Programa",
+    "hub.programme.title": "Generador de programa",
+    "hub.programme.desc": "Elige tu objetivo y tus días disponibles, y recibe un split completo con ejercicios y una guía de dieta.",
+    "programme.title": "Generador de programa",
+    "programme.subtitle": "Dime tu objetivo y cuántos días a la semana puedes entrenar: te propongo un split completo (con ejercicios reales de tu cuaderno) y una orientación de dieta adaptada.",
+    "programme.field.goal": "Tu objetivo",
+    "programme.goal.volume": "Ganar músculo (volumen)",
+    "programme.goal.secher": "Perder grasa (definición)",
+    "programme.goal.maintien": "Mantenerme en forma",
+    "programme.field.days": "Días de entrenamiento / semana",
+    "programme.generate": "Generar mi programa",
+    "programme.dayN": "Día {n}",
+    "programme.day.push": "Push (pecho, hombros, tríceps)",
+    "programme.day.pull": "Pull (espalda, bíceps, trapecios)",
+    "programme.day.legs": "Legs (piernas completas)",
+    "programme.day.upper": "Tren superior",
+    "programme.day.lower": "Tren inferior",
+    "programme.day.fullA": "Cuerpo completo A",
+    "programme.day.fullB": "Cuerpo completo B",
+    "programme.result.splitTitle": "Tu split de {n} días / semana",
+    "programme.result.dietTitle": "Orientación de dieta",
+    "programme.diet.volume": "Objetivo volumen: apunta a un ligero superávit calórico (+300 a +500 kcal sobre tu mantenimiento), con unos 1.8 a 2.2 g de proteína por kg de peso corporal. Prioriza los carbohidratos alrededor del entrenamiento (antes/después de la sesión) para recuperar bien.",
+    "programme.diet.secher": "Objetivo definición: apunta a un déficit moderado (-300 a -500 kcal bajo tu mantenimiento), con proteína más alta (2 a 2.4 g/kg) para preservar el músculo. Prioriza verduras ricas en fibra para la saciedad, y mantén algo de carbohidrato alrededor de las sesiones.",
+    "programme.diet.maintien": "Objetivo mantenimiento: quédate cerca de tus calorías de mantenimiento, con 1.6 a 2 g de proteína por kg de peso corporal. Reparte carbohidratos y grasas según tus preferencias y tu nivel de actividad.",
+    "programme.diet.disclaimer": "Estas son referencias generales de nutrición deportiva, no un consejo médico personalizado — ajústalas según cómo te sientas y consulta a un profesional de la salud si lo necesitas.",
+    "programme.recipes.breakfast": "Desayuno",
+    "programme.recipes.meals": "Almuerzo / Cena",
+    "programme.recipes.snacks": "Meriendas",
+    "programme.shopping.title": "Lista de la compra",
+    "programme.shopping.subtitle": "Elige el número de días: reparto tus recetas (desayuno, almuerzo, cena, merienda) durante la semana, y luego sumo todo en una sola lista de ingredientes para comprar.",
+    "programme.shopping.field.days": "Número de días",
+    "programme.shopping.generate": "Generar mi lista de la compra",
+    "programme.shopping.weekTitle": "Vista previa de las comidas",
+    "programme.shopping.dayN": "Día {n}",
+    "programme.shopping.listTitle": "Total para comprar",
+    "programme.shopping.emptyRecipes": "Todavía no hay suficientes recetas en esta categoría para llenar todos los días — añade más en js/data.js si quieres más variedad.",
+    "label.breakfast": "Desayuno",
+    "label.lunch": "Almuerzo",
+    "label.dinner": "Cena",
+    "label.snack": "Merienda",
+
+    "difficulty.beginner": "Principiante",
+    "difficulty.intermediate": "Intermedio",
+    "difficulty.advanced": "Avanzado",
+    "quality.good": "Bueno",
+    "quality.bad": "Malo",
+    "quality.neutral": "Neutro",
+    "placeholder.addPhoto": "Añade una foto",
+    "placeholder.addVideo": "Añade un vídeo",
+    "label.exercise": "ejercicio",
+    "label.exercises": "ejercicios",
+    "status.errorProcessing": "Error al procesar la foto: ",
+    "label.progressAlt": "Progreso del {date}"
+  }
+};
+
+const LANG_KEY = "mysportsite_lang";
+
+function getLang() {
+  return localStorage.getItem(LANG_KEY) === "es" ? "es" : "fr";
+}
+
+function setLang(lang) {
+  localStorage.setItem(LANG_KEY, lang === "es" ? "es" : "fr");
+  location.reload();
+}
+
+/* Traduction d'un texte fixe de l'interface. {n} est remplacé si fourni. */
+function t(key, vars) {
+  const lang = getLang();
+  let str = (UI_STRINGS[lang] && UI_STRINGS[lang][key]) || UI_STRINGS.fr[key] || key;
+  if (vars) {
+    Object.keys(vars).forEach(k => {
+      str = str.replace("{" + k + "}", vars[k]);
+    });
+  }
+  return str;
+}
+
+/* Traduction d'un champ de contenu (recette, exercice, ingrédient...).
+   Retourne item.es[field] si on est en espagnol et que la traduction
+   existe, sinon retourne item[field] (français, toujours présent). */
+function tData(item, field) {
+  if (!item) return "";
+  const lang = getLang();
+  if (lang === "es" && item.es && item.es[field] !== undefined) {
+    return item.es[field];
+  }
+  return item[field];
+}
+
+/* Normalise les valeurs "enum" françaises de data.js (difficulté, qualité)
+   vers la langue active, sans avoir besoin de les dupliquer par item. */
+function difficultyLabel(d) {
+  const map = { "Débutant": "difficulty.beginner", "Intermédiaire": "difficulty.intermediate", "Avancé": "difficulty.advanced" };
+  return map[d] ? t(map[d]) : d;
+}
+
+function qualityLabel(q) {
+  if (q === "bon") return t("quality.good");
+  if (q === "mauvais") return t("quality.bad");
+  return t("quality.neutral");
+}
+
+/* Applique les traductions aux éléments statiques marqués data-i18n
+   (textContent) et data-i18n-placeholder (attribut placeholder). À
+   appeler une fois le DOM de la page prêt. */
+function applyStaticI18n() {
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    el.textContent = t(el.getAttribute("data-i18n"));
+  });
+  document.querySelectorAll("[data-i18n-html]").forEach(el => {
+    el.innerHTML = t(el.getAttribute("data-i18n-html"));
+  });
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+    el.setAttribute("placeholder", t(el.getAttribute("data-i18n-placeholder")));
+  });
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", applyStaticI18n);
+} else {
+  applyStaticI18n();
+}
