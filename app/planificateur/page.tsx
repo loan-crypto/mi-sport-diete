@@ -10,7 +10,10 @@ import { useAuth } from "@/lib/auth/context";
 import { useI18n } from "@/lib/i18n/context";
 import RequireAuth from "@/components/auth/RequireAuth";
 import PageTheme from "@/components/layout/PageTheme";
-import { RECIPES, SESSIONS } from "@/content";
+import { heroPhotoStyle } from "@/lib/heroStyle";
+import { RECIPES, SESSIONS, EXERCISES } from "@/content";
+
+const HERO_PHOTO = EXERCISES.filter((e) => e.photo).map((e) => e.photo)[10];
 import { findById } from "@/lib/format";
 import { getWeekStart, addDays, toISODate, formatDayLabel } from "@/lib/dateUtils";
 import {
@@ -101,10 +104,10 @@ function PlanificateurContent() {
   return (
     <>
       <PageTheme theme="sport" />
-      <div className="page-header">
+      <section className="hero hero-compact" style={heroPhotoStyle(HERO_PHOTO)}>
         <h1>{t("planner.title")}</h1>
         <p>{t("planner.subtitle")}</p>
-      </div>
+      </section>
 
       <div className="programme-form" style={{ alignItems: "center" }}>
         <button className="secondary" onClick={() => setWeekStart(addDays(weekStart, -7))}>

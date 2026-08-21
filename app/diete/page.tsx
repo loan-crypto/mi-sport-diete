@@ -6,6 +6,10 @@ import { useI18n, useEnumLabels } from "@/lib/i18n/context";
 import { computeRecipeTotals } from "@/lib/format";
 import PhotoOrPlaceholder from "@/components/media/PhotoOrPlaceholder";
 import PageTheme from "@/components/layout/PageTheme";
+import { heroPhotoStyle } from "@/lib/heroStyle";
+
+const HERO_PHOTO = RECIPES.find((r) => r.photo)?.photo;
+const bonCount = INGREDIENTS.filter((i) => i.quality === "bon").length;
 
 export default function DietePage() {
   const { t, tData } = useI18n();
@@ -14,10 +18,25 @@ export default function DietePage() {
   return (
     <>
       <PageTheme theme="diet" />
-      <div className="page-header">
+      <section className="hero hero-compact" style={heroPhotoStyle(HERO_PHOTO)}>
         <span className="kicker">{t("diete.kicker")}</span>
         <h1>{t("diete.title")}</h1>
         <p>{t("diete.subtitle")}</p>
+      </section>
+
+      <div className="stats-row">
+        <div className="stat">
+          <div className="value">{RECIPES.length}</div>
+          <div className="label">{t("nav.diete")}</div>
+        </div>
+        <div className="stat">
+          <div className="value">{INGREDIENTS.length}</div>
+          <div className="label">{t("th.ingredient")}</div>
+        </div>
+        <div className="stat">
+          <div className="value">{bonCount}</div>
+          <div className="label">{t("quality.good")}</div>
+        </div>
       </div>
 
       <div className="card-grid">

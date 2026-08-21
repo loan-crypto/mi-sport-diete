@@ -12,6 +12,10 @@ import RequireAuth from "@/components/auth/RequireAuth";
 import { getAllExerciseLogs, getAllMealLogs, todayISO, type ExerciseLog, type MealLog } from "@/lib/supabase/logs";
 import { importLegacyDump } from "@/lib/supabase/importLegacyDump";
 import CalorieCounter from "@/components/tracking/CalorieCounter";
+import { heroPhotoStyle } from "@/lib/heroStyle";
+import { EXERCISES } from "@/content";
+
+const HERO_PHOTO = EXERCISES.filter((e) => e.photo).map((e) => e.photo)[7];
 
 type Tab = "exo" | "meal";
 
@@ -73,10 +77,10 @@ function JournalContent() {
 
   return (
     <>
-      <div className="page-header">
+      <section className="hero hero-compact" style={heroPhotoStyle(HERO_PHOTO)}>
         <h1>{t("journal.title")}</h1>
         <p>{t("journal.subtitle")}</p>
-      </div>
+      </section>
 
       <CalorieCounter />
 

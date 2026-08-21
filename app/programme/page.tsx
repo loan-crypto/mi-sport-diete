@@ -13,6 +13,8 @@ import { INGREDIENTS } from "@/content";
 import PhotoOrPlaceholder from "@/components/media/PhotoOrPlaceholder";
 import ExoThumb from "@/components/programme/ExoThumb";
 import PageTheme from "@/components/layout/PageTheme";
+import { heroPhotoStyle } from "@/lib/heroStyle";
+import { EXERCISES } from "@/content";
 import {
   type Goal,
   DAY_MUSCLES,
@@ -29,6 +31,8 @@ import {
   formatQty,
 } from "@/lib/programme";
 import type { UIStringKey } from "@/lib/i18n/dictionary";
+
+const HERO_PHOTO = EXERCISES.filter((e) => e.photo).map((e) => e.photo)[3];
 
 export default function ProgrammePage() {
   const { t, tData } = useI18n();
@@ -78,11 +82,11 @@ export default function ProgrammePage() {
       <div className="breadcrumb">
         <Link href="/sport">{t("nav.sport")}</Link> / <span>{t("breadcrumb.programme")}</span>
       </div>
-      <div className="page-header">
+      <section className="hero hero-compact" style={heroPhotoStyle(HERO_PHOTO)}>
         <span className="kicker">{t("sport.kicker")}</span>
         <h1>{t("programme.title")}</h1>
         <p>{t("programme.subtitle")}</p>
-      </div>
+      </section>
 
       <form
         className="programme-form"

@@ -11,6 +11,9 @@ import Link from "next/link";
 import { EXERCISES, MUSCLE_DOTS, MUSCLE_INFO } from "@/content";
 import { useI18n, useEnumLabels } from "@/lib/i18n/context";
 import PageTheme from "@/components/layout/PageTheme";
+import { heroPhotoStyle } from "@/lib/heroStyle";
+
+const HERO_PHOTO = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/body/front.jpg`;
 
 type View = "front" | "back";
 
@@ -40,11 +43,11 @@ export default function CarteMusculairePage() {
       <div className="breadcrumb">
         <Link href="/sport">{t("nav.sport")}</Link> / <span>{t("breadcrumb.musclemap")}</span>
       </div>
-      <div className="page-header">
+      <section className="hero hero-compact" style={heroPhotoStyle(HERO_PHOTO)}>
         <span className="kicker">{t("sport.kicker")}</span>
         <h1>{t("map.title")}</h1>
         <p>{t("map.subtitle")}</p>
-      </div>
+      </section>
 
       <div className="map-note" dangerouslySetInnerHTML={{ __html: t("map.note") }} />
 

@@ -9,6 +9,7 @@ import { useI18n } from "@/lib/i18n/context";
 import { useAuth } from "@/lib/auth/context";
 import RequireAuth from "@/components/auth/RequireAuth";
 import PageTheme from "@/components/layout/PageTheme";
+import { heroPhotoStyle } from "@/lib/heroStyle";
 import {
   addProgressPhoto,
   deleteProgressPhoto,
@@ -17,6 +18,8 @@ import {
   type ProgressPhoto,
 } from "@/lib/supabase/progress";
 import { todayISO } from "@/lib/supabase/logs";
+
+const HERO_PHOTO = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/body/back.jpg`;
 
 function ProgressionContent() {
   const { t } = useI18n();
@@ -68,11 +71,11 @@ function ProgressionContent() {
   return (
     <>
       <PageTheme theme="sport" />
-      <div className="page-header">
+      <section className="hero hero-compact" style={heroPhotoStyle(HERO_PHOTO)}>
         <span className="kicker">{t("progression.kicker")}</span>
         <h1>{t("progression.title")}</h1>
         <p>{t("progression.subtitle")}</p>
-      </div>
+      </section>
 
       <div className="card-box">
         <form onSubmit={handleSubmit}>

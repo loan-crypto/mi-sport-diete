@@ -7,6 +7,9 @@ import { EXERCISES, MUSCLE_INFO } from "@/content";
 import { useI18n, useEnumLabels } from "@/lib/i18n/context";
 import PageTheme from "@/components/layout/PageTheme";
 import PhotoOrPlaceholder from "@/components/media/PhotoOrPlaceholder";
+import { heroPhotoStyle } from "@/lib/heroStyle";
+
+const HERO_PHOTO = EXERCISES.filter((e) => e.photo).map((e) => e.photo)[1];
 
 function ExercicesList() {
   const { t, tData } = useI18n();
@@ -68,10 +71,10 @@ export default function ExercicesPage() {
       <div className="breadcrumb">
         <Link href="/sport">{t("nav.sport")}</Link> / <span>{t("breadcrumb.exercices")}</span>
       </div>
-      <div className="page-header">
+      <section className="hero hero-compact" style={heroPhotoStyle(HERO_PHOTO)}>
         <h1>{t("exercices.title")}</h1>
         <p>{t("exercices.subtitle")}</p>
-      </div>
+      </section>
 
       <Suspense fallback={null}>
         <ExercicesList />
