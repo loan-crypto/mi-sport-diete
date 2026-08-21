@@ -660,5 +660,454 @@ export const RECIPES: Recipe[] = [
       ],
       notes: "Bowl vegetariano completo en proteína vegetal y grasas saludables, se come frío o templado."
     }
+  },
+  {
+    id: "bol-fromage-blanc-myrtilles-amandes",
+    name: "Bol de fromage blanc, myrtilles & amandes",
+    category: "Petit-déjeuner",
+    photo: "",
+    servings: 1,
+    ingredients: [
+      { ingredientId: "fromage-blanc", grams: 200 },
+      { ingredientId: "myrtilles", grams: 100 },
+      { ingredientId: "amandes", grams: 15 },
+      { ingredientId: "miel", grams: 10 }
+    ],
+    steps: [
+      "Verser le fromage blanc dans un bol.",
+      "Ajouter les myrtilles fraîches ou surgelées (décongelées).",
+      "Parsemer d'amandes concassées et d'un filet de miel."
+    ],
+    notes: "Petit-déjeuner rapide et riche en protéines, parfait si tu manques de temps le matin.",
+    es: {
+      name: "Bol de queso fresco batido, arándanos y almendras",
+      category: "Desayuno",
+      steps: [
+        "Vierte el queso fresco batido en un bol.",
+        "Añade los arándanos frescos o congelados (descongelados).",
+        "Espolvorea con almendras troceadas y un chorrito de miel."
+      ],
+      notes: "Desayuno rápido y rico en proteína, perfecto si vas con poco tiempo por la mañana."
+    }
+  },
+  {
+    id: "smoothie-bowl-banane-myrtilles-chia",
+    name: "Smoothie bowl banane, myrtilles & graines de chia",
+    category: "Petit-déjeuner",
+    photo: "https://images.pexels.com/photos/8230033/pexels-photo-8230033.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
+    servings: 1,
+    ingredients: [
+      { ingredientId: "banane", grams: 120 },
+      { ingredientId: "yaourt-grec", grams: 150 },
+      { ingredientId: "myrtilles", grams: 80 },
+      { ingredientId: "graines-de-chia", grams: 15 }
+    ],
+    steps: [
+      "Mixer la banane, le yaourt grec et la moitié des myrtilles jusqu'à obtenir une texture épaisse et lisse.",
+      "Verser dans un bol.",
+      "Garnir avec le reste des myrtilles et les graines de chia.",
+      "Servir immédiatement, à la cuillère."
+    ],
+    notes: "Version « bol » du smoothie classique, plus rassasiante grâce à la texture épaisse et aux graines de chia.",
+    es: {
+      name: "Smoothie bowl de plátano, arándanos y semillas de chía",
+      category: "Desayuno",
+      steps: [
+        "Bate el plátano, el yogur griego y la mitad de los arándanos hasta conseguir una textura espesa y lisa.",
+        "Vierte en un bol.",
+        "Decora con el resto de los arándanos y las semillas de chía.",
+        "Sirve enseguida, con cuchara."
+      ],
+      notes: "Versión «bol» del batido clásico, más saciante gracias a la textura espesa y a las semillas de chía."
+    }
+  },
+  {
+    id: "oeufs-brouilles-tomate-epinards",
+    name: "Œufs brouillés, tomate & épinards sur pain complet",
+    category: "Petit-déjeuner",
+    photo: "",
+    servings: 1,
+    ingredients: [
+      { ingredientId: "oeuf", grams: 150 },
+      { ingredientId: "tomate", grams: 100 },
+      { ingredientId: "epinards", grams: 80 },
+      { ingredientId: "pain-complet", grams: 60 },
+      { ingredientId: "huile-olive", grams: 5 }
+    ],
+    steps: [
+      "Faire revenir la tomate coupée en dés et les épinards dans l'huile d'olive quelques minutes.",
+      "Battre les œufs et les verser dans la poêle.",
+      "Brouiller à feu doux jusqu'à la cuisson souhaitée.",
+      "Servir sur une tranche de pain complet grillée."
+    ],
+    notes: "Variante salée et pleine de légumes de l'omelette classique, bon apport en fer grâce aux épinards.",
+    es: {
+      name: "Huevos revueltos, tomate y espinacas sobre pan integral",
+      category: "Desayuno",
+      steps: [
+        "Sofríe el tomate cortado en dados y las espinacas en el aceite de oliva unos minutos.",
+        "Bate los huevos y viértelos en la sartén.",
+        "Revuelve a fuego suave hasta la cocción deseada.",
+        "Sirve sobre una rebanada de pan integral tostado."
+      ],
+      notes: "Variante salada y llena de verdura de la tortilla clásica, buen aporte de hierro gracias a las espinacas."
+    }
+  },
+  {
+    id: "porridge-avoine-pomme-cannelle",
+    name: "Porridge avoine, pomme & cannelle",
+    category: "Petit-déjeuner",
+    photo: "https://images.pexels.com/photos/4382900/pexels-photo-4382900.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
+    servings: 1,
+    ingredients: [
+      { ingredientId: "avoine", grams: 50 },
+      { ingredientId: "pomme", grams: 100 },
+      { ingredientId: "miel", grams: 10 }
+    ],
+    steps: [
+      "Cuire les flocons d'avoine avec de l'eau ou du lait à feu doux.",
+      "Couper la pomme en petits dés et l'ajouter en fin de cuisson avec une pincée de cannelle.",
+      "Sucrer avec un peu de miel si besoin.",
+      "Servir chaud."
+    ],
+    notes: "La cannelle n'apporte quasiment pas de calories mais donne beaucoup de goût, pratique pour réduire le sucre ajouté.",
+    es: {
+      name: "Porridge de avena, manzana y canela",
+      category: "Desayuno",
+      steps: [
+        "Cocina los copos de avena con agua o leche a fuego suave.",
+        "Corta la manzana en dados pequeños y añádela al final de la cocción con una pizca de canela.",
+        "Endulza con un poco de miel si lo necesitas.",
+        "Sirve caliente."
+      ],
+      notes: "La canela apenas aporta calorías pero da mucho sabor, práctica para reducir el azúcar añadido."
+    }
+  },
+  {
+    id: "omelette-feta-tomate-epinards",
+    name: "Omelette feta, tomate & épinards",
+    category: "Petit-déjeuner",
+    photo: "",
+    servings: 1,
+    ingredients: [
+      { ingredientId: "oeuf", grams: 150 },
+      { ingredientId: "feta", grams: 40 },
+      { ingredientId: "tomate", grams: 80 },
+      { ingredientId: "epinards", grams: 60 }
+    ],
+    steps: [
+      "Faire revenir les épinards et la tomate coupée en dés quelques minutes à la poêle.",
+      "Battre les œufs et les verser sur les légumes.",
+      "Émietter la feta sur le dessus.",
+      "Cuire à feu moyen jusqu'à ce que l'omelette soit prise, plier en deux et servir."
+    ],
+    notes: "La feta étant salée et grasse, une petite quantité suffit à parfumer toute l'omelette.",
+    es: {
+      name: "Tortilla de feta, tomate y espinacas",
+      category: "Desayuno",
+      steps: [
+        "Sofríe las espinacas y el tomate cortado en dados unos minutos en la sartén.",
+        "Bate los huevos y viértelos sobre las verduras.",
+        "Desmenuza la feta por encima.",
+        "Cocina a fuego medio hasta que la tortilla cuaje, dobla por la mitad y sirve."
+      ],
+      notes: "Como la feta es salada y grasa, una pequeña cantidad basta para dar sabor a toda la tortilla."
+    }
+  },
+  {
+    id: "cabillaud-riz-poivrons-rotis",
+    name: "Cabillaud, riz complet & poivrons rôtis",
+    category: "Déjeuner / Dîner",
+    photo: "",
+    servings: 1,
+    ingredients: [
+      { ingredientId: "cabillaud", grams: 150 },
+      { ingredientId: "riz-complet", grams: 100 },
+      { ingredientId: "poivron", grams: 150 },
+      { ingredientId: "huile-olive", grams: 10 }
+    ],
+    steps: [
+      "Préchauffer le four à 200°C et faire rôtir les poivrons coupés en lanières avec un peu d'huile d'olive pendant 20 minutes.",
+      "Cuire le riz complet selon les instructions du paquet.",
+      "Cuire le cabillaud au four ou à la vapeur environ 12-15 minutes.",
+      "Assembler le tout dans une assiette."
+    ],
+    notes: "Le cabillaud est un poisson blanc très maigre, une bonne alternative au saumon ou au thon pour varier les sources de protéines.",
+    es: {
+      name: "Bacalao, arroz integral y pimientos asados",
+      category: "Almuerzo / Cena",
+      steps: [
+        "Precalienta el horno a 200°C y asa los pimientos cortados en tiras con un poco de aceite de oliva durante 20 minutos.",
+        "Cocina el arroz integral según las instrucciones del paquete.",
+        "Cocina el bacalao al horno o al vapor unos 12-15 minutos.",
+        "Sirve todo en un plato."
+      ],
+      notes: "El bacalao es un pescado blanco muy magro, una buena alternativa al salmón o al atún para variar las fuentes de proteína."
+    }
+  },
+  {
+    id: "riz-thon-tomate-carotte",
+    name: "Riz complet, thon, tomate & carotte",
+    category: "Déjeuner / Dîner",
+    photo: "",
+    servings: 1,
+    ingredients: [
+      { ingredientId: "riz-complet", grams: 100 },
+      { ingredientId: "thon-conserve", grams: 120 },
+      { ingredientId: "tomate", grams: 100 },
+      { ingredientId: "carotte", grams: 80 },
+      { ingredientId: "huile-olive", grams: 10 }
+    ],
+    steps: [
+      "Cuire le riz complet selon les instructions du paquet et laisser tiédir.",
+      "Égoutter le thon et l'émietter.",
+      "Râper la carotte et couper la tomate en dés.",
+      "Mélanger tous les ingrédients et assaisonner avec l'huile d'olive, sel et poivre."
+    ],
+    notes: "Se prépare à l'avance et se mange froid ou tiède, pratique pour un repas à emporter.",
+    es: {
+      name: "Arroz integral, atún, tomate y zanahoria",
+      category: "Almuerzo / Cena",
+      steps: [
+        "Cocina el arroz integral según las instrucciones del paquete y déjalo templar.",
+        "Escurre el atún y desmenúzalo.",
+        "Ralla la zanahoria y corta el tomate en dados.",
+        "Mezcla todos los ingredientes y aliña con el aceite de oliva, sal y pimienta."
+      ],
+      notes: "Se prepara con antelación y se come frío o templado, práctico para llevar."
+    }
+  },
+  {
+    id: "curry-pois-chiches-carotte-epinards",
+    name: "Curry de pois chiches, carotte & épinards",
+    category: "Déjeuner / Dîner",
+    photo: "",
+    servings: 2,
+    ingredients: [
+      { ingredientId: "pois-chiches", grams: 300 },
+      { ingredientId: "carotte", grams: 150 },
+      { ingredientId: "epinards", grams: 150 },
+      { ingredientId: "huile-olive", grams: 15 },
+      { ingredientId: "riz-complet", grams: 160 }
+    ],
+    steps: [
+      "Faire revenir la carotte coupée en dés dans l'huile d'olive quelques minutes.",
+      "Ajouter les pois chiches et les épices à curry, mouiller avec un peu d'eau et laisser mijoter 10 minutes.",
+      "Ajouter les épinards en fin de cuisson et laisser réduire 2-3 minutes.",
+      "Servir avec le riz complet cuit à part."
+    ],
+    notes: "Recette végétarienne complète en protéines végétales, se prépare facilement en plus grande quantité pour deux repas.",
+    es: {
+      name: "Curry de garbanzos, zanahoria y espinacas",
+      category: "Almuerzo / Cena",
+      steps: [
+        "Sofríe la zanahoria cortada en dados en el aceite de oliva unos minutos.",
+        "Añade los garbanzos y las especias de curry, moja con un poco de agua y deja cocer a fuego lento 10 minutos.",
+        "Añade las espinacas al final de la cocción y deja reducir 2-3 minutos.",
+        "Sirve con el arroz integral cocido por separado."
+      ],
+      notes: "Receta vegetariana completa en proteína vegetal, fácil de preparar en mayor cantidad para dos comidas."
+    }
+  },
+  {
+    id: "salade-quinoa-feta-concombre-tomate",
+    name: "Salade de quinoa, feta, concombre & tomate",
+    category: "Déjeuner / Dîner",
+    photo: "",
+    servings: 1,
+    ingredients: [
+      { ingredientId: "quinoa", grams: 80 },
+      { ingredientId: "feta", grams: 50 },
+      { ingredientId: "concombre", grams: 100 },
+      { ingredientId: "tomate", grams: 100 },
+      { ingredientId: "huile-olive", grams: 10 }
+    ],
+    steps: [
+      "Cuire le quinoa selon les instructions du paquet et laisser refroidir.",
+      "Couper le concombre et la tomate en dés.",
+      "Mélanger le quinoa avec les légumes et la feta émiettée.",
+      "Assaisonner avec l'huile d'olive, sel et poivre."
+    ],
+    notes: "Salade fraîche façon méditerranéenne, se prépare la veille et se garde bien au frais.",
+    es: {
+      name: "Ensalada de quinoa, feta, pepino y tomate",
+      category: "Almuerzo / Cena",
+      steps: [
+        "Cocina la quinoa según las instrucciones del paquete y déjala enfriar.",
+        "Corta el pepino y el tomate en dados.",
+        "Mezcla la quinoa con las verduras y la feta desmenuzada.",
+        "Aliña con el aceite de oliva, sal y pimienta."
+      ],
+      notes: "Ensalada fresca de estilo mediterráneo, se prepara el día antes y se conserva bien en frío."
+    }
+  },
+  {
+    id: "wrap-poulet-avocat-tomate",
+    name: "Wrap de poulet, avocat & tomate",
+    category: "Déjeuner / Dîner",
+    photo: "https://images.pexels.com/photos/29535640/pexels-photo-29535640.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
+    servings: 1,
+    ingredients: [
+      { ingredientId: "tortilla-ble-complet", grams: 60 },
+      { ingredientId: "poulet-blanc", grams: 120 },
+      { ingredientId: "avocat", grams: 60 },
+      { ingredientId: "tomate", grams: 60 }
+    ],
+    steps: [
+      "Cuire le blanc de poulet à la poêle et le couper en lanières ou l'émietter.",
+      "Réchauffer légèrement la tortilla de blé complet pour qu'elle se roule facilement.",
+      "Garnir avec le poulet, l'avocat écrasé ou en tranches et la tomate coupée en dés.",
+      "Rouler fermement le wrap et couper en deux."
+    ],
+    notes: "Bonne option à emporter, plus digeste qu'un sandwich classique grâce à la tortilla de blé complet.",
+    es: {
+      name: "Wrap de pollo, aguacate y tomate",
+      category: "Almuerzo / Cena",
+      steps: [
+        "Cocina la pechuga de pollo a la plancha y córtala en tiras o desmenúzala.",
+        "Calienta un poco la tortilla de trigo integral para que se enrolle fácilmente.",
+        "Rellena con el pollo, el aguacate machacado o en láminas y el tomate cortado en dados.",
+        "Enrolla el wrap firmemente y corta por la mitad."
+      ],
+      notes: "Buena opción para llevar, más ligero que un sándwich clásico gracias a la tortilla de trigo integral."
+    }
+  },
+  {
+    id: "dinde-haricots-verts-patate-douce",
+    name: "Dinde, haricots verts & patate douce",
+    category: "Déjeuner / Dîner",
+    photo: "",
+    servings: 1,
+    ingredients: [
+      { ingredientId: "dinde-blanc", grams: 150 },
+      { ingredientId: "haricots-verts", grams: 150 },
+      { ingredientId: "patate-douce", grams: 200 },
+      { ingredientId: "huile-olive", grams: 10 }
+    ],
+    steps: [
+      "Couper la patate douce en cubes et la faire cuire au four ~25 minutes à 200°C avec un peu d'huile d'olive.",
+      "Cuire le blanc de dinde à la poêle.",
+      "Cuire les haricots verts à la vapeur 8-10 minutes.",
+      "Assembler le tout dans une assiette."
+    ],
+    notes: "Repas simple et équilibré, la dinde permet de varier les sources de protéines maigres en dehors du poulet.",
+    es: {
+      name: "Pavo, judías verdes y boniato",
+      category: "Almuerzo / Cena",
+      steps: [
+        "Corta el boniato en cubos y ásalo al horno ~25 minutos a 200°C con un poco de aceite de oliva.",
+        "Cocina la pechuga de pavo a la plancha.",
+        "Cocina las judías verdes al vapor 8-10 minutos.",
+        "Sirve todo en un plato."
+      ],
+      notes: "Comida sencilla y equilibrada, el pavo permite variar las fuentes de proteína magra más allá del pollo."
+    }
+  },
+  {
+    id: "chocolat-noir-amandes",
+    name: "Chocolat noir & amandes",
+    category: "Collation",
+    photo: "https://images.pexels.com/photos/4051122/pexels-photo-4051122.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
+    servings: 1,
+    ingredients: [
+      { ingredientId: "chocolat-noir", grams: 20 },
+      { ingredientId: "amandes", grams: 15 }
+    ],
+    steps: [
+      "Casser le chocolat noir en petits carrés.",
+      "Servir avec une petite poignée d'amandes."
+    ],
+    notes: "Collation plaisir en petite quantité, à réserver aux jours où tu as encore de la marge calorique.",
+    es: {
+      name: "Chocolate negro y almendras",
+      category: "Merienda",
+      steps: [
+        "Rompe el chocolate negro en trozos pequeños.",
+        "Sirve con un puñado pequeño de almendras."
+      ],
+      notes: "Merienda de placer en poca cantidad, resérvala para los días en que aún tengas margen calórico."
+    }
+  },
+  {
+    id: "yaourt-myrtilles-chia",
+    name: "Yaourt grec, myrtilles & graines de chia",
+    category: "Collation",
+    photo: "https://images.pexels.com/photos/4491391/pexels-photo-4491391.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
+    servings: 1,
+    ingredients: [
+      { ingredientId: "yaourt-grec", grams: 200 },
+      { ingredientId: "myrtilles", grams: 80 },
+      { ingredientId: "graines-de-chia", grams: 10 }
+    ],
+    steps: [
+      "Verser le yaourt grec dans un bol ou un pot.",
+      "Ajouter les myrtilles et les graines de chia.",
+      "Mélanger et laisser reposer 5 minutes si tu veux que les graines de chia gonflent un peu."
+    ],
+    notes: "Collation riche en protéines et en fibres, tient bien au corps entre deux repas.",
+    es: {
+      name: "Yogur griego, arándanos y semillas de chía",
+      category: "Merienda",
+      steps: [
+        "Vierte el yogur griego en un bol o un tarro.",
+        "Añade los arándanos y las semillas de chía.",
+        "Mezcla y deja reposar 5 minutos si quieres que las semillas de chía se hinchen un poco."
+      ],
+      notes: "Merienda rica en proteína y fibra, sacia bien entre dos comidas."
+    }
+  },
+  {
+    id: "pomme-beurre-cacahuete",
+    name: "Pomme & beurre de cacahuète",
+    category: "Collation",
+    photo: "https://images.pexels.com/photos/33489594/pexels-photo-33489594.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
+    servings: 1,
+    ingredients: [
+      { ingredientId: "pomme", grams: 150 },
+      { ingredientId: "beurre-cacahuete", grams: 20 }
+    ],
+    steps: [
+      "Laver et couper la pomme en quartiers ou en tranches.",
+      "Tremper chaque morceau dans le beurre de cacahuète, ou le servir à côté pour tartiner."
+    ],
+    notes: "Collation simple à préparer sans cuisson, bon équilibre entre glucides et bonnes graisses.",
+    es: {
+      name: "Manzana y mantequilla de cacahuete",
+      category: "Merienda",
+      steps: [
+        "Lava y corta la manzana en cuartos o láminas.",
+        "Moja cada trozo en la mantequilla de cacahuete, o sírvela al lado para untar."
+      ],
+      notes: "Merienda sencilla sin cocción, buen equilibrio entre carbohidratos y grasas saludables."
+    }
+  },
+  {
+    id: "oeufs-durs-carotte",
+    name: "Œufs durs & bâtonnets de carotte",
+    category: "Collation",
+    photo: "",
+    servings: 1,
+    ingredients: [
+      { ingredientId: "oeuf", grams: 120 },
+      { ingredientId: "carotte", grams: 100 }
+    ],
+    steps: [
+      "Cuire les œufs à l'eau bouillante pendant 9-10 minutes puis les refroidir sous l'eau froide.",
+      "Écaler les œufs et les couper en deux.",
+      "Couper la carotte en bâtonnets.",
+      "Servir ensemble, avec une pincée de sel si besoin."
+    ],
+    notes: "Collation très pratique à préparer à l'avance, riche en protéines pour un minimum d'efforts.",
+    es: {
+      name: "Huevos duros y bastoncitos de zanahoria",
+      category: "Merienda",
+      steps: [
+        "Cocina los huevos en agua hirviendo durante 9-10 minutos y luego enfríalos bajo agua fría.",
+        "Pélalos y córtalos por la mitad.",
+        "Corta la zanahoria en bastoncitos.",
+        "Sirve juntos, con una pizca de sal si lo necesitas."
+      ],
+      notes: "Merienda muy práctica de preparar con antelación, rica en proteína con un esfuerzo mínimo."
+    }
   }
 ];

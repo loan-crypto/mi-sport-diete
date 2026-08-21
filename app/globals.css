@@ -297,6 +297,27 @@ header.site-header {
   padding: 56px 24px 40px;
 }
 
+.login-hero {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 380px;
+  background: color-mix(in srgb, var(--bg-card) 92%, transparent);
+  backdrop-filter: blur(6px);
+}
+
+.login-title {
+  margin: 0 0 18px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 .hero-art {
   display: none;
 }

@@ -4,6 +4,10 @@ import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/lib/auth/context";
 import { useI18n } from "@/lib/i18n/context";
+import { heroPhotoStyle } from "@/lib/heroStyle";
+
+const HERO_PHOTO =
+  "https://images.pexels.com/photos/4761790/pexels-photo-4761790.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1400&fit=crop";
 
 export default function LoginPage() {
   const { signIn, user } = useAuth();
@@ -33,9 +37,9 @@ export default function LoginPage() {
   }
 
   return (
-    <section className="page-header">
-      <h1>{t("auth.login.title")}</h1>
-      <form className="card-box" onSubmit={handleSubmit} style={{ maxWidth: 360 }}>
+    <section className="hero login-hero" style={heroPhotoStyle(HERO_PHOTO)}>
+      <form className="card-box login-card" onSubmit={handleSubmit}>
+        <h1 className="login-title">{t("auth.login.title")}</h1>
         <div className="field">
           <label htmlFor="email">{t("auth.login.email")}</label>
           <input

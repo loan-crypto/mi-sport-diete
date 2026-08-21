@@ -946,5 +946,470 @@ export const EXERCISES: Exercise[] = [
       progressionPrev: "Copenhagen plank con rodilla flexionada",
       progressionNext: "Copenhagen plank con pierna extendida, mantenimiento largo"
     }
+  },
+  {
+    id: "burpees",
+    name: "Burpees",
+    muscleGroup: "Cardio, corps entier",
+    muscles: ["pectoraux", "epaules", "triceps", "abdominaux", "quadriceps", "fessiers", "mollets"],
+    difficulty: "Intermédiaire",
+    photo: "https://images.pexels.com/photos/30246184/pexels-photo-30246184.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
+    video: "",
+    description: [
+      "Debout, pieds à largeur d'épaules, descendre en squat et poser les mains au sol devant les pieds.",
+      "Sauter les jambes vers l'arrière pour atterrir en position de pompe, corps aligné.",
+      "Effectuer une pompe (optionnel pour les débutants), puis ramener les pieds vers les mains d'un bond.",
+      "Sauter verticalement en tendant les bras au-dessus de la tête pour terminer le mouvement."
+    ],
+    tips: "Garde un rythme soutenu mais contrôlé : la qualité d'exécution prime sur la vitesse pour éviter de casser le dos.",
+    progressionPrev: "Burpees sans pompe ni saut (version marchée)",
+    progressionNext: "Burpees avec traction ou box jump",
+    es: {
+      name: "Burpees",
+      muscleGroup: "Cardio, cuerpo completo",
+      description: [
+        "De pie, pies a la anchura de los hombros, baja en sentadilla y coloca las manos en el suelo delante de los pies.",
+        "Salta las piernas hacia atrás para aterrizar en posición de flexión, cuerpo alineado.",
+        "Realiza una flexión (opcional para principiantes), luego lleva los pies hacia las manos de un salto.",
+        "Salta verticalmente extendiendo los brazos por encima de la cabeza para terminar el movimiento."
+      ],
+      tips: "Mantén un ritmo sostenido pero controlado: la calidad de ejecución importa más que la velocidad para no dañar la espalda.",
+      progressionPrev: "Burpees sin flexión ni salto (versión caminada)",
+      progressionNext: "Burpees con dominada o salto al cajón"
+    }
+  },
+  {
+    id: "mountain-climbers",
+    name: "Mountain climbers",
+    muscleGroup: "Abdominaux, cardio, épaules",
+    muscles: ["abdominaux", "obliques", "epaules", "quadriceps", "pectoraux"],
+    difficulty: "Débutant",
+    photo: "https://images.pexels.com/photos/6516165/pexels-photo-6516165.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
+    video: "",
+    description: [
+      "Position de pompe haute, mains sous les épaules, corps aligné de la tête aux talons.",
+      "Ramener un genou vers la poitrine en gardant le dos plat et les hanches basses.",
+      "Revenir en extension et répéter immédiatement avec l'autre jambe, dans un mouvement de course.",
+      "Accélérer progressivement le rythme tout en gardant le gainage."
+    ],
+    tips: "Ne laisse pas les hanches monter : garde le bassin stable comme en position de planche.",
+    progressionPrev: "Mountain climbers lents, genoux vers l'extérieur",
+    progressionNext: "Mountain climbers pieds sur suspension (TRX) ou croisés",
+    es: {
+      name: "Mountain climbers",
+      muscleGroup: "Abdominales, cardio, hombros",
+      description: [
+        "Posición de flexión alta, manos bajo los hombros, cuerpo alineado de la cabeza a los talones.",
+        "Lleva una rodilla hacia el pecho manteniendo la espalda plana y las caderas bajas.",
+        "Vuelve a la extensión y repite inmediatamente con la otra pierna, en un movimiento de carrera.",
+        "Acelera progresivamente el ritmo manteniendo la tensión del core."
+      ],
+      tips: "No dejes que las caderas suban: mantén la pelvis estable como en la posición de plancha.",
+      progressionPrev: "Mountain climbers lentos, rodillas hacia afuera",
+      progressionNext: "Mountain climbers con pies en suspensión (TRX) o cruzados"
+    }
+  },
+  {
+    id: "squat-bulgare",
+    name: "Squat bulgare (fente arrière surélevée)",
+    muscleGroup: "Quadriceps, fessiers, ischios",
+    muscles: ["quadriceps", "fessiers", "ischios", "adducteurs"],
+    difficulty: "Intermédiaire",
+    photo: "",
+    video: "",
+    description: [
+      "Dos face à un banc, poser le dessus d'un pied sur le banc derrière toi, l'autre jambe en appui devant.",
+      "Descendre en fléchissant le genou avant jusqu'à ce que la cuisse soit proche de l'horizontale.",
+      "Garder le buste droit et le genou avant aligné avec le pied, sans qu'il dépasse trop la pointe.",
+      "Pousser dans le talon avant pour remonter à la position de départ."
+    ],
+    tips: "Avance suffisamment la jambe d'appui pour que le genou ne parte pas trop loin devant les orteils.",
+    progressionPrev: "Fentes avant classiques",
+    progressionNext: "Squat bulgare avec haltères",
+    es: {
+      name: "Sentadilla búlgara (zancada trasera elevada)",
+      muscleGroup: "Cuádriceps, glúteos, isquiotibiales",
+      description: [
+        "De espaldas a un banco, apoya el empeine de un pie sobre el banco detrás de ti, la otra pierna adelante en apoyo.",
+        "Baja flexionando la rodilla delantera hasta que el muslo quede casi horizontal.",
+        "Mantén el torso erguido y la rodilla delantera alineada con el pie, sin que sobrepase mucho la punta.",
+        "Empuja con el talón delantero para volver a la posición inicial."
+      ],
+      tips: "Adelanta lo suficiente la pierna de apoyo para que la rodilla no se desplace demasiado por delante de los dedos del pie.",
+      progressionPrev: "Zancadas frontales clásicas",
+      progressionNext: "Sentadilla búlgara con mancuernas"
+    }
+  },
+  {
+    id: "souleve-terre-roumain",
+    name: "Soulevé de terre roumain",
+    muscleGroup: "Ischios, fessiers, lombaires",
+    muscles: ["ischios", "fessiers", "lombaires", "dos"],
+    difficulty: "Intermédiaire",
+    photo: "",
+    video: "",
+    description: [
+      "Debout, barre ou haltères tenus devant les cuisses, pieds à largeur de hanches, genoux légèrement fléchis.",
+      "Pousser les hanches vers l'arrière en gardant le dos droit, la charge glisse le long des cuisses.",
+      "Descendre jusqu'à ressentir un étirement des ischios, sans arrondir le dos.",
+      "Remonter en poussant les hanches vers l'avant et en contractant les fessiers."
+    ],
+    tips: "Garde la charge proche du corps tout du long : plus elle s'éloigne, plus le bas du dos est sollicité inutilement.",
+    progressionPrev: "Soulevé de terre roumain jambes plus fléchies, charge légère",
+    progressionNext: "Soulevé de terre roumain unilatéral (une jambe)",
+    es: {
+      name: "Peso muerto rumano",
+      muscleGroup: "Isquiotibiales, glúteos, lumbares",
+      description: [
+        "De pie, barra o mancuernas sostenidas delante de los muslos, pies a la anchura de las caderas, rodillas ligeramente flexionadas.",
+        "Empuja las caderas hacia atrás manteniendo la espalda recta, la carga se desliza a lo largo de los muslos.",
+        "Baja hasta sentir un estiramiento de los isquiotibiales, sin redondear la espalda.",
+        "Sube empujando las caderas hacia adelante y contrayendo los glúteos."
+      ],
+      tips: "Mantén la carga cerca del cuerpo todo el recorrido: cuanto más se aleje, más se sobrecarga la zona lumbar innecesariamente.",
+      progressionPrev: "Peso muerto rumano con rodillas más flexionadas y carga ligera",
+      progressionNext: "Peso muerto rumano unilateral (una pierna)"
+    }
+  },
+  {
+    id: "rowing-haltere-unilateral",
+    name: "Rowing haltère unilatéral",
+    muscleGroup: "Dos, biceps",
+    muscles: ["dos", "biceps", "avant-bras", "trapezes"],
+    difficulty: "Débutant",
+    photo: "https://images.pexels.com/photos/38641891/pexels-photo-38641891.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
+    video: "",
+    description: [
+      "Un genou et une main en appui sur un banc, l'autre pied au sol, dos plat et parallèle au sol.",
+      "Tenir un haltère dans la main libre, bras tendu vers le sol.",
+      "Tirer l'haltère vers la hanche en amenant le coude vers l'arrière, coude proche du corps.",
+      "Redescendre en contrôlant jusqu'à extension complète du bras."
+    ],
+    tips: "Évite de tourner le buste : garde les épaules alignées tout au long du mouvement.",
+    progressionPrev: "Rowing unilatéral charge légère",
+    progressionNext: "Rowing unilatéral charge lourde",
+    es: {
+      name: "Remo unilateral con mancuerna",
+      muscleGroup: "Espalda, bíceps",
+      description: [
+        "Una rodilla y una mano apoyadas en un banco, el otro pie en el suelo, espalda plana y paralela al suelo.",
+        "Sostén una mancuerna en la mano libre, brazo extendido hacia el suelo.",
+        "Tira de la mancuerna hacia la cadera llevando el codo hacia atrás, codo cerca del cuerpo.",
+        "Baja controlando el movimiento hasta la extensión completa del brazo."
+      ],
+      tips: "Evita rotar el torso: mantén los hombros alineados durante todo el movimiento.",
+      progressionPrev: "Remo unilateral con carga ligera",
+      progressionNext: "Remo unilateral con carga pesada"
+    }
+  },
+  {
+    id: "tirage-poulie-basse",
+    name: "Tirage poulie basse (rowing assis)",
+    muscleGroup: "Dos, biceps",
+    muscles: ["dos", "biceps", "trapezes", "avant-bras"],
+    difficulty: "Débutant",
+    photo: "https://images.pexels.com/photos/4162482/pexels-photo-4162482.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
+    video: "https://videos.pexels.com/video-files/4367642/4367642-hd_1920_1080_30fps.mp4",
+    description: [
+      "Assis face à la poulie basse, pieds calés sur les cales-pieds, genoux légèrement fléchis, dos droit.",
+      "Saisir la poignée, bras tendus, buste vertical.",
+      "Tirer la poignée vers le bas du buste en amenant les coudes vers l'arrière et en resserrant les omoplates.",
+      "Revenir en contrôlant jusqu'à extension complète des bras, sans arrondir le dos."
+    ],
+    tips: "Ne te penche pas en arrière pour tirer plus lourd : garde le buste stable et laisse le dos travailler.",
+    progressionPrev: "Tirage poulie basse charge légère",
+    progressionNext: "Tirage poulie basse prise serrée, charge lourde",
+    es: {
+      name: "Remo sentado en polea baja",
+      muscleGroup: "Espalda, bíceps",
+      description: [
+        "Sentado frente a la polea baja, pies apoyados en los soportes, rodillas ligeramente flexionadas, espalda recta.",
+        "Agarra la manija, brazos extendidos, torso vertical.",
+        "Tira de la manija hacia la parte baja del torso llevando los codos hacia atrás y juntando los omóplatos.",
+        "Vuelve controlando el movimiento hasta la extensión completa de los brazos, sin redondear la espalda."
+      ],
+      tips: "No te inclines hacia atrás para tirar más peso: mantén el torso estable y deja que la espalda trabaje.",
+      progressionPrev: "Remo en polea baja con carga ligera",
+      progressionNext: "Remo en polea baja con agarre estrecho y carga pesada"
+    }
+  },
+  {
+    id: "presse-jambes",
+    name: "Presse à jambes (leg press)",
+    muscleGroup: "Quadriceps, fessiers, ischios",
+    muscles: ["quadriceps", "fessiers", "ischios"],
+    difficulty: "Débutant",
+    photo: "https://images.pexels.com/photos/6844939/pexels-photo-6844939.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
+    video: "https://videos.pexels.com/video-files/36457367/15459404_2560_1440_30fps.mp4",
+    description: [
+      "Assis dans la machine, dos et tête calés contre le dossier, pieds à largeur d'épaules sur la plateforme.",
+      "Déverrouiller les cales de sécurité et fléchir les genoux pour descendre la plateforme en contrôle.",
+      "Descendre jusqu'à ce que les genoux forment un angle d'environ 90°, sans que le bas du dos décolle.",
+      "Pousser dans la plateforme pour remonter, sans verrouiller complètement les genoux en haut."
+    ],
+    tips: "Garde toujours une légère flexion des genoux en haut du mouvement pour protéger l'articulation.",
+    progressionPrev: "Presse à jambes charge légère, amplitude réduite",
+    progressionNext: "Presse à jambes charge lourde, une jambe à la fois",
+    es: {
+      name: "Prensa de piernas (leg press)",
+      muscleGroup: "Cuádriceps, glúteos, isquiotibiales",
+      description: [
+        "Sentado en la máquina, espalda y cabeza apoyadas en el respaldo, pies a la anchura de los hombros sobre la plataforma.",
+        "Desbloquea los seguros y flexiona las rodillas para bajar la plataforma con control.",
+        "Baja hasta que las rodillas formen un ángulo de unos 90°, sin que la zona lumbar se despegue.",
+        "Empuja la plataforma para subir, sin bloquear completamente las rodillas arriba."
+      ],
+      tips: "Mantén siempre una ligera flexión de rodillas en la parte alta del movimiento para proteger la articulación.",
+      progressionPrev: "Prensa de piernas con carga ligera, recorrido reducido",
+      progressionNext: "Prensa de piernas con carga pesada, una pierna a la vez"
+    }
+  },
+  {
+    id: "fessier-poulie",
+    name: "Fessier à la poulie (kickback / abduction)",
+    muscleGroup: "Fessiers",
+    muscles: ["fessiers", "ischios", "adducteurs"],
+    difficulty: "Débutant",
+    photo: "https://images.pexels.com/photos/6539861/pexels-photo-6539861.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
+    video: "",
+    description: [
+      "Attacher une manchette à la poulie basse au niveau de la cheville, face ou dos à la machine selon la variante.",
+      "Pour le kickback : en légère inclinaison, tendre la jambe vers l'arrière en contractant le fessier.",
+      "Pour l'abduction : jambe tendue sur le côté, écarter la jambe latéralement contre la résistance.",
+      "Revenir en contrôlant le mouvement sans laisser la charge tirer le bassin."
+    ],
+    tips: "Isole bien le mouvement dans la hanche : évite de compenser avec le bas du dos ou le buste.",
+    progressionPrev: "Fessier à la poulie, charge légère",
+    progressionNext: "Fessier à la poulie, charge lourde, tenue en fin de mouvement",
+    es: {
+      name: "Glúteo en polea (patada / abducción)",
+      muscleGroup: "Glúteos",
+      description: [
+        "Sujeta un brazalete a la polea baja a la altura del tobillo, de frente o de espaldas a la máquina según la variante.",
+        "Para la patada de glúteo: con ligera inclinación, extiende la pierna hacia atrás contrayendo el glúteo.",
+        "Para la abducción: pierna extendida hacia el lado, aparta la pierna lateralmente contra la resistencia.",
+        "Vuelve controlando el movimiento sin dejar que la carga arrastre la pelvis."
+      ],
+      tips: "Aísla bien el movimiento en la cadera: evita compensar con la zona lumbar o el torso.",
+      progressionPrev: "Glúteo en polea con carga ligera",
+      progressionNext: "Glúteo en polea con carga pesada y mantenimiento al final del recorrido"
+    }
+  },
+  {
+    id: "curl-pupitre",
+    name: "Curl pupitre (banc Scott)",
+    muscleGroup: "Biceps",
+    muscles: ["biceps", "avant-bras"],
+    difficulty: "Débutant",
+    photo: "",
+    video: "",
+    description: [
+      "Assis, les triceps posés sur le pupitre incliné, barre ou haltères tenus en supination (paumes vers le haut).",
+      "Partir bras presque tendus, sans verrouiller complètement les coudes.",
+      "Fléchir les coudes pour remonter la charge vers les épaules, en gardant les bras collés au pupitre.",
+      "Redescendre lentement jusqu'à l'extension de départ."
+    ],
+    tips: "Ne redescends jamais en relâchement total : garde une légère tension pour protéger le tendon du biceps.",
+    progressionPrev: "Curl pupitre à un bras, charge légère",
+    progressionNext: "Curl pupitre, charge lourde ou barre EZ",
+    es: {
+      name: "Curl en banco Scott (predicador)",
+      muscleGroup: "Bíceps",
+      description: [
+        "Sentado, los tríceps apoyados en el banco inclinado, barra o mancuernas sujetas en supinación (palmas hacia arriba).",
+        "Parte con los brazos casi extendidos, sin bloquear completamente los codos.",
+        "Flexiona los codos para subir la carga hacia los hombros, manteniendo los brazos pegados al banco.",
+        "Baja lentamente hasta la extensión inicial."
+      ],
+      tips: "Nunca bajes con relajación total: mantén una ligera tensión para proteger el tendón del bíceps.",
+      progressionPrev: "Curl en banco Scott a un brazo, carga ligera",
+      progressionNext: "Curl en banco Scott con carga pesada o barra EZ"
+    }
+  },
+  {
+    id: "extension-mollets-assis",
+    name: "Extension mollets assis",
+    muscleGroup: "Mollets",
+    muscles: ["mollets"],
+    difficulty: "Débutant",
+    photo: "",
+    video: "",
+    description: [
+      "Assis à la machine, genoux sous les rouleaux rembourrés, pointes de pieds posées sur la plateforme, talons dans le vide.",
+      "Descendre les talons le plus bas possible pour étirer les mollets.",
+      "Pousser sur la pointe des pieds pour monter le plus haut possible en contractant fort les mollets.",
+      "Redescendre en contrôlant, sans rebondir."
+    ],
+    tips: "Marque une pause d'une seconde en haut du mouvement pour maximiser la contraction du mollet.",
+    progressionPrev: "Extension mollets debout au poids du corps",
+    progressionNext: "Extension mollets assis, charge lourde, unilatéral",
+    es: {
+      name: "Elevación de talón sentado (gemelos)",
+      muscleGroup: "Gemelos",
+      description: [
+        "Sentado en la máquina, rodillas bajo los rodillos acolchados, puntas de los pies sobre la plataforma, talones al aire.",
+        "Baja los talones lo más posible para estirar los gemelos.",
+        "Empuja con la punta de los pies para subir lo más alto posible contrayendo fuerte los gemelos.",
+        "Baja controlando el movimiento, sin rebotar."
+      ],
+      tips: "Haz una pausa de un segundo en la parte alta del movimiento para maximizar la contracción del gemelo.",
+      progressionPrev: "Elevación de talón de pie con el peso del cuerpo",
+      progressionNext: "Elevación de talón sentado con carga pesada, unilateral"
+    }
+  },
+  {
+    id: "gainage-lateral",
+    name: "Gainage latéral (side plank)",
+    muscleGroup: "Obliques, abdominaux",
+    muscles: ["obliques", "abdominaux", "epaules"],
+    difficulty: "Débutant",
+    photo: "https://images.pexels.com/photos/9645062/pexels-photo-9645062.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
+    video: "https://videos.pexels.com/video-files/6023266/6023266-uhd_2560_1440_25fps.mp4",
+    description: [
+      "Allongé sur le côté, appui sur l'avant-bras (coude sous l'épaule) ou la main, jambes tendues et empilées.",
+      "Lever les hanches du sol pour former une ligne droite de la tête aux pieds.",
+      "Maintenir la position en gainant les obliques, sans laisser le bassin s'affaisser.",
+      "Relâcher en contrôle et répéter de l'autre côté."
+    ],
+    tips: "Si la version jambes tendues est trop difficile, plie les genoux au sol pour réduire le bras de levier.",
+    progressionPrev: "Gainage latéral genoux fléchis",
+    progressionNext: "Gainage latéral avec jambe levée ou lesté",
+    es: {
+      name: "Plancha lateral (side plank)",
+      muscleGroup: "Oblicuos, abdominales",
+      description: [
+        "Tumbado de lado, apoyo en el antebrazo (codo bajo el hombro) o la mano, piernas extendidas y apiladas.",
+        "Levanta las caderas del suelo para formar una línea recta de la cabeza a los pies.",
+        "Mantén la posición apretando los oblicuos, sin dejar que la pelvis se hunda.",
+        "Suelta con control y repite del otro lado."
+      ],
+      tips: "Si la versión con piernas extendidas es demasiado difícil, flexiona las rodillas en el suelo para reducir el brazo de palanca.",
+      progressionPrev: "Plancha lateral con rodillas flexionadas",
+      progressionNext: "Plancha lateral con pierna elevada o lastrada"
+    }
+  },
+  {
+    id: "pompes-archer",
+    name: "Pompes archer (archer push-up)",
+    muscleGroup: "Pectoraux, triceps, épaules",
+    muscles: ["pectoraux", "triceps", "epaules", "abdominaux"],
+    difficulty: "Avancé",
+    photo: "",
+    video: "",
+    description: [
+      "Mains bien plus larges que les épaules, corps aligné comme pour une pompe classique.",
+      "Descendre en pliant un bras tandis que l'autre reste tendu et glisse sur le côté.",
+      "Descendre jusqu'à ce que la poitrine frôle presque le sol du côté du bras fléchi.",
+      "Pousser pour remonter et alterner le côté de travail à chaque répétition ou série."
+    ],
+    tips: "Maîtrise d'abord les pompes larges classiques avant de tenter la version archer, plus exigeante en force unilatérale.",
+    progressionPrev: "Pompes larges (mains très écartées)",
+    progressionNext: "Pompes à un bras",
+    es: {
+      name: "Flexión arquero (archer push-up)",
+      muscleGroup: "Pectorales, tríceps, hombros",
+      description: [
+        "Manos mucho más separadas que los hombros, cuerpo alineado como en una flexión clásica.",
+        "Baja flexionando un brazo mientras el otro permanece extendido y se desliza hacia el lado.",
+        "Baja hasta que el pecho casi roce el suelo del lado del brazo flexionado.",
+        "Empuja para subir y alterna el lado de trabajo en cada repetición o serie."
+      ],
+      tips: "Domina primero las flexiones anchas clásicas antes de intentar la versión arquero, más exigente en fuerza unilateral.",
+      progressionPrev: "Flexiones anchas (manos muy separadas)",
+      progressionNext: "Flexión a un brazo"
+    }
+  },
+  {
+    id: "muscle-up",
+    name: "Muscle-up",
+    muscleGroup: "Dos, pectoraux, triceps, épaules",
+    muscles: ["dos", "pectoraux", "triceps", "epaules", "biceps", "avant-bras", "abdominaux"],
+    difficulty: "Avancé",
+    photo: "https://images.pexels.com/photos/4803682/pexels-photo-4803682.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
+    video: "",
+    description: [
+      "Suspendu à la barre, prise en pronation légèrement plus large que les épaules.",
+      "Tirer explosivement pour faire passer la poitrine au-dessus de la barre, en enchaînant sans pause avec une transition du poignet.",
+      "Une fois les bras au-dessus de la barre, pousser en extension complète comme pour un dip.",
+      "Redescendre en contrôlant chaque phase, sans se laisser tomber brutalement."
+    ],
+    tips: "Travaille séparément la traction haute (tirage explosif) et le dip avant de chercher à lier les deux en un seul mouvement fluide.",
+    progressionPrev: "Tractions explosives + dips séparés",
+    progressionNext: "Muscle-up strict (sans élan) ou lesté",
+    es: {
+      name: "Muscle-up",
+      muscleGroup: "Espalda, pectorales, tríceps, hombros",
+      description: [
+        "Suspendido de la barra, agarre en pronación un poco más ancho que los hombros.",
+        "Tira explosivamente para llevar el pecho por encima de la barra, encadenando sin pausa una transición de muñeca.",
+        "Una vez los brazos por encima de la barra, empuja hasta la extensión completa como en un fondo (dip).",
+        "Baja controlando cada fase, sin dejarte caer bruscamente."
+      ],
+      tips: "Trabaja por separado la tracción alta (tirón explosivo) y el fondo antes de buscar unir ambos en un solo movimiento fluido.",
+      progressionPrev: "Dominadas explosivas + fondos por separado",
+      progressionNext: "Muscle-up estricto (sin impulso) o lastrado"
+    }
+  },
+  {
+    id: "handstand-push-up",
+    name: "Handstand push-up (pompes en équilibre)",
+    muscleGroup: "Épaules, triceps",
+    muscles: ["epaules", "triceps", "avant-bras", "abdominaux"],
+    difficulty: "Avancé",
+    photo: "",
+    video: "",
+    description: [
+      "En équilibre sur les mains contre un mur, corps aligné, jambes tendues appuyées contre le mur.",
+      "Descendre en fléchissant les coudes jusqu'à ce que la tête frôle presque le sol.",
+      "Pousser fort dans les mains pour remonter en extension complète des bras.",
+      "Garder le gainage abdominal tout du long pour éviter de cambrer le dos."
+    ],
+    tips: "Commence par la tenue de position (handstand hold) puis les négatives lentes avant les répétitions complètes.",
+    progressionPrev: "Pompes pike (pyramide, pieds surélevés)",
+    progressionNext: "Handstand push-up en équilibre libre (sans mur)",
+    es: {
+      name: "Flexión en pino (handstand push-up)",
+      muscleGroup: "Hombros, tríceps",
+      description: [
+        "En equilibrio sobre las manos contra una pared, cuerpo alineado, piernas extendidas apoyadas en la pared.",
+        "Baja flexionando los codos hasta que la cabeza casi roce el suelo.",
+        "Empuja fuerte con las manos para subir hasta la extensión completa de los brazos.",
+        "Mantén la tensión abdominal todo el recorrido para evitar arquear la espalda."
+      ],
+      tips: "Empieza con el mantenimiento de la posición (handstand hold) y luego negativas lentas antes de las repeticiones completas.",
+      progressionPrev: "Flexiones pike (pirámide, pies elevados)",
+      progressionNext: "Flexión en pino en equilibrio libre (sin pared)"
+    }
+  },
+  {
+    id: "good-morning",
+    name: "Good morning (flexion de buste à la barre)",
+    muscleGroup: "Lombaires, ischios, fessiers",
+    muscles: ["lombaires", "ischios", "fessiers", "dos"],
+    difficulty: "Intermédiaire",
+    photo: "",
+    video: "",
+    description: [
+      "Barre posée sur le haut du dos comme pour un squat, pieds à largeur de hanches, genoux légèrement fléchis.",
+      "Pousser les hanches vers l'arrière en inclinant le buste vers l'avant, dos plat.",
+      "Descendre jusqu'à ce que le buste soit presque parallèle au sol, en sentant l'étirement des ischios.",
+      "Remonter en poussant les hanches vers l'avant et en contractant les lombaires et les fessiers."
+    ],
+    tips: "Commence avec une charge très légère : ce mouvement sollicite fortement le bas du dos si l'exécution est imprécise.",
+    progressionPrev: "Good morning à la barre vide",
+    progressionNext: "Good morning charge plus lourde, jambes tendues",
+    es: {
+      name: "Good morning (flexión de torso con barra)",
+      muscleGroup: "Lumbares, isquiotibiales, glúteos",
+      description: [
+        "Barra colocada en la parte alta de la espalda como en una sentadilla, pies a la anchura de las caderas, rodillas ligeramente flexionadas.",
+        "Empuja las caderas hacia atrás inclinando el torso hacia adelante, espalda plana.",
+        "Baja hasta que el torso quede casi paralelo al suelo, sintiendo el estiramiento de los isquiotibiales.",
+        "Sube empujando las caderas hacia adelante y contrayendo los lumbares y los glúteos."
+      ],
+      tips: "Empieza con una carga muy ligera: este movimiento exige mucho la zona lumbar si la ejecución no es precisa.",
+      progressionPrev: "Good morning con la barra vacía",
+      progressionNext: "Good morning con más carga, piernas extendidas"
+    }
   }
 ];
