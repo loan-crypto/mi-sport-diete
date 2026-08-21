@@ -600,7 +600,7 @@ export const EXERCISES: Exercise[] = [
     muscles: ["abdominaux", "lombaires"],
     difficulty: "Débutant",
     photo: "https://images.pexels.com/photos/6303481/pexels-photo-6303481.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
-    video: "",
+    video: "https://videos.pexels.com/video-files/6023273/6023273-hd_1920_1080_25fps.mp4",
     description: [
       "Avant-bras et pointes de pieds au sol, corps aligné de la tête aux talons.",
       "Contracter les abdominaux et les fessiers pour éviter que les hanches montent ou s'affaissent.",
