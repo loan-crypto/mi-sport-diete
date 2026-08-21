@@ -832,6 +832,22 @@ table.shopping-table td:last-child {
   font-size: 0.88rem;
 }
 
+.exo-swap-select {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 6px 8px;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  font-family: inherit;
+  max-width: 160px;
+}
+
+.exo-swap-select:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
 /* Petite vignette compacte pour repérer un exercice d'un coup d'œil dans
    une liste (programme généré, séance). Affiche la photo si dispo, sinon
    juste l'icône (pas de texte "ajouter une photo", trop petit pour ça). */

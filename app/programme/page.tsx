@@ -4,7 +4,7 @@
    La logica pura vive en lib/programme.ts (ya verificada 1:1 contra el
    original); aqui solo se traduce/renderiza. */
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { MUSCLE_INFO } from "@/content";
 import { useI18n } from "@/lib/i18n/context";
@@ -39,9 +39,24 @@ export default function ProgrammePage() {
   const [goal, setGoal] = useState<Goal>("volume");
   const [days, setDays] = useState(3);
   const [shoppingDays, setShoppingDays] = useState(7);
+  // Cle "{index du jour}-{position}" -> id d'exercice choisi a la main,
+  // pour remplacer le pick automatique par une preference perso.
+  const [swaps, setSwaps] = useState<Record<string, string>>({});
+
+  useEffect(() => {
+    setSwaps({});
+  }, [goal, days]);
 
   const scheme = GOAL_SCHEME[goal];
-  const programme = buildProgramme(goal, days);
+  const rawProgramme = buildProgramme(goal, days);
+  const programme = rawProgramme.map((day) => ({
+    ...day,
+    exos: day.exos.map((ex, slot) => {
+      const swappedId = swaps[`${day.index}-${slot}`];
+      if (!swappedId) return ex;
+      return findById(EXERCISES, swappedId) ?? ex;
+    }),
+  }));
   const weekPlan = buildWeekPlan(shoppingDays);
   const totals = aggregateIngredients(weekPlan);
   const shoppingGroups = groupShoppingByCategory(totals);
@@ -150,11 +165,14 @@ export default function ProgrammePage() {
                   </div>
                 </div>
               </div>
-              {day.exos.map((ex) => {
+              {day.exos.map((ex, slot) => {
                 const parts = schemeParts(ex, scheme);
                 const name = tData(ex, "name") as string;
+                const alternatives = EXERCISES.filter(
+                  (cand) => cand.id === ex.id || cand.muscles.some((m) => ex.muscles.includes(m))
+                ).sort((a, b) => (tData(a, "name") as string).localeCompare(tData(b, "name") as string));
                 return (
-                  <div className="exo-row" key={ex.id}>
+                  <div className="exo-row" key={`${day.index}-${slot}`}>
                     <ExoThumb photo={ex.photo} alt={name} />
                     <div className="exo-row-info">
                       <div className="name">
@@ -165,6 +183,20 @@ export default function ProgrammePage() {
                     <div className="scheme">
                       {parts.sets} × {parts.reps} — {t("label.rest")} {scheme.rest}
                     </div>
+                    <select
+                      className="exo-swap-select"
+                      value={ex.id}
+                      aria-label={t("programme.chooseExercise")}
+                      onChange={(e) =>
+                        setSwaps((prev) => ({ ...prev, [`${day.index}-${slot}`]: e.target.value }))
+                      }
+                    >
+                      {alternatives.map((alt) => (
+                        <option key={alt.id} value={alt.id}>
+                          {tData(alt, "name") as string}
+                        </option>
+                      ))}
+                    </select>
                   </div>
                 );
               })}

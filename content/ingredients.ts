@@ -471,5 +471,165 @@ export const INGREDIENTS: Ingredient[] = [
       category: "Verdura",
       notes: "Muy baja en calorías, rica en fibra y betacaroteno. Buena verdura de volumen, cruda en bastoncitos o cocida como guarnición."
     }
+  },
+  {
+    id: "myrtilles",
+    name: "Myrtilles",
+    category: "Glucide",
+    calories100: 57,
+    protein100: 0.7,
+    carbs100: 14,
+    fat100: 0.3,
+    quality: "bon",
+    notes: "Riches en antioxydants (anthocyanes) et en fibres, à index glycémique bas pour un fruit. Bon choix pour sucrer un porridge ou un bol de fromage blanc sans faire grimper les calories.",
+    es: {
+      name: "Arándanos",
+      category: "Carbohidrato",
+      notes: "Ricos en antioxidantes (antocianinas) y en fibra, con un índice glucémico bajo para ser una fruta. Buena opción para endulzar un porridge o un bol de queso fresco batido sin disparar las calorías."
+    }
+  },
+  {
+    id: "graines-de-chia",
+    name: "Graines de chia",
+    category: "Lipide",
+    calories100: 486,
+    protein100: 17,
+    carbs100: 42,
+    fat100: 31,
+    quality: "bon",
+    notes: "Très riches en fibres et en oméga-3 d'origine végétale. Gonflent au contact d'un liquide, utile pour épaissir un smoothie bowl ou un yaourt. Très caloriques : une cuillère à soupe (~12g) suffit généralement.",
+    es: {
+      name: "Semillas de chía",
+      category: "Grasa",
+      notes: "Muy ricas en fibra y en omega-3 de origen vegetal. Se hinchan al contacto con un líquido, útiles para espesar un smoothie bowl o un yogur. Muy calóricas: una cucharada (~12g) suele bastar."
+    }
+  },
+  {
+    id: "pomme",
+    name: "Pomme",
+    category: "Glucide",
+    calories100: 52,
+    protein100: 0.3,
+    carbs100: 14,
+    fat100: 0.2,
+    quality: "bon",
+    notes: "Fruit peu calorique, riche en fibres (surtout avec la peau) qui ralentissent l'absorption des sucres. Bonne option de collation ou pour sucrer naturellement un porridge.",
+    es: {
+      name: "Manzana",
+      category: "Carbohidrato",
+      notes: "Fruta baja en calorías, rica en fibra (sobre todo con piel) que ralentiza la absorción de los azúcares. Buena opción de merienda o para endulzar de forma natural un porridge."
+    }
+  },
+  {
+    id: "feta",
+    name: "Feta",
+    category: "Protéine",
+    calories100: 264,
+    protein100: 14,
+    carbs100: 4,
+    fat100: 21,
+    quality: "neutre",
+    notes: "Fromage de brebis/chèvre riche en protéines mais aussi en graisses saturées et en sel. Apporte du goût en petite quantité dans une salade ou une omelette, sans en abuser.",
+    es: {
+      name: "Queso feta",
+      category: "Proteína",
+      notes: "Queso de oveja/cabra rico en proteína pero también en grasas saturadas y en sal. Aporta sabor en poca cantidad en una ensalada o una tortilla, sin abusar."
+    }
+  },
+  {
+    id: "cabillaud",
+    name: "Cabillaud",
+    category: "Protéine",
+    calories100: 82,
+    protein100: 18,
+    carbs100: 0,
+    fat100: 0.7,
+    quality: "bon",
+    notes: "Poisson blanc très maigre, excellente source de protéines pour très peu de calories. Cuisson douce (four, vapeur, poêle) pour ne pas le dessécher.",
+    es: {
+      name: "Bacalao",
+      category: "Proteína",
+      notes: "Pescado blanco muy magro, excelente fuente de proteína por muy pocas calorías. Cocina con calor suave (horno, vapor, plancha) para que no se seque."
+    }
+  },
+  {
+    id: "poivron",
+    name: "Poivron",
+    category: "Légume",
+    calories100: 31,
+    protein100: 1,
+    carbs100: 6,
+    fat100: 0.3,
+    quality: "bon",
+    notes: "Très riche en vitamine C, peu calorique. Se mange cru en bâtonnets ou rôti au four pour plus de douceur.",
+    es: {
+      name: "Pimiento",
+      category: "Verdura",
+      notes: "Muy rico en vitamina C, bajo en calorías. Se come crudo en bastoncitos o asado al horno para que quede más dulce."
+    }
+  },
+  {
+    id: "concombre",
+    name: "Concombre",
+    category: "Légume",
+    calories100: 15,
+    protein100: 0.7,
+    carbs100: 3.6,
+    fat100: 0.1,
+    quality: "bon",
+    notes: "Très riche en eau, très peu calorique. Bon légume de volume et de fraîcheur dans une salade.",
+    es: {
+      name: "Pepino",
+      category: "Verdura",
+      notes: "Muy rico en agua, muy bajo en calorías. Buena verdura de volumen y frescor en una ensalada."
+    }
+  },
+  {
+    id: "tortilla-ble-complet",
+    name: "Tortilla de blé complet",
+    category: "Glucide",
+    calories100: 300,
+    protein100: 8,
+    carbs100: 45,
+    fat100: 9,
+    quality: "neutre",
+    notes: "Galette de blé complet pratique pour un wrap. Plus riche en fibres qu'une tortilla blanche classique, mais reste plus grasse et transformée qu'une tranche de pain complet.",
+    es: {
+      name: "Tortilla de trigo integral",
+      category: "Carbohidrato",
+      notes: "Torta de trigo integral práctica para un wrap. Más rica en fibra que una tortilla blanca clásica, pero sigue siendo más grasa y procesada que una rebanada de pan integral."
+    }
+  },
+  {
+    id: "haricots-verts",
+    name: "Haricots verts",
+    category: "Légume",
+    calories100: 35,
+    protein100: 1.8,
+    carbs100: 7,
+    fat100: 0.2,
+    quality: "bon",
+    notes: "Légume vert peu calorique, riche en fibres et en vitamine K. Bonne option pour ajouter du volume à un repas sans les calories.",
+    es: {
+      name: "Judías verdes",
+      category: "Verdura",
+      notes: "Verdura verde baja en calorías, rica en fibra y en vitamina K. Buena opción para añadir volumen a una comida sin las calorías."
+    }
+  },
+  {
+    id: "chocolat-noir",
+    name: "Chocolat noir",
+    category: "Lipide",
+    calories100: 598,
+    protein100: 7.8,
+    carbs100: 46,
+    fat100: 43,
+    quality: "neutre",
+    notes: "Chocolat noir (70% cacao ou plus) riche en antioxydants, mais très calorique et sucré. Deux ou trois carrés en fin de collation, pas la tablette entière.",
+    es: {
+      name: "Chocolate negro",
+      category: "Grasa",
+      notes: "Chocolate negro (70% cacao o más) rico en antioxidantes, pero muy calórico y azucarado. Dos o tres onzas al final de una merienda, no la tableta entera."
+    }
   }
 ];
