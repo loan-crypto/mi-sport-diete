@@ -226,6 +226,9 @@ export const UI_STRINGS = {
     "status.errorProcessing": "Erreur lors du traitement de la photo : ",
     "label.progressAlt": "Progression du {date}",
 
+    // Nouveau : graphique de progression
+    "chart.progressTitle": "Évolution du poids utilisé",
+
     // Nouveau : auth
     "auth.login.title": "Connexion",
     "auth.login.email": "Email",
@@ -461,6 +464,9 @@ export const UI_STRINGS = {
     "label.exercises": "ejercicios",
     "status.errorProcessing": "Error al procesar la foto: ",
     "label.progressAlt": "Progreso del {date}",
+
+    // Nuevo: grafico de progreso
+    "chart.progressTitle": "Evolución del peso usado",
 
     // Nuevo: auth
     "auth.login.title": "Iniciar sesión",

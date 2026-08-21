@@ -7,6 +7,7 @@ import { useI18n, useEnumLabels } from "@/lib/i18n/context";
 import PageTheme from "@/components/layout/PageTheme";
 import PhotoOrPlaceholder from "@/components/media/PhotoOrPlaceholder";
 import VideoOrPlaceholder from "@/components/media/VideoOrPlaceholder";
+import ExerciseLogWidget from "@/components/tracking/ExerciseLogWidget";
 
 export default function ExerciceDetailClient({ id }: { id: string }) {
   const { t, tData } = useI18n();
@@ -88,7 +89,7 @@ export default function ExerciceDetailClient({ id }: { id: string }) {
         </>
       ) : null}
 
-      {/* TODO(fase-supabase): formulario de seguimiento + grafico de progreso */}
+      <ExerciseLogWidget exerciseId={ex.id} />
     </>
   );
 }

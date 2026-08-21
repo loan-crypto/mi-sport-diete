@@ -6,6 +6,7 @@ import { useI18n, useEnumLabels } from "@/lib/i18n/context";
 import { computeRecipeTotals, findById } from "@/lib/format";
 import PhotoOrPlaceholder from "@/components/media/PhotoOrPlaceholder";
 import PageTheme from "@/components/layout/PageTheme";
+import MealLogWidget from "@/components/tracking/MealLogWidget";
 
 export default function RecetteDetailClient({ id }: { id: string }) {
   const { t, tData } = useI18n();
@@ -108,7 +109,7 @@ export default function RecetteDetailClient({ id }: { id: string }) {
 
       {notes ? <div className="card-box">{notes}</div> : null}
 
-      {/* TODO(fase-supabase): formulario de seguimiento — t("section.mealLog") */}
+      <MealLogWidget recipeId={recipe.id} />
     </>
   );
 }
