@@ -26,10 +26,12 @@ interface I18nContextValue {
   lang: Lang;
   setLang: (lang: Lang) => void;
   t: (key: UIStringKey, vars?: Record<string, string | number>) => string;
-  tData: <T extends TranslatableItem, K extends string>(
-    item: T,
-    field: K
-  ) => T extends null | undefined ? string : unknown;
+  // Retorna `any` a proposito: el campo puede ser string, string[] u otro
+  // tipo segun el item/campo (nombre vs. steps vs. description...) — igual
+  // de dinamico que tData() en el sitio legado. El llamador sabe que tipo
+  // espera en cada punto de uso.
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  tData: <T extends TranslatableItem>(item: T, field: string) => any;
 }
 
 const I18nContext = createContext<I18nContextValue | null>(null);

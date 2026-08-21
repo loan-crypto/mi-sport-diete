@@ -16,12 +16,15 @@ if (!supabaseUrl || !supabaseAnonKey) {
   // No lanzamos en build time (paginas estaticas sin Supabase deben
   // poder compilar), pero avisamos claramente en consola del navegador.
   if (typeof window !== "undefined") {
-    console.error(
+    console.warn(
       "Supabase no esta configurado: falta NEXT_PUBLIC_SUPABASE_URL o NEXT_PUBLIC_SUPABASE_ANON_KEY en .env.local"
     );
   }
 }
 
+// URL/clave "placeholder" validas sintacticamente para que el build no
+// reviente antes de configurar .env.local — en tiempo de ejecucion sin
+// las variables reales, las llamadas a Supabase simplemente fallaran.
 // URL/clave "placeholder" validas sintacticamente para que el build no
 // reviente antes de configurar .env.local — en tiempo de ejecucion sin
 // las variables reales, las llamadas a Supabase simplemente fallaran.

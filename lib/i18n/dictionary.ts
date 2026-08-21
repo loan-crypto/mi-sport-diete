@@ -16,6 +16,7 @@ export const UI_STRINGS = {
     "nav.journal": "Journal",
     "footer.tagline": "Mon carnet perso — entraînement & nutrition",
 
+    "home.kicker": "Discipline · Sueur · Résultats",
     "home.title": "Mon carnet perso",
     "home.subtitle":
       "Toutes mes recettes, mes ingrédients décortiqués, mes exercices détaillés et mes séances — au même endroit, avec le suivi de mes poids et de mes repas.",
@@ -251,6 +252,7 @@ export const UI_STRINGS = {
     "nav.journal": "Diario",
     "footer.tagline": "Mi cuaderno personal — entrenamiento y nutrición",
 
+    "home.kicker": "Disciplina · Sudor · Resultados",
     "home.title": "Mi cuaderno personal",
     "home.subtitle":
       "Todas mis recetas, mis ingredientes al detalle, mis ejercicios explicados y mis sesiones — todo en un mismo sitio, con el seguimiento de mis pesos y mis comidas.",

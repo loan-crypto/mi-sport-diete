@@ -5,6 +5,7 @@ import { I18nProvider } from "@/lib/i18n/context";
 import { AuthProvider } from "@/lib/auth/context";
 import SiteHeader from "@/components/layout/SiteHeader";
 import SiteFooter from "@/components/layout/SiteFooter";
+import ChatWidget from "@/components/chat/ChatWidget";
 
 // Fuentes auto-hospedadas (portadas de legacy-static-site/fonts).
 // next/font/local resuelve las rutas correctamente sin importar el
@@ -43,6 +44,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <SiteHeader />
             <main className="container">{children}</main>
             <SiteFooter />
+            <ChatWidget />
           </AuthProvider>
         </I18nProvider>
       </body>

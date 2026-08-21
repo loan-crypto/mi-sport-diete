@@ -25,15 +25,15 @@
 }
 
 /* ---------------- THEME : SPORT ----------------
-   Gris-bleu, brut, béton. Discipline, douleur, force, volonté. */
+   Béton brut + rouge coin de ring. Discipline, douleur, force, volonté. */
 body[data-theme="sport"] {
   --bg: #0a0c10;
   --bg-elevated: #14171d;
   --bg-card: #171b22;
   --border: #2a323d;
-  --text-muted: #8b93a3;
-  --accent: #7d97b3;
-  --accent-strong: #5f7c9c;
+  --text-muted: #93999f;
+  --accent: #e5484d;
+  --accent-strong: #ff6166;
   --accent-2: #aab4bd;
 }
 
@@ -73,6 +73,40 @@ html {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Bande "ruban de chantier" — petite touche brute/gym entre deux
+   sections. À utiliser avec parcimonie (voir <StripeDivider/>). */
+.stripe-divider {
+  height: 6px;
+  border-radius: 999px;
+  margin: 36px 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--accent) 0px,
+    var(--accent) 14px,
+    var(--bg-elevated) 14px,
+    var(--bg-elevated) 28px
+  );
+  opacity: 0.85;
+}
+
+/* Reveal au scroll (voir components/motion/ScrollReveal.tsx) : l'élément
+   part légèrement en dessous + invisible, puis "monte au ring" une fois
+   dans le viewport. */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
 a, button, .btn, .card, .hub-card, .nav-links a {
   transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.25s ease, background 0.2s ease, box-shadow 0.25s ease, color 0.2s ease, opacity 0.2s ease;
 }
@@ -104,9 +138,8 @@ body::before {
 }
 
 body[data-theme="sport"]::before {
-  background:
-    repeating-linear-gradient(135deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 2px, transparent 2px, transparent 5px),
-    radial-gradient(ellipse at top left, rgba(125,151,179,0.08), transparent 55%);
+  background: radial-gradient(ellipse at top left, rgba(229,72,77,0.10), transparent 55%),
+              radial-gradient(ellipse at bottom right, rgba(170,180,188,0.05), transparent 60%);
 }
 
 body[data-theme="diet"]::before {
@@ -117,6 +150,7 @@ body[data-theme="diet"]::before {
 body:not([data-theme])::before {
   background: radial-gradient(ellipse at top, rgba(107,230,117,0.06), transparent 60%);
 }
+
 
 a {
   color: inherit;
@@ -179,20 +213,39 @@ header.site-header {
 }
 
 .nav-links a {
+  position: relative;
   padding: 8px 14px;
   border-radius: 999px;
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: var(--text-muted);
   transition: background 0.15s, color 0.15s;
 }
 
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 3px;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
 .nav-links a:hover,
 .nav-links a.active {
   background: var(--bg-card);
   color: var(--text);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  transform: scaleX(1);
 }
 
 .lang-toggle {
@@ -229,54 +282,54 @@ header.site-header {
 .hero {
   position: relative;
   overflow: hidden;
-  padding: 80px 0 50px;
+  border-radius: var(--radius);
+  padding: 110px 24px 56px;
   text-align: center;
   animation: fadeUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
-}
-
-/* Halo dégradé "art directed" en fond de hero — tient lieu de photo
-   tant qu'aucune vraie image n'est ajoutée. */
-.hero::before,
-.hero::after {
-  content: "";
-  position: absolute;
-  width: 480px;
-  height: 480px;
-  border-radius: 50%;
-  filter: blur(100px);
-  opacity: 0.28;
-  z-index: -1;
-  pointer-events: none;
-}
-
-.hero::before {
-  background: var(--accent);
-  top: -180px;
-  left: -120px;
-}
-
-.hero::after {
-  background: var(--accent-2);
-  bottom: -200px;
-  right: -100px;
+  background-image:
+    linear-gradient(180deg, rgba(10, 11, 14, 0.55) 0%, rgba(10, 11, 14, 0.82) 65%, var(--bg) 100%),
+    url("https://images.pexels.com/photos/4761790/pexels-photo-4761790.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1000&fit=crop");
+  background-size: cover;
+  background-position: center 25%;
+  border: 1px solid var(--border);
 }
 
 .hero-art {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  color: var(--accent);
-  z-index: -1;
-  pointer-events: none;
+  display: none;
+}
+
+@keyframes underlineSwipe {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
 }
 
 .hero h1 {
+  position: relative;
+  display: inline-block;
   font-size: clamp(2.6rem, 6vw, 4.2rem);
   text-transform: uppercase;
   letter-spacing: 0.03em;
-  margin: 0 0 16px;
+  margin: 0 0 22px;
   text-wrap: balance;
+  text-shadow: 0 3px 0 rgba(0, 0, 0, 0.4);
+}
+
+.hero h1::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  width: 120px;
+  height: 6px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  animation: underlineSwipe 0.7s 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  clip-path: polygon(4% 0, 100% 0, 96% 100%, 0 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero h1::after { animation: none; transform: translateX(-50%) scaleX(1); }
 }
 
 .hero p {
@@ -303,10 +356,34 @@ header.site-header {
   transition: transform 0.15s, border-color 0.15s;
 }
 
+.hub-card {
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.hub-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 34px 34px 0;
+  border-color: transparent var(--accent) transparent transparent;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.hub-card:hover::before {
+  opacity: 1;
+}
+
 .hub-card:hover {
   transform: translateY(-4px);
   border-color: var(--accent);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), 0 0 0 1px var(--accent);
 }
 
 .icon-badge {
@@ -346,13 +423,24 @@ header.site-header {
 }
 
 .kicker {
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+}
+
+.kicker::before,
+.kicker::after {
+  content: "";
+  height: 2px;
+  width: 18px;
+  background: var(--accent);
+  clip-path: polygon(15% 0, 100% 0, 85% 100%, 0 100%);
 }
 
 /* ---------------- PAGE HEADER ---------------- */
@@ -420,7 +508,7 @@ header.site-header {
 .card:hover {
   transform: translateY(-4px);
   border-color: var(--accent);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), 0 0 0 1px var(--accent);
 }
 
 .card:hover h3 {
@@ -940,22 +1028,39 @@ button, .btn {
   background: var(--accent);
   color: #0f1115;
   border: none;
-  padding: 9px 18px;
+  padding: 11px 22px;
   border-radius: 999px;
-  font-weight: 700;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-family: var(--font-body);
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.35);
 }
 
 button:hover, .btn:hover {
   background: var(--accent-strong);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.35);
 }
 
-button.secondary {
+button:active, .btn:active {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+  transform: translateY(1px) scale(0.96);
+}
+
+button.secondary, .btn.secondary {
   background: transparent;
   border: 1px solid var(--border);
   color: var(--text-muted);
+  box-shadow: none;
+}
+
+button.secondary:hover, .btn.secondary:hover {
+  background: var(--bg-card);
+  color: var(--text);
+  border-color: var(--accent);
 }
 
 button.danger-link {
