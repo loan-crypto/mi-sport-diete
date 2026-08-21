@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diète — Mon Sport &amp; Diète</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%236be675%22/><text x=%2250%22 y=%2270%22 font-family=%22Arial,sans-serif%22 font-weight=%22900%22 font-size=%2258%22 text-anchor=%22middle%22 fill=%22%23101116%22>M</text></svg>">
+</head>
+<body data-nav="diete" data-theme="diet">
+
+<header class="site-header" id="site-header"></header>
+
+<main class="container">
+  <div class="page-header">
+    <span class="kicker" data-i18n="diete.kicker">Fraîcheur · Énergie · Équilibre</span>
+    <h1 data-i18n="diete.title">Diète</h1>
+    <p data-i18n="diete.subtitle">Mes recettes du quotidien, avec les macros calculées automatiquement à partir des ingrédients.</p>
+  </div>
+
+  <div id="recipe-grid" class="card-grid"></div>
+
+  <div class="section-title" data-i18n="diete.ingredientsTitle">Index des ingrédients</div>
+  <p style="color:var(--text-muted)" data-i18n="diete.ingredientsSubtitle">Clique sur un ingrédient pour voir ses valeurs nutritionnelles en détail et savoir s'il est plutôt bon ou mauvais pour tes objectifs.</p>
+  <div id="ingredient-list"></div>
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/helpers.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/render-diete.js"></script>
+<script src="js/chat-widget.js"></script>
+</body>
+</html>

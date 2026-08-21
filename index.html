@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mon Sport &amp; Diète</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%236be675%22/><text x=%2250%22 y=%2270%22 font-family=%22Arial,sans-serif%22 font-weight=%22900%22 font-size=%2258%22 text-anchor=%22middle%22 fill=%22%23101116%22>M</text></svg>">
+</head>
+<body data-nav="accueil">
+
+<header class="site-header" id="site-header"></header>
+
+<main class="container">
+  <section class="hero">
+    <svg class="hero-art" viewBox="0 0 800 300" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <path d="M-50 260 C 120 180, 260 320, 420 220 S 700 60, 850 90" stroke="currentColor" stroke-width="1.4" fill="none" opacity="0.28"/>
+      <path d="M-50 200 C 140 260, 300 120, 460 200 S 720 280, 850 200" stroke="currentColor" stroke-width="1" fill="none" opacity="0.18"/>
+      <path d="M-50 90 C 160 40, 280 140, 440 70 S 680 -10, 850 40" stroke="currentColor" stroke-width="1" fill="none" opacity="0.14"/>
+    </svg>
+    <h1 data-i18n="home.title">Mon carnet perso</h1>
+    <p data-i18n="home.subtitle">Toutes mes recettes, mes ingrédients décortiqués, mes exercices détaillés et mes séances — au même endroit, avec le suivi de mes poids et de mes repas.</p>
+  </section>
+
+  <div class="hub-grid">
+    <a class="hub-card" href="diete.html">
+      <div class="icon-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 2a1 1 0 0 1 1 1v6.17a2 2 0 0 0 1 1.73V22a1 1 0 1 1-2 0v-11.1a2 2 0 0 0 1-1.73V3a1 1 0 0 1 1-1zM4 2a1 1 0 0 1 1 1v5a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm4 0a1 1 0 0 1 1 1v5a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zM19 2c-2.2 0-4 2.24-4 5 0 2.05 1 3.81 2.5 4.58V22a1 1 0 1 0 2 0V11.58C20.99 10.81 22 9.05 22 7c0-2.76-1.8-5-3-5z"/></svg></div>
+      <h2 data-i18n="home.diete.title">Diète</h2>
+      <p data-i18n="home.diete.desc">Mes recettes, les ingrédients, les macros et les photos de mes plats.</p>
+    </a>
+    <a class="hub-card" href="sport.html">
+      <div class="icon-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 9h-2V7a1 1 0 0 0-1-1h-1a1 1 0 0 0-1 1v2H9V7a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2H4a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h2v2a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-2h6v2a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-2h2a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1z"/></svg></div>
+      <h2 data-i18n="home.sport.title">Sport</h2>
+      <p data-i18n="home.sport.desc">Mes exercices détaillés et mes séances de callisthénie / musculation.</p>
+    </a>
+    <a class="hub-card" href="journal.html">
+      <div class="icon-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 20a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4zm7 0a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1h-2zm7 0a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-2z"/></svg></div>
+      <h2 data-i18n="home.journal.title">Journal</h2>
+      <p data-i18n="home.journal.desc">L'historique de mes poids/reps utilisés et des repas que j'ai mangés.</p>
+    </a>
+  </div>
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/helpers.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/chat-widget.js"></script>
+</body>
+</html>

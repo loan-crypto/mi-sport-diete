@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carte musculaire — Mon Sport &amp; Diète</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%236be675%22/><text x=%2250%22 y=%2270%22 font-family=%22Arial,sans-serif%22 font-weight=%22900%22 font-size=%2258%22 text-anchor=%22middle%22 fill=%22%23101116%22>M</text></svg>">
+</head>
+<body data-nav="sport" data-theme="sport">
+
+<header class="site-header" id="site-header"></header>
+
+<main class="container">
+  <div class="breadcrumb"><a href="sport.html" data-i18n="nav.sport">Sport</a> / <span data-i18n="breadcrumb.musclemap">Carte musculaire</span></div>
+  <div class="page-header">
+    <span class="kicker" data-i18n="sport.kicker">Discipline · Douleur · Force · Volonté</span>
+    <h1 data-i18n="map.title">Carte musculaire</h1>
+    <p data-i18n="map.subtitle">Clique sur un point du corps pour découvrir le muscle concerné, puis fonce directement sur les exercices qui le travaillent.</p>
+  </div>
+
+  <div class="map-note" data-i18n-html="map.note">
+    <strong>À propos des photos :</strong> ce sont tes propres photos. Clique sur un point pour découvrir le muscle et les exercices qui le travaillent.
+  </div>
+
+  <div class="map-layout">
+    <div class="map-panel">
+      <div class="map-tabs">
+        <button type="button" class="map-tab active" data-view="front" data-i18n="label.face">Face</button>
+        <button type="button" class="map-tab" data-view="back" data-i18n="label.back">Dos</button>
+      </div>
+      <div class="body-map-wrap">
+        <div id="body-front-wrap" class="body-photo-wrap">
+          <img class="body-photo" src="images/body/front.jpg" alt="Photo de face avec points musculaires cliquables">
+          <div id="dots-front" class="muscle-dots-layer"></div>
+        </div>
+        <div id="body-back-wrap" class="body-photo-wrap" style="display:none">
+          <img class="body-photo" src="images/body/back.jpg" alt="Photo de dos avec points musculaires cliquables">
+          <div id="dots-back" class="muscle-dots-layer"></div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="map-info" id="map-info">
+      <div class="map-info-empty">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg></div>
+        <p data-i18n="map.emptyPrompt">Choisis un point sur la silhouette (face ou dos) pour voir le nom du muscle, son rôle, et les exercices qui le ciblent.</p>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/helpers.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/render-carte-musculaire.js"></script>
+<script src="js/chat-widget.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programme — Mon Sport &amp; Diète</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%236be675%22/><text x=%2250%22 y=%2270%22 font-family=%22Arial,sans-serif%22 font-weight=%22900%22 font-size=%2258%22 text-anchor=%22middle%22 fill=%22%23101116%22>M</text></svg>">
+</head>
+<body data-nav="programme" data-theme="sport">
+
+<header class="site-header" id="site-header"></header>
+
+<main class="container">
+  <div class="breadcrumb"><a href="sport.html" data-i18n="nav.sport">Sport</a> / <span data-i18n="breadcrumb.programme">Programme</span></div>
+  <div class="page-header">
+    <span class="kicker" data-i18n="sport.kicker">Discipline · Douleur · Force · Volonté</span>
+    <h1 data-i18n="programme.title">Générateur de programme</h1>
+    <p data-i18n="programme.subtitle">Dis-moi ton objectif et le nombre de jours où tu peux t'entraîner par semaine : je te propose un split complet (avec de vrais exercices de ton carnet) et une orientation diète adaptée.</p>
+  </div>
+
+  <form id="programme-form" class="programme-form">
+    <div class="field grow">
+      <label data-i18n="programme.field.goal">Ton objectif</label>
+      <div class="goal-options" id="goal-options">
+        <label class="goal-option">
+          <input type="radio" name="goal" value="volume" checked>
+          <span data-i18n="programme.goal.volume">Prendre du muscle (volume)</span>
+        </label>
+        <label class="goal-option">
+          <input type="radio" name="goal" value="secher">
+          <span data-i18n="programme.goal.secher">Perdre du gras (sèche)</span>
+        </label>
+        <label class="goal-option">
+          <input type="radio" name="goal" value="maintien">
+          <span data-i18n="programme.goal.maintien">Me maintenir en forme</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="programme-days" data-i18n="programme.field.days">Jours d'entraînement / semaine</label>
+      <select id="programme-days">
+        <option value="2">2</option>
+        <option value="3" selected>3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
+    </div>
+
+    <button type="submit" data-i18n="programme.generate">Générer mon programme</button>
+  </form>
+
+  <div id="programme-result"></div>
+
+  <div class="section-title" data-i18n="programme.shopping.title">Liste de courses</div>
+  <p style="color:var(--text-muted)" data-i18n="programme.shopping.subtitle">Choisis le nombre de jours : je répartis tes recettes (petit-déj, déjeuner, dîner, collation) sur la semaine, puis j'additionne tout en une seule liste d'ingrédients à acheter.</p>
+
+  <form id="shopping-form" class="programme-form">
+    <div class="field">
+      <label for="shopping-days" data-i18n="programme.shopping.field.days">Nombre de jours</label>
+      <select id="shopping-days">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7" selected>7</option>
+        <option value="10">10</option>
+        <option value="14">14</option>
+      </select>
+    </div>
+    <button type="submit" data-i18n="programme.shopping.generate">Générer ma liste de courses</button>
+  </form>
+
+  <div id="shopping-result"></div>
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/helpers.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/render-programme.js"></script>
+<script src="js/chat-widget.js"></script>
+</body>
+</html>

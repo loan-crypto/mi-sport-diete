@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Journal — Mon Sport &amp; Diète</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%236be675%22/><text x=%2250%22 y=%2270%22 font-family=%22Arial,sans-serif%22 font-weight=%22900%22 font-size=%2258%22 text-anchor=%22middle%22 fill=%22%23101116%22>M</text></svg>">
+</head>
+<body data-nav="journal">
+
+<header class="site-header" id="site-header"></header>
+
+<main class="container">
+  <div class="page-header">
+    <h1 data-i18n="journal.title">Journal</h1>
+    <p data-i18n="journal.subtitle">Tout ton historique : les poids/reps utilisés sur tes exercices et les repas que tu as mangés. Ces données sont stockées uniquement dans ce navigateur.</p>
+  </div>
+
+  <div class="journal-tabs">
+    <button id="tab-exo" class="active" data-i18n="tab.trainings">Entraînements</button>
+    <button id="tab-meal" data-i18n="tab.meals">Repas</button>
+  </div>
+
+  <div id="journal-content"></div>
+
+  <div class="section-title" data-i18n="section.backup">Sauvegarde</div>
+  <div class="card-box">
+    <p style="margin-top:0;color:var(--text-muted)" data-i18n="backup.desc">Ces données vivent uniquement dans ce navigateur. Exporte-les régulièrement pour ne rien perdre, ou pour les transférer sur un autre appareil.</p>
+    <button id="export-btn" class="secondary" data-i18n="btn.export">Exporter mes données (.json)</button>
+    <label for="import-input" class="btn secondary" style="display:inline-block;margin-left:8px;cursor:pointer" data-i18n="btn.import">Importer un fichier</label>
+    <input type="file" id="import-input" accept="application/json" style="display:none">
+  </div>
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/helpers.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/render-journal.js"></script>
+<script src="js/chat-widget.js"></script>
+</body>
+</html>
