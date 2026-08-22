@@ -8,6 +8,7 @@ import PhotoOrPlaceholder from "@/components/media/PhotoOrPlaceholder";
 import PageTheme from "@/components/layout/PageTheme";
 import { heroPhotoStyle } from "@/lib/heroStyle";
 import DietPlanGenerator from "@/components/diete/DietPlanGenerator";
+import AnimatedNumber from "@/components/motion/AnimatedNumber";
 
 const HERO_PHOTO = RECIPES.find((r) => r.photo)?.photo;
 const bonCount = INGREDIENTS.filter((i) => i.quality === "bon").length;
@@ -27,15 +28,21 @@ export default function DietePage() {
 
       <div className="stats-row">
         <div className="stat">
-          <div className="value">{RECIPES.length}</div>
+          <div className="value">
+            <AnimatedNumber value={RECIPES.length} />
+          </div>
           <div className="label">{t("nav.diete")}</div>
         </div>
         <div className="stat">
-          <div className="value">{INGREDIENTS.length}</div>
+          <div className="value">
+            <AnimatedNumber value={INGREDIENTS.length} />
+          </div>
           <div className="label">{t("th.ingredient")}</div>
         </div>
         <div className="stat">
-          <div className="value">{bonCount}</div>
+          <div className="value">
+            <AnimatedNumber value={bonCount} />
+          </div>
           <div className="label">{t("quality.good")}</div>
         </div>
       </div>

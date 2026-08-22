@@ -6,6 +6,8 @@ import { Icon } from "@/lib/icons";
 import PageTheme from "@/components/layout/PageTheme";
 import { heroPhotoStyle } from "@/lib/heroStyle";
 import { EXERCISES, SESSIONS } from "@/content";
+import Tilt3D from "@/components/motion/Tilt3D";
+import AnimatedNumber from "@/components/motion/AnimatedNumber";
 
 const exercisePhotos = EXERCISES.filter((e) => e.photo).map((e) => e.photo);
 const EXERCICES_PHOTO = exercisePhotos[0];
@@ -27,50 +29,62 @@ export default function SportPage() {
 
       <div className="stats-row">
         <div className="stat">
-          <div className="value">{EXERCISES.length}</div>
+          <div className="value">
+            <AnimatedNumber value={EXERCISES.length} />
+          </div>
           <div className="label">{t("hub.exercices.title")}</div>
         </div>
         <div className="stat">
-          <div className="value">{SESSIONS.length}</div>
+          <div className="value">
+            <AnimatedNumber value={SESSIONS.length} />
+          </div>
           <div className="label">{t("hub.seances.title")}</div>
         </div>
         <div className="stat">
-          <div className="value">21</div>
+          <div className="value">
+            <AnimatedNumber value={21} />
+          </div>
           <div className="label">{t("hub.musclemap.title")}</div>
         </div>
       </div>
 
       <div className="hub-grid">
-        <Link className="hub-card" href="/sport/exercices">
-          <div className="hub-card-photo" style={{ backgroundImage: `url(${EXERCICES_PHOTO})` }} />
-          <div className="hub-card-body">
-            <div className="icon-badge">
-              <Icon name="dumbbell" />
+        <Tilt3D>
+          <Link className="hub-card" href="/sport/exercices">
+            <div className="hub-card-photo" style={{ backgroundImage: `url(${EXERCICES_PHOTO})` }} />
+            <div className="hub-card-body">
+              <div className="icon-badge">
+                <Icon name="dumbbell" />
+              </div>
+              <h2>{t("hub.exercices.title")}</h2>
+              <p>{t("hub.exercices.desc")}</p>
             </div>
-            <h2>{t("hub.exercices.title")}</h2>
-            <p>{t("hub.exercices.desc")}</p>
-          </div>
-        </Link>
-        <Link className="hub-card" href="/sport/seances">
-          <div className="hub-card-photo" style={{ backgroundImage: `url(${SEANCES_PHOTO})` }} />
-          <div className="hub-card-body">
-            <div className="icon-badge">
-              <Icon name="clipboard" />
+          </Link>
+        </Tilt3D>
+        <Tilt3D>
+          <Link className="hub-card" href="/sport/seances">
+            <div className="hub-card-photo" style={{ backgroundImage: `url(${SEANCES_PHOTO})` }} />
+            <div className="hub-card-body">
+              <div className="icon-badge">
+                <Icon name="clipboard" />
+              </div>
+              <h2>{t("hub.seances.title")}</h2>
+              <p>{t("hub.seances.desc")}</p>
             </div>
-            <h2>{t("hub.seances.title")}</h2>
-            <p>{t("hub.seances.desc")}</p>
-          </div>
-        </Link>
-        <Link className="hub-card" href="/sport/carte-musculaire">
-          <div className="hub-card-photo" style={{ backgroundImage: `url(${MUSCLEMAP_PHOTO})` }} />
-          <div className="hub-card-body">
-            <div className="icon-badge">
-              <Icon name="chart" />
+          </Link>
+        </Tilt3D>
+        <Tilt3D>
+          <Link className="hub-card" href="/sport/carte-musculaire">
+            <div className="hub-card-photo" style={{ backgroundImage: `url(${MUSCLEMAP_PHOTO})` }} />
+            <div className="hub-card-body">
+              <div className="icon-badge">
+                <Icon name="chart" />
+              </div>
+              <h2>{t("hub.musclemap.title")}</h2>
+              <p>{t("hub.musclemap.desc")}</p>
             </div>
-            <h2>{t("hub.musclemap.title")}</h2>
-            <p>{t("hub.musclemap.desc")}</p>
-          </div>
-        </Link>
+          </Link>
+        </Tilt3D>
       </div>
     </>
   );

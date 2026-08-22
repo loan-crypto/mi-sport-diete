@@ -11,6 +11,7 @@ import { useI18n } from "@/lib/i18n/context";
 import { Icon } from "@/lib/icons";
 import { heroPhotoStyle } from "@/lib/heroStyle";
 import { EXERCISES } from "@/content";
+import Tilt3D from "@/components/motion/Tilt3D";
 
 const HERO_PHOTO = EXERCISES.filter((e) => e.photo).map((e) => e.photo)[6];
 const JOURNAL_PHOTO = HERO_PHOTO;
@@ -29,36 +30,42 @@ export default function EspacioPersonalPage() {
       </section>
 
       <div className="hub-grid">
-        <Link className="hub-card" href="/journal">
-          <div className="hub-card-photo" style={{ backgroundImage: `url(${JOURNAL_PHOTO})` }} />
-          <div className="hub-card-body">
-            <div className="icon-badge">
-              <Icon name="chart" />
+        <Tilt3D>
+          <Link className="hub-card" href="/journal">
+            <div className="hub-card-photo" style={{ backgroundImage: `url(${JOURNAL_PHOTO})` }} />
+            <div className="hub-card-body">
+              <div className="icon-badge">
+                <Icon name="chart" />
+              </div>
+              <h2>{t("hub.journal.title")}</h2>
+              <p>{t("hub.journal.desc")}</p>
             </div>
-            <h2>{t("hub.journal.title")}</h2>
-            <p>{t("hub.journal.desc")}</p>
-          </div>
-        </Link>
-        <Link className="hub-card" href="/progression">
-          <div className="hub-card-photo" style={{ backgroundImage: `url(${PROGRESSION_PHOTO})` }} />
-          <div className="hub-card-body">
-            <div className="icon-badge">
-              <Icon name="camera" />
+          </Link>
+        </Tilt3D>
+        <Tilt3D>
+          <Link className="hub-card" href="/progression">
+            <div className="hub-card-photo" style={{ backgroundImage: `url(${PROGRESSION_PHOTO})` }} />
+            <div className="hub-card-body">
+              <div className="icon-badge">
+                <Icon name="camera" />
+              </div>
+              <h2>{t("hub.progression.title")}</h2>
+              <p>{t("hub.progression.desc")}</p>
             </div>
-            <h2>{t("hub.progression.title")}</h2>
-            <p>{t("hub.progression.desc")}</p>
-          </div>
-        </Link>
-        <Link className="hub-card" href="/planificateur">
-          <div className="hub-card-photo" style={{ backgroundImage: `url(${PLANNER_PHOTO})` }} />
-          <div className="hub-card-body">
-            <div className="icon-badge">
-              <Icon name="clipboard" />
+          </Link>
+        </Tilt3D>
+        <Tilt3D>
+          <Link className="hub-card" href="/planificateur">
+            <div className="hub-card-photo" style={{ backgroundImage: `url(${PLANNER_PHOTO})` }} />
+            <div className="hub-card-body">
+              <div className="icon-badge">
+                <Icon name="clipboard" />
+              </div>
+              <h2>{t("hub.planificateur.title")}</h2>
+              <p>{t("hub.planificateur.desc")}</p>
             </div>
-            <h2>{t("hub.planificateur.title")}</h2>
-            <p>{t("hub.planificateur.desc")}</p>
-          </div>
-        </Link>
+          </Link>
+        </Tilt3D>
       </div>
     </>
   );
