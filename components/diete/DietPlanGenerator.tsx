@@ -34,17 +34,33 @@ const SLOTS: { slot: Slot; labelKey: UIStringKey; pool: typeof RECIPES }[] = [
   { slot: "snack", labelKey: "label.snack", pool: SNACK_RECIPES },
 ];
 
+function mealTotals(recipe: WeekPlanDay["breakfast"] | null) {
+  if (!recipe) return { kcal: 0, protein: 0 };
+  const totals = computeRecipeTotals(recipe);
+  const servings = recipe.servings || 1;
+  return { kcal: totals.calories / servings, protein: totals.protein / servings };
+}
+
 function dayTotals(meals: (WeekPlanDay["breakfast"] | null)[]) {
   let kcal = 0;
   let protein = 0;
   for (const recipe of meals) {
-    if (!recipe) continue;
-    const totals = computeRecipeTotals(recipe);
-    const servings = recipe.servings || 1;
-    kcal += totals.calories / servings;
-    protein += totals.protein / servings;
+    const m = mealTotals(recipe);
+    kcal += m.kcal;
+    protein += m.protein;
   }
-  return { kcal: Math.round(kcal), protein: Math.round(protein) };
+  return { kcal, protein };
+}
+
+// Las recetas se rotan sin tener en cuenta el objetivo numerico, asi que
+// el total crudo del dia puede quedar muy por debajo (o por encima) del
+// objetivo (ej. volumen con un objetivo alto). En vez de inventar
+// recetas nuevas, se escala la porcion de cada comida (mismo principio
+// que "come 1.5 platos de esto") para acercarse al objetivo, mostrando
+// el multiplicador de forma transparente en cada fila.
+function computeScale(rawKcal: number, targetKcal: number | null) {
+  if (!targetKcal || rawKcal <= 0) return 1;
+  return Math.max(0.5, Math.min(3, targetKcal / rawKcal));
 }
 
 export default function DietPlanGenerator() {
@@ -155,7 +171,9 @@ export default function DietPlanGenerator() {
               const recipe = swappedId ? findById(RECIPES, swappedId) ?? base : base;
               return { slot, key, recipe, pool };
             });
-            const totals = dayTotals(resolvedMeals.map((m) => m.recipe));
+            const rawTotals = dayTotals(resolvedMeals.map((m) => m.recipe));
+            const scale = computeScale(rawTotals.kcal, target?.kcal ?? null);
+            const scaledTotals = { kcal: Math.round(rawTotals.kcal * scale), protein: Math.round(rawTotals.protein * scale) };
             return (
               <div className="card-box programme-day" key={day.day}>
                 <div className="programme-day-head">
@@ -164,8 +182,13 @@ export default function DietPlanGenerator() {
                     <div className="programme-day-title">{weekdayLabel}</div>
                     <div className="programme-day-muscles">
                       <span className="tag">
-                        {totals.kcal} kcal · {totals.protein} g {t("macro.protein").toLowerCase()}
+                        {scaledTotals.kcal} kcal · {scaledTotals.protein} g {t("macro.protein").toLowerCase()}
                       </span>
+                      {scale !== 1 ? (
+                        <span className="tag" title={t("diete.plan.scaleHint")}>
+                          × {scale.toFixed(1)}
+                        </span>
+                      ) : null}
                     </div>
                   </div>
                 </div>
@@ -173,6 +196,8 @@ export default function DietPlanGenerator() {
                   if (!recipe) return null;
                   const name = tData(recipe, "name") as string;
                   const slotInfo = SLOTS.find((s) => s.slot === slot)!;
+                  const m = mealTotals(recipe);
+                  const scaledKcal = Math.round(m.kcal * scale);
                   return (
                     <div className="exo-row" key={key}>
                       <ExoThumb photo={recipe.photo} alt={name} icon="fork" />
@@ -180,7 +205,10 @@ export default function DietPlanGenerator() {
                         <div className="name">
                           <Link href={`/diete/recettes/${recipe.id}`}>{name}</Link>
                         </div>
-                        <div className="scheme">{t(slotInfo.labelKey)}</div>
+                        <div className="scheme">
+                          {t(slotInfo.labelKey)} · {scaledKcal} kcal
+                          {scale !== 1 ? ` (×${scale.toFixed(1)})` : ""}
+                        </div>
                       </div>
                       <select
                         className="exo-swap-select"

@@ -13,7 +13,10 @@ import { useI18n, useEnumLabels } from "@/lib/i18n/context";
 import PageTheme from "@/components/layout/PageTheme";
 import { heroPhotoStyle } from "@/lib/heroStyle";
 
-const HERO_PHOTO = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/body/front.jpg`;
+// Foto de stock para el banner (no tu foto propia: el banner recorta en
+// "cover" con poca altura, y tu foto de cuerpo entero ya se muestra
+// completa y en su formato correcto mas abajo, en .body-photo-wrap).
+const HERO_PHOTO = EXERCISES.filter((e) => e.photo).map((e) => e.photo)[12];
 
 type View = "front" | "back";
 

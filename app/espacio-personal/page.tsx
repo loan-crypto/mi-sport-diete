@@ -13,10 +13,14 @@ import { heroPhotoStyle } from "@/lib/heroStyle";
 import { EXERCISES } from "@/content";
 import Tilt3D from "@/components/motion/Tilt3D";
 
-const HERO_PHOTO = EXERCISES.filter((e) => e.photo).map((e) => e.photo)[6];
+const photos = EXERCISES.filter((e) => e.photo).map((e) => e.photo);
+const HERO_PHOTO = photos[6];
 const JOURNAL_PHOTO = HERO_PHOTO;
-const PROGRESSION_PHOTO = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/body/back.jpg`;
-const PLANNER_PHOTO = EXERCISES.filter((e) => e.photo).map((e) => e.photo)[9];
+// Nota: evitamos tu foto propia (images/body/back.jpg) aqui — el recorte
+// automatico de una tarjeta chica cae mal sobre una foto de cuerpo
+// entero. Se queda solo en Progresion, mostrada completa en su galeria.
+const PROGRESSION_PHOTO = photos[11] ?? photos[2];
+const PLANNER_PHOTO = photos[9];
 
 export default function EspacioPersonalPage() {
   const { t } = useI18n();

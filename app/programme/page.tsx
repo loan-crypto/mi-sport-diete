@@ -19,6 +19,7 @@ import {
   type Goal,
   type DayKey,
   DAY_MUSCLES,
+  CORE_MUSCLES,
   DAY_LABEL_KEY,
   GOAL_SCHEME,
   buildProgramme,
@@ -55,24 +56,37 @@ export default function ProgrammePage() {
     setAdded({});
   }, [goal, days]);
 
-  type Row = { ex: (typeof EXERCISES)[number]; key: string; removable: boolean };
+  // El slot 4 es siempre el ejercicio de core (pickExercises(CORE_MUSCLES,1,...)
+  // en buildDay); todo lo demas (0-3, y el cardio extra en secher) apunta a
+  // los musculos del dia. Se usa para saber contra que lista de musculos
+  // ofrecer alternativas al cambiar un ejercicio - no contra los musculos
+  // del propio ejercicio, que pueden ser muy amplios (ej. burpees) y
+  // terminar sugiriendo ejercicios de otro grupo por completo.
+  type Row = {
+    ex: (typeof EXERCISES)[number];
+    key: string;
+    removable: boolean;
+    targetMuscles: string[];
+  };
 
   const scheme = GOAL_SCHEME[goal];
   const rawProgramme = buildProgramme(goal, days);
   const programme = rawProgramme.map((day) => {
+    const dayMuscles = DAY_MUSCLES[day.dayKey];
     const autoRows: Row[] = day.exos
       .map((ex, slot) => {
         const key = `${day.index}-${slot}`;
         if (removed[key]) return null;
         const swappedId = swaps[key];
         const finalEx = swappedId ? findById(EXERCISES, swappedId) ?? ex : ex;
-        return { ex: finalEx, key, removable: true };
+        const targetMuscles = slot === 4 ? CORE_MUSCLES : dayMuscles;
+        return { ex: finalEx, key, removable: true, targetMuscles };
       })
       .filter((row): row is Row => row !== null);
     const extraRows: Row[] = (added[day.index] ?? [])
       .map((id, i) => {
         const ex = findById(EXERCISES, id);
-        return ex ? { ex, key: `${day.index}-added-${i}`, removable: true } : null;
+        return ex ? { ex, key: `${day.index}-added-${i}`, removable: true, targetMuscles: dayMuscles } : null;
       })
       .filter((row): row is Row => row !== null);
     return { ...day, rows: [...autoRows, ...extraRows] };
@@ -205,11 +219,11 @@ export default function ProgrammePage() {
                 </div>
               </div>
               {day.rows.map((row) => {
-                const { ex, key } = row;
+                const { ex, key, targetMuscles } = row;
                 const parts = schemeParts(ex, scheme);
                 const name = tData(ex, "name") as string;
                 const alternatives = EXERCISES.filter(
-                  (cand) => cand.id === ex.id || cand.muscles.some((m) => ex.muscles.includes(m))
+                  (cand) => cand.id === ex.id || cand.muscles.some((m) => targetMuscles.includes(m))
                 ).sort((a, b) => (tData(a, "name") as string).localeCompare(tData(b, "name") as string));
                 return (
                   <div className="exo-row" key={key}>

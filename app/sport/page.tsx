@@ -12,7 +12,11 @@ import AnimatedNumber from "@/components/motion/AnimatedNumber";
 const exercisePhotos = EXERCISES.filter((e) => e.photo).map((e) => e.photo);
 const EXERCICES_PHOTO = exercisePhotos[0];
 const SEANCES_PHOTO = exercisePhotos[5] ?? exercisePhotos[0];
-const MUSCLEMAP_PHOTO = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/body/front.jpg`;
+// Nota: evitamos tus fotos propias (images/body/*) en tarjetas chicas —
+// el recorte automatico (cover, poca altura) cae mal sobre una foto de
+// cuerpo entero. Se quedan reservadas para la pagina Carta muscular
+// donde se muestran completas, en su formato correcto.
+const MUSCLEMAP_PHOTO = exercisePhotos[8] ?? exercisePhotos[0];
 
 export default function SportPage() {
   const { t } = useI18n();

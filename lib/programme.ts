@@ -66,6 +66,11 @@ export const AUTO_PICK_EXCLUDE = new Set([
   "squat-pistol",
   "leg-curl-nordique",
   "adducteurs-isometrique",
+  // Movimientos "full body"/cardio: sus muchos musculos tocados los hacen
+  // ganar el score de cobertura en CUALQUIER tipo de dia (push, legs...),
+  // apareciendo donde no corresponde (ej. burpees en un dia de Push).
+  "burpees",
+  "mountain-climbers",
 ]);
 
 export const BREAKFAST_RECIPES = RECIPES.filter((r) => r.category === "Petit-déjeuner");
