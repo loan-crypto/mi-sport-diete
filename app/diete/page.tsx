@@ -7,6 +7,7 @@ import { computeRecipeTotals } from "@/lib/format";
 import PhotoOrPlaceholder from "@/components/media/PhotoOrPlaceholder";
 import PageTheme from "@/components/layout/PageTheme";
 import { heroPhotoStyle } from "@/lib/heroStyle";
+import DietPlanGenerator from "@/components/diete/DietPlanGenerator";
 
 const HERO_PHOTO = RECIPES.find((r) => r.photo)?.photo;
 const bonCount = INGREDIENTS.filter((i) => i.quality === "bon").length;
@@ -39,6 +40,9 @@ export default function DietePage() {
         </div>
       </div>
 
+      <DietPlanGenerator />
+
+      <div className="section-title">{t("diete.title")}</div>
       <div className="card-grid">
         {RECIPES.map((recipe) => {
           const totals = computeRecipeTotals(recipe);
