@@ -187,7 +187,7 @@ export const RECIPES: Recipe[] = [
     id: "wrap-dinde-avocat",
     name: "Wrap dinde, avocat & tomate",
     category: "Déjeuner / Dîner",
-    photo: "",
+    photo: "https://images.pexels.com/photos/29535635/pexels-photo-29535635.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     servings: 1,
     ingredients: [
       { ingredientId: "pain-complet", grams: 80 },
@@ -246,7 +246,7 @@ export const RECIPES: Recipe[] = [
     id: "steak-hache-patate-douce-brocolis",
     name: "Steak haché, patate douce & brocolis",
     category: "Déjeuner / Dîner",
-    photo: "",
+    photo: "https://images.pexels.com/photos/5969347/pexels-photo-5969347.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     servings: 1,
     ingredients: [
       { ingredientId: "boeuf-hache-5", grams: 150 },
@@ -277,7 +277,7 @@ export const RECIPES: Recipe[] = [
     id: "dahl-lentilles-epinards",
     name: "Dahl de lentilles & épinards",
     category: "Déjeuner / Dîner",
-    photo: "",
+    photo: "https://images.pexels.com/photos/28675074/pexels-photo-28675074.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     servings: 1,
     ingredients: [
       { ingredientId: "lentilles-cuites", grams: 250 },
@@ -308,7 +308,7 @@ export const RECIPES: Recipe[] = [
     id: "poulet-patate-douce-epinards",
     name: "Poulet, patate douce & épinards",
     category: "Déjeuner / Dîner",
-    photo: "",
+    photo: "https://images.pexels.com/photos/9213962/pexels-photo-9213962.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     servings: 1,
     ingredients: [
       { ingredientId: "poulet-blanc", grams: 150 },
@@ -519,7 +519,7 @@ export const RECIPES: Recipe[] = [
     id: "tartine-fromage-dinde",
     name: "Tartine de pain complet, fromage blanc & dinde",
     category: "Collation",
-    photo: "",
+    photo: "https://images.pexels.com/photos/31647294/pexels-photo-31647294.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     servings: 1,
     ingredients: [
       { ingredientId: "pain-complet", grams: 60 },
@@ -548,7 +548,7 @@ export const RECIPES: Recipe[] = [
     id: "pancakes-avoine-banane",
     name: "Pancakes protéinés avoine & banane",
     category: "Petit-déjeuner",
-    photo: "",
+    photo: "https://images.pexels.com/photos/14263510/pexels-photo-14263510.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     servings: 1,
     ingredients: [
       { ingredientId: "avoine", grams: 60 },
@@ -665,7 +665,7 @@ export const RECIPES: Recipe[] = [
     id: "bol-fromage-blanc-myrtilles-amandes",
     name: "Bol de fromage blanc, myrtilles & amandes",
     category: "Petit-déjeuner",
-    photo: "",
+    photo: "https://images.pexels.com/photos/14564748/pexels-photo-14564748.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     servings: 1,
     ingredients: [
       { ingredientId: "fromage-blanc", grams: 200 },
@@ -725,7 +725,7 @@ export const RECIPES: Recipe[] = [
     id: "oeufs-brouilles-tomate-epinards",
     name: "Œufs brouillés, tomate & épinards sur pain complet",
     category: "Petit-déjeuner",
-    photo: "",
+    photo: "https://images.pexels.com/photos/38516089/pexels-photo-38516089.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     servings: 1,
     ingredients: [
       { ingredientId: "oeuf", grams: 150 },
@@ -787,7 +787,7 @@ export const RECIPES: Recipe[] = [
     id: "omelette-feta-tomate-epinards",
     name: "Omelette feta, tomate & épinards",
     category: "Petit-déjeuner",
-    photo: "",
+    photo: "https://images.pexels.com/photos/27331092/pexels-photo-27331092.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     servings: 1,
     ingredients: [
       { ingredientId: "oeuf", grams: 150 },
@@ -818,7 +818,7 @@ export const RECIPES: Recipe[] = [
     id: "cabillaud-riz-poivrons-rotis",
     name: "Cabillaud, riz complet & poivrons rôtis",
     category: "Déjeuner / Dîner",
-    photo: "",
+    photo: "https://images.pexels.com/photos/13770555/pexels-photo-13770555.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     servings: 1,
     ingredients: [
       { ingredientId: "cabillaud", grams: 150 },
@@ -849,7 +849,7 @@ export const RECIPES: Recipe[] = [
     id: "riz-thon-tomate-carotte",
     name: "Riz complet, thon, tomate & carotte",
     category: "Déjeuner / Dîner",
-    photo: "",
+    photo: "https://images.pexels.com/photos/9218773/pexels-photo-9218773.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     servings: 1,
     ingredients: [
       { ingredientId: "riz-complet", grams: 100 },
@@ -881,7 +881,7 @@ export const RECIPES: Recipe[] = [
     id: "curry-pois-chiches-carotte-epinards",
     name: "Curry de pois chiches, carotte & épinards",
     category: "Déjeuner / Dîner",
-    photo: "",
+    photo: "https://images.pexels.com/photos/9287035/pexels-photo-9287035.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     servings: 2,
     ingredients: [
       { ingredientId: "pois-chiches", grams: 300 },
@@ -913,7 +913,7 @@ export const RECIPES: Recipe[] = [
     id: "salade-quinoa-feta-concombre-tomate",
     name: "Salade de quinoa, feta, concombre & tomate",
     category: "Déjeuner / Dîner",
-    photo: "",
+    photo: "https://images.pexels.com/photos/12786340/pexels-photo-12786340.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     servings: 1,
     ingredients: [
       { ingredientId: "quinoa", grams: 80 },
@@ -976,7 +976,7 @@ export const RECIPES: Recipe[] = [
     id: "dinde-haricots-verts-patate-douce",
     name: "Dinde, haricots verts & patate douce",
     category: "Déjeuner / Dîner",
-    photo: "",
+    photo: "https://images.pexels.com/photos/9219079/pexels-photo-9219079.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     servings: 1,
     ingredients: [
       { ingredientId: "dinde-blanc", grams: 150 },
@@ -1085,7 +1085,7 @@ export const RECIPES: Recipe[] = [
     id: "oeufs-durs-carotte",
     name: "Œufs durs & bâtonnets de carotte",
     category: "Collation",
-    photo: "",
+    photo: "https://images.pexels.com/photos/15583257/pexels-photo-15583257.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     servings: 1,
     ingredients: [
       { ingredientId: "oeuf", grams: 120 },
