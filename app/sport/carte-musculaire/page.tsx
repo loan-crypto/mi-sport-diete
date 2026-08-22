@@ -13,9 +13,9 @@ import { useI18n, useEnumLabels } from "@/lib/i18n/context";
 import PageTheme from "@/components/layout/PageTheme";
 import { heroPhotoStyle } from "@/lib/heroStyle";
 
-// Foto de stock para el banner (no tu foto propia: el banner recorta en
-// "cover" con poca altura, y tu foto de cuerpo entero ya se muestra
-// completa y en su formato correcto mas abajo, en .body-photo-wrap).
+// Foto de stock distinta para el banner: el banner recorta en "cover"
+// con poca altura, mientras que las fotos de cuerpo entero (tambien de
+// stock, ver .body-photo-wrap mas abajo) necesitan mostrarse completas.
 const HERO_PHOTO = EXERCISES.filter((e) => e.photo).map((e) => e.photo)[12];
 
 type View = "front" | "back";

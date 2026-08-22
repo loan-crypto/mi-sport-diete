@@ -190,7 +190,7 @@ export const UI_STRINGS = {
     "map.title": "Carte musculaire",
     "map.subtitle": "Clique sur un point du corps pour découvrir le muscle concerné, puis fonce directement sur les exercices qui le travaillent.",
     "map.note":
-      "<strong>À propos des photos :</strong> ce sont tes propres photos (face et dos). Clique sur un point pour découvrir le muscle concerné et les exercices qui le travaillent.",
+      "<strong>Comment ça marche :</strong> clique sur un point de la photo (face ou dos) pour découvrir le muscle concerné et les exercices qui le travaillent.",
     "map.emptyPrompt": "Choisis un point sur la photo (face ou dos) pour voir le nom du muscle, son rôle, et les exercices qui le ciblent.",
     "map.exercisesInNotebook": "Exercices déjà dans ton carnet",
     "map.viewAllForMuscle": "Voir tous les exercices pour ce muscle",
@@ -490,7 +490,7 @@ export const UI_STRINGS = {
     "map.title": "Mapa muscular",
     "map.subtitle": "Haz clic en un punto del cuerpo para descubrir el músculo en cuestión, y luego ve directo a los ejercicios que lo trabajan.",
     "map.note":
-      "<strong>Sobre las fotos:</strong> son tus propias fotos (de frente y de espalda). Haz clic en un punto para descubrir el músculo en cuestión y los ejercicios que lo trabajan.",
+      "<strong>Cómo funciona:</strong> haz clic en un punto de la foto (de frente o de espalda) para descubrir el músculo en cuestión y los ejercicios que lo trabajan.",
     "map.emptyPrompt": "Elige un punto en la foto (de frente o de espalda) para ver el nombre del músculo, su función, y los ejercicios que lo trabajan.",
     "map.exercisesInNotebook": "Ejercicios que ya están en tu cuaderno",
     "map.viewAllForMuscle": "Ver todos los ejercicios para este músculo",
