@@ -8,6 +8,7 @@ import { useI18n, useEnumLabels } from "@/lib/i18n/context";
 import PageTheme from "@/components/layout/PageTheme";
 import PhotoOrPlaceholder from "@/components/media/PhotoOrPlaceholder";
 import { heroPhotoStyle } from "@/lib/heroStyle";
+import Tilt3D from "@/components/motion/Tilt3D";
 
 const HERO_PHOTO = EXERCISES.filter((e) => e.photo).map((e) => e.photo)[1];
 
@@ -40,20 +41,22 @@ function ExercicesList() {
       ) : (
         <div className="card-grid">
           {list.map((ex) => (
-            <Link key={ex.id} className="card" href={`/sport/exercices/${ex.id}`}>
-              <div className="thumb">
-                <PhotoOrPlaceholder
-                  photoPath={ex.photo}
-                  iconKey="dumbbell"
-                  altText={tData(ex, "name") as string}
-                />
-              </div>
-              <div className="body">
-                <span className="tag">{tData(ex, "muscleGroup") as string}</span>
-                <h3>{tData(ex, "name") as string}</h3>
-                <div className="meta">{difficultyLabel(ex.difficulty)}</div>
-              </div>
-            </Link>
+            <Tilt3D key={ex.id} max={6}>
+              <Link className="card" href={`/sport/exercices/${ex.id}`}>
+                <div className="thumb">
+                  <PhotoOrPlaceholder
+                    photoPath={ex.photo}
+                    iconKey="dumbbell"
+                    altText={tData(ex, "name") as string}
+                  />
+                </div>
+                <div className="body">
+                  <span className="tag">{tData(ex, "muscleGroup") as string}</span>
+                  <h3>{tData(ex, "name") as string}</h3>
+                  <div className="meta">{difficultyLabel(ex.difficulty)}</div>
+                </div>
+              </Link>
+            </Tilt3D>
           ))}
         </div>
       )}

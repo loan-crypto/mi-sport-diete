@@ -9,6 +9,7 @@ import PageTheme from "@/components/layout/PageTheme";
 import { heroPhotoStyle } from "@/lib/heroStyle";
 import DietPlanGenerator from "@/components/diete/DietPlanGenerator";
 import AnimatedNumber from "@/components/motion/AnimatedNumber";
+import Tilt3D from "@/components/motion/Tilt3D";
 
 const HERO_PHOTO = RECIPES.find((r) => r.photo)?.photo;
 const bonCount = INGREDIENTS.filter((i) => i.quality === "bon").length;
@@ -55,19 +56,21 @@ export default function DietePage() {
           const totals = computeRecipeTotals(recipe);
           const name = tData(recipe, "name") as string;
           return (
-            <Link key={recipe.id} className="card" href={`/diete/recettes/${recipe.id}`}>
-              <div className="thumb">
-                <PhotoOrPlaceholder photoPath={recipe.photo} iconKey="fork" altText={name} />
-              </div>
-              <div className="body">
-                <span className="tag">{tData(recipe, "category") as string}</span>
-                <h3>{name}</h3>
-                <div className="meta">
-                  {totals.calories} {t("macro.kcal").toLowerCase()} · {totals.protein} g{" "}
-                  {t("macro.protein").toLowerCase()}
+            <Tilt3D key={recipe.id} max={6}>
+              <Link className="card" href={`/diete/recettes/${recipe.id}`}>
+                <div className="thumb">
+                  <PhotoOrPlaceholder photoPath={recipe.photo} iconKey="fork" altText={name} />
                 </div>
-              </div>
-            </Link>
+                <div className="body">
+                  <span className="tag">{tData(recipe, "category") as string}</span>
+                  <h3>{name}</h3>
+                  <div className="meta">
+                    {totals.calories} {t("macro.kcal").toLowerCase()} · {totals.protein} g{" "}
+                    {t("macro.protein").toLowerCase()}
+                  </div>
+                </div>
+              </Link>
+            </Tilt3D>
           );
         })}
       </div>
