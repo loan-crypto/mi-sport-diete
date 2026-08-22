@@ -53,6 +53,11 @@ export interface Exercise {
   muscleGroup: string;
   muscles: string[];
   difficulty: "Débutant" | "Intermédiaire" | "Avancé";
+  // Filtre "style d'entraînement" du generateur de Programme (Gimnasio /
+  // Calistenia / Mezcla) : "Poids du corps" = réalisable sans matériel de
+  // salle (barre de tractions, sol...), "Salle de sport" = nécessite des
+  // poids libres, une machine ou un banc charge.
+  equipment: "Poids du corps" | "Salle de sport";
   photo: string;
   video?: string;
   description: string[];

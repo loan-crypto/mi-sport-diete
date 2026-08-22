@@ -14,6 +14,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Dos, biceps",
     muscles: ["dos", "biceps", "avant-bras"],
     difficulty: "Intermédiaire",
+    equipment: "Poids du corps",
     photo: "https://images.pexels.com/photos/9644816/pexels-photo-9644816.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     video: "https://videos.pexels.com/video-files/31622705/13475125_2560_1440_60fps.mp4",
     description: [
@@ -45,6 +46,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Pectoraux, triceps, épaules",
     muscles: ["pectoraux", "triceps", "epaules", "abdominaux"],
     difficulty: "Débutant",
+    equipment: "Poids du corps",
     photo: "https://images.pexels.com/photos/6975784/pexels-photo-6975784.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     video: "https://videos.pexels.com/video-files/6388436/6388436-uhd_2560_1440_25fps.mp4",
     description: [
@@ -74,6 +76,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Triceps, pectoraux",
     muscles: ["triceps", "pectoraux", "epaules"],
     difficulty: "Intermédiaire",
+    equipment: "Poids du corps",
     photo: "https://images.pexels.com/photos/4803702/pexels-photo-4803702.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     video: "https://videos.pexels.com/video-files/35585662/15079647_1080_1920_30fps.mp4",
     description: [
@@ -103,6 +106,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Dos, sangle abdominale, épaules",
     muscles: ["dos", "abdominaux", "obliques", "lombaires", "epaules", "avant-bras"],
     difficulty: "Avancé",
+    equipment: "Poids du corps",
     photo: "",
     description: [
       "Suspendu à la barre, bras tendus.",
@@ -131,6 +135,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Quadriceps, fessiers, équilibre",
     muscles: ["quadriceps", "fessiers", "ischios", "mollets", "adducteurs"],
     difficulty: "Avancé",
+    equipment: "Poids du corps",
     photo: "https://images.pexels.com/photos/4803862/pexels-photo-4803862.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     video: "",
     description: [
@@ -160,6 +165,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Dos, biceps",
     muscles: ["dos", "biceps", "avant-bras"],
     difficulty: "Intermédiaire",
+    equipment: "Poids du corps",
     photo: "https://images.pexels.com/photos/3838290/pexels-photo-3838290.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     video: "https://videos.pexels.com/video-files/31622700/13475095_2560_1440_60fps.mp4",
     description: [
@@ -191,6 +197,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Dos, biceps, trapèzes",
     muscles: ["dos", "biceps", "trapezes"],
     difficulty: "Débutant",
+    equipment: "Poids du corps",
     photo: "https://images.pexels.com/photos/8519688/pexels-photo-8519688.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     video: "",
     description: [
@@ -222,6 +229,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Dos, biceps, trapèzes",
     muscles: ["dos", "biceps", "trapezes"],
     difficulty: "Débutant",
+    equipment: "Salle de sport",
     photo: "https://images.pexels.com/photos/11876626/pexels-photo-11876626.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     video: "https://videos.pexels.com/video-files/4367642/4367642-hd_1920_1080_30fps.mp4",
     description: [
@@ -251,6 +259,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Dos, biceps",
     muscles: ["dos", "biceps"],
     difficulty: "Débutant",
+    equipment: "Salle de sport",
     photo: "https://images.pexels.com/photos/30165244/pexels-photo-30165244.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     video: "https://videos.pexels.com/video-files/30890377/13207512_1920_1080_30fps.mp4",
     description: [
@@ -280,6 +289,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Trapèzes",
     muscles: ["trapezes"],
     difficulty: "Débutant",
+    equipment: "Salle de sport",
     photo: "",
     video: "",
     description: [
@@ -309,6 +319,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Épaules, trapèzes, dos",
     muscles: ["epaules", "trapezes", "dos"],
     difficulty: "Débutant",
+    equipment: "Salle de sport",
     photo: "",
     video: "",
     description: [
@@ -338,6 +349,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Épaules",
     muscles: ["epaules"],
     difficulty: "Débutant",
+    equipment: "Salle de sport",
     photo: "https://images.pexels.com/photos/29793977/pexels-photo-29793977.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     video: "https://videos.pexels.com/video-files/6293119/6293119-uhd_2732_1440_25fps.mp4",
     description: [
@@ -367,6 +379,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Épaules, triceps",
     muscles: ["epaules", "triceps"],
     difficulty: "Intermédiaire",
+    equipment: "Salle de sport",
     photo: "https://images.pexels.com/photos/7289370/pexels-photo-7289370.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     video: "https://videos.pexels.com/video-files/4367541/4367541-hd_1920_1080_30fps.mp4",
     description: [
@@ -396,6 +409,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Biceps, avant-bras",
     muscles: ["biceps", "avant-bras"],
     difficulty: "Débutant",
+    equipment: "Salle de sport",
     photo: "https://images.pexels.com/photos/3763115/pexels-photo-3763115.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     video: "https://videos.pexels.com/video-files/4367577/4367577-hd_1920_1080_30fps.mp4",
     description: [
@@ -425,6 +439,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Biceps, avant-bras",
     muscles: ["biceps", "avant-bras"],
     difficulty: "Débutant",
+    equipment: "Salle de sport",
     photo: "",
     video: "",
     description: [
@@ -454,6 +469,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Triceps",
     muscles: ["triceps"],
     difficulty: "Débutant",
+    equipment: "Salle de sport",
     photo: "https://images.pexels.com/photos/38167598/pexels-photo-38167598.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     video: "https://videos.pexels.com/video-files/6296281/6296281-hd_1080_1920_25fps.mp4",
     description: [
@@ -483,6 +499,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Triceps, pectoraux",
     muscles: ["triceps", "pectoraux"],
     difficulty: "Intermédiaire",
+    equipment: "Poids du corps",
     photo: "",
     video: "",
     description: [
@@ -512,6 +529,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Pectoraux, triceps, épaules",
     muscles: ["pectoraux", "triceps", "epaules"],
     difficulty: "Intermédiaire",
+    equipment: "Salle de sport",
     photo: "https://images.pexels.com/photos/7371361/pexels-photo-7371361.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     video: "https://videos.pexels.com/video-files/5320001/5320001-uhd_2560_1440_25fps.mp4",
     description: [
@@ -541,6 +559,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Pectoraux",
     muscles: ["pectoraux"],
     difficulty: "Débutant",
+    equipment: "Salle de sport",
     photo: "",
     video: "https://videos.pexels.com/video-files/8402113/8402113-hd_1080_1920_30fps.mp4",
     description: [
@@ -570,6 +589,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Pectoraux, épaules, triceps",
     muscles: ["pectoraux", "epaules", "triceps"],
     difficulty: "Intermédiaire",
+    equipment: "Poids du corps",
     photo: "",
     video: "",
     description: [
@@ -599,6 +619,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Abdominaux, lombaires",
     muscles: ["abdominaux", "lombaires"],
     difficulty: "Débutant",
+    equipment: "Poids du corps",
     photo: "https://images.pexels.com/photos/6303481/pexels-photo-6303481.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     video: "https://videos.pexels.com/video-files/6023273/6023273-hd_1920_1080_25fps.mp4",
     description: [
@@ -628,6 +649,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Abdominaux, obliques",
     muscles: ["abdominaux", "obliques"],
     difficulty: "Intermédiaire",
+    equipment: "Poids du corps",
     photo: "https://images.pexels.com/photos/4803688/pexels-photo-4803688.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     video: "https://videos.pexels.com/video-files/6455076/6455076-uhd_1440_2560_24fps.mp4",
     description: [
@@ -657,6 +679,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Obliques, abdominaux",
     muscles: ["obliques", "abdominaux"],
     difficulty: "Débutant",
+    equipment: "Poids du corps",
     photo: "https://images.pexels.com/photos/5128466/pexels-photo-5128466.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     video: "https://videos.pexels.com/video-files/6892537/6892537-uhd_2560_1440_25fps.mp4",
     description: [
@@ -686,6 +709,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Lombaires, fessiers",
     muscles: ["lombaires", "fessiers"],
     difficulty: "Débutant",
+    equipment: "Poids du corps",
     photo: "",
     video: "",
     description: [
@@ -715,6 +739,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Lombaires, ischios, fessiers, trapèzes",
     muscles: ["lombaires", "ischios", "fessiers", "trapezes", "avant-bras"],
     difficulty: "Avancé",
+    equipment: "Salle de sport",
     photo: "https://images.pexels.com/photos/4853280/pexels-photo-4853280.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     video: "https://videos.pexels.com/video-files/9778003/9778003-uhd_2560_1440_25fps.mp4",
     description: [
@@ -746,6 +771,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Quadriceps, fessiers, adducteurs",
     muscles: ["quadriceps", "fessiers", "adducteurs"],
     difficulty: "Intermédiaire",
+    equipment: "Salle de sport",
     photo: "https://images.pexels.com/photos/4853693/pexels-photo-4853693.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     video: "https://videos.pexels.com/video-files/5319755/5319755-uhd_2560_1440_25fps.mp4",
     description: [
@@ -777,6 +803,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Quadriceps, fessiers, ischios",
     muscles: ["quadriceps", "fessiers", "ischios"],
     difficulty: "Débutant",
+    equipment: "Poids du corps",
     photo: "https://images.pexels.com/photos/6339695/pexels-photo-6339695.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     video: "https://videos.pexels.com/video-files/6892974/6892974-uhd_2560_1440_25fps.mp4",
     description: [
@@ -808,6 +835,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Fessiers, ischios",
     muscles: ["fessiers", "ischios"],
     difficulty: "Débutant",
+    equipment: "Salle de sport",
     photo: "",
     video: "",
     description: [
@@ -837,6 +865,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Ischios",
     muscles: ["ischios"],
     difficulty: "Avancé",
+    equipment: "Poids du corps",
     photo: "",
     video: "",
     description: [
@@ -866,6 +895,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Mollets",
     muscles: ["mollets"],
     difficulty: "Débutant",
+    equipment: "Poids du corps",
     photo: "https://images.pexels.com/photos/13965339/pexels-photo-13965339.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     video: "https://videos.pexels.com/video-files/32115656/13692103_1440_2560_24fps.mp4",
     description: [
@@ -895,6 +925,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Mollets, cardio",
     muscles: ["mollets"],
     difficulty: "Débutant",
+    equipment: "Poids du corps",
     photo: "https://images.pexels.com/photos/6339602/pexels-photo-6339602.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     video: "https://videos.pexels.com/video-files/6389568/6389568-uhd_1440_2560_25fps.mp4",
     description: [
@@ -924,6 +955,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Adducteurs",
     muscles: ["adducteurs"],
     difficulty: "Intermédiaire",
+    equipment: "Poids du corps",
     photo: "",
     video: "",
     description: [
@@ -953,6 +985,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Cardio, corps entier",
     muscles: ["pectoraux", "epaules", "triceps", "abdominaux", "quadriceps", "fessiers", "mollets"],
     difficulty: "Intermédiaire",
+    equipment: "Poids du corps",
     photo: "https://images.pexels.com/photos/30246184/pexels-photo-30246184.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     video: "",
     description: [
@@ -984,6 +1017,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Abdominaux, cardio, épaules",
     muscles: ["abdominaux", "obliques", "epaules", "quadriceps", "pectoraux"],
     difficulty: "Débutant",
+    equipment: "Poids du corps",
     photo: "https://images.pexels.com/photos/6516165/pexels-photo-6516165.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     video: "",
     description: [
@@ -1015,6 +1049,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Quadriceps, fessiers, ischios",
     muscles: ["quadriceps", "fessiers", "ischios", "adducteurs"],
     difficulty: "Intermédiaire",
+    equipment: "Poids du corps",
     photo: "",
     video: "",
     description: [
@@ -1046,6 +1081,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Ischios, fessiers, lombaires",
     muscles: ["ischios", "fessiers", "lombaires", "dos"],
     difficulty: "Intermédiaire",
+    equipment: "Salle de sport",
     photo: "",
     video: "",
     description: [
@@ -1077,6 +1113,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Dos, biceps",
     muscles: ["dos", "biceps", "avant-bras", "trapezes"],
     difficulty: "Débutant",
+    equipment: "Salle de sport",
     photo: "https://images.pexels.com/photos/38641891/pexels-photo-38641891.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     video: "",
     description: [
@@ -1108,6 +1145,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Dos, biceps",
     muscles: ["dos", "biceps", "trapezes", "avant-bras"],
     difficulty: "Débutant",
+    equipment: "Salle de sport",
     photo: "https://images.pexels.com/photos/4162482/pexels-photo-4162482.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     video: "https://videos.pexels.com/video-files/4367642/4367642-hd_1920_1080_30fps.mp4",
     description: [
@@ -1139,6 +1177,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Quadriceps, fessiers, ischios",
     muscles: ["quadriceps", "fessiers", "ischios"],
     difficulty: "Débutant",
+    equipment: "Salle de sport",
     photo: "https://images.pexels.com/photos/6844939/pexels-photo-6844939.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     video: "https://videos.pexels.com/video-files/36457367/15459404_2560_1440_30fps.mp4",
     description: [
@@ -1170,6 +1209,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Fessiers",
     muscles: ["fessiers", "ischios", "adducteurs"],
     difficulty: "Débutant",
+    equipment: "Salle de sport",
     photo: "https://images.pexels.com/photos/6539861/pexels-photo-6539861.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     video: "",
     description: [
@@ -1201,6 +1241,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Biceps",
     muscles: ["biceps", "avant-bras"],
     difficulty: "Débutant",
+    equipment: "Salle de sport",
     photo: "",
     video: "",
     description: [
@@ -1232,6 +1273,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Mollets",
     muscles: ["mollets"],
     difficulty: "Débutant",
+    equipment: "Salle de sport",
     photo: "",
     video: "",
     description: [
@@ -1263,6 +1305,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Obliques, abdominaux",
     muscles: ["obliques", "abdominaux", "epaules"],
     difficulty: "Débutant",
+    equipment: "Poids du corps",
     photo: "https://images.pexels.com/photos/9645062/pexels-photo-9645062.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     video: "https://videos.pexels.com/video-files/6023266/6023266-uhd_2560_1440_25fps.mp4",
     description: [
@@ -1294,6 +1337,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Pectoraux, triceps, épaules",
     muscles: ["pectoraux", "triceps", "epaules", "abdominaux"],
     difficulty: "Avancé",
+    equipment: "Poids du corps",
     photo: "",
     video: "",
     description: [
@@ -1325,6 +1369,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Dos, pectoraux, triceps, épaules",
     muscles: ["dos", "pectoraux", "triceps", "epaules", "biceps", "avant-bras", "abdominaux"],
     difficulty: "Avancé",
+    equipment: "Poids du corps",
     photo: "https://images.pexels.com/photos/4803682/pexels-photo-4803682.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
     video: "",
     description: [
@@ -1356,6 +1401,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Épaules, triceps",
     muscles: ["epaules", "triceps", "avant-bras", "abdominaux"],
     difficulty: "Avancé",
+    equipment: "Poids du corps",
     photo: "",
     video: "",
     description: [
@@ -1387,6 +1433,7 @@ export const EXERCISES: Exercise[] = [
     muscleGroup: "Lombaires, ischios, fessiers",
     muscles: ["lombaires", "ischios", "fessiers", "dos"],
     difficulty: "Intermédiaire",
+    equipment: "Salle de sport",
     photo: "",
     video: "",
     description: [

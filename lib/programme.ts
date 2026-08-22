@@ -10,6 +10,16 @@ import type { UIStringKey } from "@/lib/i18n/dictionary";
 
 export type Goal = "volume" | "secher" | "maintien";
 export type DayKey = "push" | "pull" | "legs" | "upper" | "lower" | "fullA" | "fullB";
+// Filtre "style d'entrainement" du generateur (demande explicite : eviter
+// que le pick automatique propose des ejercices de gym a quelqu'un qui
+// veut faire de la calisthenie pure, et inversement). "mix" = comportement
+// d'origine, aucun filtre.
+export type Style = "gym" | "calisthenics" | "mix";
+
+function matchesStyle(ex: Exercise, style: Style): boolean {
+  if (style === "mix") return true;
+  return style === "gym" ? ex.equipment === "Salle de sport" : ex.equipment === "Poids du corps";
+}
 
 export const DAY_MUSCLES: Record<DayKey, string[]> = {
   push: ["pectoraux", "epaules", "triceps"],
@@ -83,11 +93,17 @@ export const SNACK_RECIPES = RECIPES.filter((r) => r.category.startsWith("Collat
    llegar a `count`, completa reutilizando ejercicios ya elegidos en otro
    dia antes que dejar el dia incompleto; solo en ultimo recurso permite
    movimientos avanzados (AUTO_PICK_EXCLUDE). */
-export function pickExercises(targetMuscles: string[], count: number, usedGlobal: Set<string>): Exercise[] {
+export function pickExercises(
+  targetMuscles: string[],
+  count: number,
+  usedGlobal: Set<string>,
+  style: Style = "mix"
+): Exercise[] {
   function scoredPool(respectUsed: boolean, allowAdvanced: boolean) {
     return EXERCISES.filter(
       (e) =>
         (allowAdvanced || !AUTO_PICK_EXCLUDE.has(e.id)) &&
+        matchesStyle(e, style) &&
         e.muscles.some((m) => targetMuscles.includes(m)) &&
         (!respectUsed || !usedGlobal.has(e.id))
     );
@@ -123,9 +139,12 @@ export function pickExercises(targetMuscles: string[], count: number, usedGlobal
   return chosen;
 }
 
-export function buildDay(dayKey: DayKey, usedGlobal: Set<string>, goal: Goal) {
+export function buildDay(dayKey: DayKey, usedGlobal: Set<string>, goal: Goal, style: Style = "mix") {
   const targetMuscles = DAY_MUSCLES[dayKey];
-  const mainExos = pickExercises(targetMuscles, 4, usedGlobal);
+  const mainExos = pickExercises(targetMuscles, 4, usedGlobal, style);
+  // Le core (abdos/obliques/lombaires) reste toujours pioche sans filtre de
+  // style : tout le contenu abdos de la bibliotheque est deja au poids du
+  // corps, donc filtrer sur "gym" viderait ce slot pour rien.
   const coreExos = pickExercises(CORE_MUSCLES, 1, usedGlobal);
   let allExos = mainExos.concat(coreExos);
 
@@ -147,10 +166,10 @@ export function schemeParts(ex: Exercise, scheme: GoalScheme) {
   };
 }
 
-export function buildProgramme(goal: Goal, days: number) {
+export function buildProgramme(goal: Goal, days: number, style: Style = "mix") {
   const split = SPLITS[days] ?? SPLITS[3];
   const usedGlobal = new Set<string>();
-  return split.map((dayKey, i) => ({ index: i + 1, ...buildDay(dayKey, usedGlobal, goal) }));
+  return split.map((dayKey, i) => ({ index: i + 1, ...buildDay(dayKey, usedGlobal, goal, style) }));
 }
 
 /* ---------------- Liste de courses ---------------- */

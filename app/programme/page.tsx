@@ -18,6 +18,7 @@ import { EXERCISES } from "@/content";
 import {
   type Goal,
   type DayKey,
+  type Style,
   DAY_MUSCLES,
   CORE_MUSCLES,
   DAY_LABEL_KEY,
@@ -32,6 +33,15 @@ import {
   groupShoppingByCategory,
   formatQty,
 } from "@/lib/programme";
+
+// Un ejercicio "mix" (sans filtre) coincide siempre; si no, debe compartir
+// el equipment del ejercicio actual — misma logica que matchesStyle() en
+// lib/programme.ts pero aplicada aqui a las listas de alternativas/anadir,
+// que no pasan por pickExercises().
+function matchesStyle(ex: (typeof EXERCISES)[number], style: Style): boolean {
+  if (style === "mix") return true;
+  return style === "gym" ? ex.equipment === "Salle de sport" : ex.equipment === "Poids du corps";
+}
 import type { UIStringKey } from "@/lib/i18n/dictionary";
 
 const HERO_PHOTO = EXERCISES.filter((e) => e.photo).map((e) => e.photo)[3];
@@ -39,6 +49,7 @@ const HERO_PHOTO = EXERCISES.filter((e) => e.photo).map((e) => e.photo)[3];
 export default function ProgrammePage() {
   const { t, tData } = useI18n();
   const [goal, setGoal] = useState<Goal>("volume");
+  const [style, setStyle] = useState<Style>("mix");
   const [days, setDays] = useState(3);
   const [shoppingDays, setShoppingDays] = useState(7);
   // Cle "{index du jour}-{position}" -> id d'exercice choisi a la main,
@@ -54,7 +65,7 @@ export default function ProgrammePage() {
     setSwaps({});
     setRemoved({});
     setAdded({});
-  }, [goal, days]);
+  }, [goal, style, days]);
 
   // El slot 4 es siempre el ejercicio de core (pickExercises(CORE_MUSCLES,1,...)
   // en buildDay); todo lo demas (0-3, y el cardio extra en secher) apunta a
@@ -70,7 +81,7 @@ export default function ProgrammePage() {
   };
 
   const scheme = GOAL_SCHEME[goal];
-  const rawProgramme = buildProgramme(goal, days);
+  const rawProgramme = buildProgramme(goal, days, style);
   const programme = rawProgramme.map((day) => {
     const dayMuscles = DAY_MUSCLES[day.dayKey];
     const autoRows: Row[] = day.exos
@@ -178,6 +189,24 @@ export default function ProgrammePage() {
           </div>
         </div>
 
+        <div className="field grow">
+          <label>{t("programme.field.style")}</label>
+          <div className="goal-options">
+            {(["mix", "gym", "calisthenics"] as Style[]).map((s) => (
+              <label className="goal-option" key={s}>
+                <input
+                  type="radio"
+                  name="style"
+                  value={s}
+                  checked={style === s}
+                  onChange={() => setStyle(s)}
+                />
+                <span>{t(`programme.style.${s}` as UIStringKey)}</span>
+              </label>
+            ))}
+          </div>
+        </div>
+
         <div className="field">
           <label htmlFor="programme-days">{t("programme.field.days")}</label>
           <select
@@ -223,7 +252,9 @@ export default function ProgrammePage() {
                 const parts = schemeParts(ex, scheme);
                 const name = tData(ex, "name") as string;
                 const alternatives = EXERCISES.filter(
-                  (cand) => cand.id === ex.id || cand.muscles.some((m) => targetMuscles.includes(m))
+                  (cand) =>
+                    cand.id === ex.id ||
+                    (matchesStyle(cand, style) && cand.muscles.some((m) => targetMuscles.includes(m)))
                 ).sort((a, b) => (tData(a, "name") as string).localeCompare(tData(b, "name") as string));
                 return (
                   <div className="exo-row" key={key}>
@@ -269,7 +300,7 @@ export default function ProgrammePage() {
                 );
               })}
 
-              <AddExerciseRow dayKey={day.dayKey} dayIndex={day.index} onAdd={handleAddExercise} />
+              <AddExerciseRow dayKey={day.dayKey} dayIndex={day.index} style={style} onAdd={handleAddExercise} />
             </div>
           ))}
         </div>
@@ -388,18 +419,20 @@ export default function ProgrammePage() {
 function AddExerciseRow({
   dayKey,
   dayIndex,
+  style,
   onAdd,
 }: {
   dayKey: DayKey;
   dayIndex: number;
+  style: Style;
   onAdd: (dayIndex: number, exerciseId: string) => void;
 }) {
   const { t, tData } = useI18n();
   const [selected, setSelected] = useState("");
   const targetMuscles = DAY_MUSCLES[dayKey];
-  const candidates = EXERCISES.filter((e) => e.muscles.some((m) => targetMuscles.includes(m))).sort((a, b) =>
-    (tData(a, "name") as string).localeCompare(tData(b, "name") as string)
-  );
+  const candidates = EXERCISES.filter(
+    (e) => matchesStyle(e, style) && e.muscles.some((m) => targetMuscles.includes(m))
+  ).sort((a, b) => (tData(a, "name") as string).localeCompare(tData(b, "name") as string));
 
   return (
     <div className="exo-row exo-add-row">
