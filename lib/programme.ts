@@ -66,7 +66,13 @@ export const GOAL_SCHEME: Record<Goal, GoalScheme> = {
 
 // Ejercicios en isometria: se muestra una duracion de mantenimiento en
 // vez de un rango de repeticiones.
-export const HOLD_EXERCISES = new Set(["front-lever", "gainage-planche", "adducteurs-isometrique"]);
+export const HOLD_EXERCISES = new Set([
+  "front-lever",
+  "gainage-planche",
+  "adducteurs-isometrique",
+  "chaise-murale",
+  "l-sit",
+]);
 
 // Movimientos muy avanzados/tecnicos excluidos del generador automatico
 // (siguen siendo buscables a mano en la biblioteca y la carta muscular) —
@@ -76,6 +82,8 @@ export const AUTO_PICK_EXCLUDE = new Set([
   "squat-pistol",
   "leg-curl-nordique",
   "adducteurs-isometrique",
+  // L-sit : skill avance (comme front-lever), pas adapte a un pick auto.
+  "l-sit",
   // Movimientos "full body"/cardio: sus muchos musculos tocados los hacen
   // ganar el score de cobertura en CUALQUIER tipo de dia (push, legs...),
   // apareciendo donde no corresponde (ej. burpees en un dia de Push).

@@ -1458,5 +1458,277 @@ export const EXERCISES: Exercise[] = [
       progressionPrev: "Good morning con la barra vacía",
       progressionNext: "Good morning con más carga, piernas extendidas"
     }
+  },
+  {
+    id: "kettlebell-swing",
+    name: "Kettlebell swing",
+    muscleGroup: "Fessiers, ischios, lombaires",
+    muscles: ["fessiers", "ischios", "lombaires", "abdominaux"],
+    difficulty: "Intermédiaire",
+    equipment: "Salle de sport",
+    photo: "https://images.pexels.com/photos/13106615/pexels-photo-13106615.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
+    video: "",
+    description: [
+      "Debout, pieds un peu plus larges que les épaules, kettlebell tenu à deux mains devant toi.",
+      "Initier le mouvement en poussant les hanches vers l'arrière (hip hinge), pas en pliant les genoux comme un squat.",
+      "Claquer les hanches vers l'avant pour projeter le kettlebell jusqu'à hauteur d'épaules, bras relâchés."
+    ],
+    tips: "Le mouvement vient des hanches, pas des bras : les bras ne font que guider le kettlebell.",
+    progressionPrev: "Kettlebell swing à deux mains, amplitude réduite (hauteur poitrine)",
+    progressionNext: "Kettlebell swing à un bras",
+    es: {
+      name: "Kettlebell swing",
+      muscleGroup: "Glúteos, isquiotibiales, lumbares",
+      description: [
+        "De pie, pies un poco más abiertos que los hombros, kettlebell sujeta con las dos manos delante de ti.",
+        "Inicia el movimiento empujando las caderas hacia atrás (bisagra de cadera), no flexionando las rodillas como en una sentadilla.",
+        "Extiende las caderas hacia adelante con fuerza para proyectar la kettlebell hasta la altura de los hombros, brazos relajados."
+      ],
+      tips: "El movimiento viene de las caderas, no de los brazos: los brazos solo guían la kettlebell.",
+      progressionPrev: "Kettlebell swing a dos manos, amplitud reducida (altura de pecho)",
+      progressionNext: "Kettlebell swing a un brazo"
+    }
+  },
+  {
+    id: "squat-gobelet",
+    name: "Squat gobelet (goblet squat)",
+    muscleGroup: "Quadriceps, fessiers",
+    muscles: ["quadriceps", "fessiers", "adducteurs", "abdominaux"],
+    difficulty: "Débutant",
+    equipment: "Salle de sport",
+    photo: "https://images.pexels.com/photos/36387535/pexels-photo-36387535.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
+    video: "",
+    description: [
+      "Debout, pieds à largeur d'épaules, haltère tenu à deux mains contre la poitrine, coudes vers le bas.",
+      "Descendre en squat en gardant le buste droit et l'haltère proche du corps, jusqu'à ce que les coudes frôlent l'intérieur des genoux.",
+      "Pousser dans les talons pour remonter en position debout."
+    ],
+    tips: "Cette version aide à garder le buste droit — bon premier pas avant le squat à la barre.",
+    progressionPrev: "Squat au poids du corps",
+    progressionNext: "Squat back (barre)",
+    es: {
+      name: "Sentadilla goblet (con mancuerna)",
+      muscleGroup: "Cuádriceps, glúteos",
+      description: [
+        "De pie, pies a la anchura de los hombros, mancuerna sujeta con las dos manos contra el pecho, codos hacia abajo.",
+        "Baja en sentadilla manteniendo el torso recto y la mancuerna cerca del cuerpo, hasta que los codos rocen el interior de las rodillas.",
+        "Empuja con los talones para volver a la posición de pie."
+      ],
+      tips: "Esta versión ayuda a mantener el torso recto — buen primer paso antes de la sentadilla con barra.",
+      progressionPrev: "Sentadilla con el propio peso corporal",
+      progressionNext: "Sentadilla con barra (squat back)"
+    }
+  },
+  {
+    id: "rowing-barre",
+    name: "Rowing barre buste penché",
+    muscleGroup: "Dos, biceps",
+    muscles: ["dos", "biceps", "trapezes", "avant-bras"],
+    difficulty: "Intermédiaire",
+    equipment: "Salle de sport",
+    photo: "https://images.pexels.com/photos/3025027/pexels-photo-3025027.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
+    video: "",
+    description: [
+      "Debout, genoux légèrement fléchis, buste incliné vers l'avant à environ 45°, dos plat, barre tenue à largeur d'épaules.",
+      "Tirer la barre vers le bas du buste en amenant les coudes vers l'arrière, sans bouger le dos.",
+      "Redescendre la barre en contrôlant jusqu'à extension complète des bras."
+    ],
+    tips: "Garde le dos plat tout le mouvement : si tu dois t'arrondir pour tirer plus lourd, réduis la charge.",
+    progressionPrev: "Rowing haltère unilatéral",
+    progressionNext: "Rowing barre plus lourd, prise plus large",
+    es: {
+      name: "Remo con barra inclinado",
+      muscleGroup: "Espalda, bíceps",
+      description: [
+        "De pie, rodillas ligeramente flexionadas, torso inclinado hacia adelante unos 45°, espalda plana, barra sujeta a la anchura de los hombros.",
+        "Tira de la barra hacia la parte baja del torso llevando los codos hacia atrás, sin mover la espalda.",
+        "Baja la barra controlando el movimiento hasta la extensión completa de los brazos."
+      ],
+      tips: "Mantén la espalda plana durante todo el movimiento: si necesitas encorvarte para tirar más peso, reduce la carga.",
+      progressionPrev: "Rowing con mancuerna a un brazo",
+      progressionNext: "Remo con barra más pesado, agarre más ancho"
+    }
+  },
+  {
+    id: "chaise-murale",
+    name: "Chaise (wall sit)",
+    muscleGroup: "Quadriceps",
+    muscles: ["quadriceps", "fessiers"],
+    difficulty: "Débutant",
+    equipment: "Poids du corps",
+    photo: "https://images.pexels.com/photos/6740055/pexels-photo-6740055.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
+    video: "",
+    description: [
+      "Dos plaqué contre un mur, pieds à largeur de hanches, un peu éloignés du mur.",
+      "Descendre en glissant le dos le long du mur jusqu'à ce que les cuisses soient parallèles au sol, genoux à 90°.",
+      "Maintenir la position, poids réparti sur toute la plante des pieds."
+    ],
+    tips: "Les genoux ne doivent pas dépasser la pointe des pieds — ajuste la distance au mur si besoin.",
+    progressionPrev: "Chaise avec appui des mains sur les cuisses",
+    progressionNext: "Chaise sur une jambe",
+    es: {
+      name: "Silla contra la pared (wall sit)",
+      muscleGroup: "Cuádriceps",
+      description: [
+        "Espalda apoyada contra una pared, pies a la anchura de las caderas, un poco alejados de la pared.",
+        "Baja deslizando la espalda por la pared hasta que los muslos queden paralelos al suelo, rodillas a 90°.",
+        "Mantén la posición, el peso repartido en toda la planta de los pies."
+      ],
+      tips: "Las rodillas no deben sobrepasar la punta de los pies — ajusta la distancia a la pared si hace falta.",
+      progressionPrev: "Silla con apoyo de las manos en los muslos",
+      progressionNext: "Silla a una pierna"
+    }
+  },
+  {
+    id: "curl-concentre",
+    name: "Curl concentré",
+    muscleGroup: "Biceps",
+    muscles: ["biceps", "avant-bras"],
+    difficulty: "Débutant",
+    equipment: "Salle de sport",
+    photo: "https://images.pexels.com/photos/7188051/pexels-photo-7188051.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
+    video: "",
+    description: [
+      "Assis, coude posé contre l'intérieur de la cuisse, haltère tenu en prise supination, bras tendu vers le sol.",
+      "Fléchir le coude pour amener l'haltère vers l'épaule, sans bouger le coude.",
+      "Redescendre lentement jusqu'à extension complète."
+    ],
+    tips: "L'isolement est total ici : reste très strict, ne balance pas le buste pour aider le mouvement.",
+    progressionPrev: "Curl biceps classique (debout)",
+    progressionNext: "Curl concentré charge plus lourde, tempo lent",
+    es: {
+      name: "Curl de concentración",
+      muscleGroup: "Bíceps",
+      description: [
+        "Sentado, codo apoyado contra la parte interna del muslo, mancuerna sujeta en agarre supino, brazo extendido hacia el suelo.",
+        "Flexiona el codo para llevar la mancuerna hacia el hombro, sin mover el codo.",
+        "Baja lentamente hasta la extensión completa."
+      ],
+      tips: "Aquí el aislamiento es total: mantente muy estricto, no balancees el torso para ayudar al movimiento.",
+      progressionPrev: "Curl de bíceps clásico (de pie)",
+      progressionNext: "Curl de concentración con más carga, tempo lento"
+    }
+  },
+  {
+    id: "box-jump",
+    name: "Box jump (saut sur caisse)",
+    muscleGroup: "Quadriceps, fessiers, mollets",
+    muscles: ["quadriceps", "fessiers", "mollets", "abdominaux"],
+    difficulty: "Intermédiaire",
+    equipment: "Poids du corps",
+    photo: "https://images.pexels.com/photos/9602281/pexels-photo-9602281.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
+    video: "",
+    description: [
+      "Debout face à une caisse ou un support stable, pieds à largeur d'épaules.",
+      "Fléchir légèrement les genoux et balancer les bras vers l'arrière, puis sauter en projetant les bras vers l'avant.",
+      "Atterrir en douceur sur la caisse, genoux fléchis pour absorber le choc, puis se redresser complètement.",
+      "Redescendre en marchant (pas en sautant) pour préserver les genoux."
+    ],
+    tips: "Choisis une hauteur de caisse où tu atterris facilement en pleine extension des hanches — la hauteur n'est pas l'objectif, la technique oui.",
+    progressionPrev: "Squat sauté sans caisse",
+    progressionNext: "Box jump plus haut, ou avec charge légère",
+    es: {
+      name: "Box jump (salto a cajón)",
+      muscleGroup: "Cuádriceps, glúteos, gemelos",
+      description: [
+        "De pie frente a un cajón o soporte estable, pies a la anchura de los hombros.",
+        "Flexiona ligeramente las rodillas y balancea los brazos hacia atrás, luego salta proyectando los brazos hacia adelante.",
+        "Aterriza con suavidad sobre el cajón, rodillas flexionadas para absorber el impacto, y termina de enderezarte por completo.",
+        "Baja caminando (no saltando) para cuidar las rodillas."
+      ],
+      tips: "Elige una altura de cajón en la que aterrices con facilidad en extensión completa de caderas — la altura no es el objetivo, la técnica sí.",
+      progressionPrev: "Sentadilla con salto sin cajón",
+      progressionNext: "Box jump más alto, o con carga ligera"
+    }
+  },
+  {
+    id: "tirage-menton",
+    name: "Tirage menton (barre)",
+    muscleGroup: "Épaules, trapèzes",
+    muscles: ["epaules", "trapezes", "avant-bras"],
+    difficulty: "Intermédiaire",
+    equipment: "Salle de sport",
+    photo: "https://images.pexels.com/photos/34043578/pexels-photo-34043578.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
+    video: "",
+    description: [
+      "Debout, barre tenue en prise pronation, mains rapprochées, bras tendus devant les cuisses.",
+      "Tirer la barre verticalement le long du corps en amenant les coudes vers le haut et vers l'extérieur, jusqu'à hauteur de poitrine.",
+      "Redescendre lentement en contrôlant la charge."
+    ],
+    tips: "Arrête le mouvement si tu ressens une gêne à l'épaule — l'amplitude complète n'est pas obligatoire pour tout le monde.",
+    progressionPrev: "Tirage menton à l'élastique",
+    progressionNext: "Tirage menton charge plus lourde",
+    es: {
+      name: "Remo al mentón (con barra)",
+      muscleGroup: "Hombros, trapecios",
+      description: [
+        "De pie, barra sujeta en agarre pronado, manos juntas, brazos extendidos delante de los muslos.",
+        "Tira de la barra verticalmente a lo largo del cuerpo llevando los codos hacia arriba y hacia afuera, hasta la altura del pecho.",
+        "Baja lentamente controlando la carga."
+      ],
+      tips: "Detén el movimiento si sientes molestias en el hombro — la amplitud completa no es obligatoria para todo el mundo.",
+      progressionPrev: "Remo al mentón con banda elástica",
+      progressionNext: "Remo al mentón con más carga"
+    }
+  },
+  {
+    id: "pompes-pike",
+    name: "Pompes pike (pike push-up)",
+    muscleGroup: "Épaules, triceps",
+    muscles: ["epaules", "triceps", "abdominaux"],
+    difficulty: "Intermédiaire",
+    equipment: "Poids du corps",
+    photo: "",
+    video: "",
+    description: [
+      "Position de pompe, hanches levées vers le plafond pour former un V inversé, mains un peu plus larges que les épaules.",
+      "Fléchir les coudes pour amener le sommet du crâne vers le sol entre les mains.",
+      "Pousser pour revenir à la position de départ, sans casser la position de V."
+    ],
+    tips: "Plus les pieds sont surélevés (banc, chaise), plus les épaules travaillent — bonne progression vers le handstand push-up.",
+    progressionPrev: "Pompes classiques",
+    progressionNext: "Handstand push-up (pompes en équilibre)",
+    es: {
+      name: "Flexión pike (pike push-up)",
+      muscleGroup: "Hombros, tríceps",
+      description: [
+        "Posición de flexión, caderas elevadas hacia el techo formando una V invertida, manos un poco más abiertas que los hombros.",
+        "Flexiona los codos para llevar la parte superior de la cabeza hacia el suelo entre las manos.",
+        "Empuja para volver a la posición inicial, sin romper la forma de V."
+      ],
+      tips: "Cuanto más elevados estén los pies (banco, silla), más trabajan los hombros — buena progresión hacia el handstand push-up.",
+      progressionPrev: "Flexiones clásicas",
+      progressionNext: "Handstand push-up (flexión en equilibrio)"
+    }
+  },
+  {
+    id: "l-sit",
+    name: "L-sit",
+    muscleGroup: "Abdominaux, hanches",
+    muscles: ["abdominaux", "obliques"],
+    difficulty: "Avancé",
+    equipment: "Poids du corps",
+    photo: "",
+    video: "",
+    description: [
+      "Assis au sol ou en appui sur des barres parallèles/deux supports, mains à côté des hanches.",
+      "Pousser dans les mains pour lever tout le corps, jambes tendues devant à l'horizontale.",
+      "Maintenir la position, dos droit, épaules basses loin des oreilles."
+    ],
+    tips: "Si l'horizontale complète est trop dure, commence genoux pliés (tuck L-sit) — même gainage, moins de levier.",
+    progressionPrev: "Tuck L-sit (genoux pliés vers la poitrine)",
+    progressionNext: "L-sit sur barre de tractions, ou V-sit",
+    es: {
+      name: "L-sit",
+      muscleGroup: "Abdominales, caderas",
+      description: [
+        "Sentado en el suelo o apoyado en paralelas/dos soportes, manos junto a las caderas.",
+        "Empuja con las manos para levantar todo el cuerpo, piernas extendidas al frente en horizontal.",
+        "Mantén la posición, espalda recta, hombros bajos lejos de las orejas."
+      ],
+      tips: "Si la horizontal completa es muy difícil, empieza con las rodillas dobladas (tuck L-sit) — mismo gainage, menos palanca.",
+      progressionPrev: "Tuck L-sit (rodillas hacia el pecho)",
+      progressionNext: "L-sit en barra de dominadas, o V-sit"
+    }
   }
 ];

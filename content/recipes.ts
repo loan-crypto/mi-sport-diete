@@ -1109,5 +1109,248 @@ export const RECIPES: Recipe[] = [
       ],
       notes: "Merienda muy práctica de preparar con antelación, rica en proteína con un esfuerzo mínimo."
     }
+  },
+  {
+    id: "pancakes-banane",
+    name: "Pancakes avoine & banane",
+    category: "Petit-déjeuner",
+    photo: "https://images.pexels.com/photos/14263510/pexels-photo-14263510.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
+    servings: 1,
+    ingredients: [
+      { ingredientId: "avoine", grams: 60 },
+      { ingredientId: "oeuf", grams: 100 },
+      { ingredientId: "banane", grams: 120 },
+      { ingredientId: "miel", grams: 10 }
+    ],
+    steps: [
+      "Mixer l'avoine, les œufs et la banane écrasée jusqu'à obtenir une pâte lisse.",
+      "Faire cuire des petites galettes dans une poêle légèrement huilée, 2-3 minutes de chaque côté.",
+      "Empiler les pancakes et napper d'un filet de miel."
+    ],
+    notes: "Version sans farine ni sucre ajouté — l'avoine et la banane suffisent pour la texture et le moelleux.",
+    es: {
+      name: "Panqueques de avena y plátano",
+      category: "Desayuno",
+      steps: [
+        "Mezcla la avena, los huevos y el plátano aplastado hasta obtener una masa lisa.",
+        "Cocina pequeñas tortitas en una sartén con un poco de aceite, 2-3 minutos por lado.",
+        "Apila las tortitas y añade un chorrito de miel."
+      ],
+      notes: "Versión sin harina ni azúcar añadido: la avena y el plátano bastan para la textura y la esponjosidad."
+    }
+  },
+  {
+    id: "toast-avocat-oeuf",
+    name: "Toast avocat & œuf poché",
+    category: "Petit-déjeuner",
+    photo: "https://images.pexels.com/photos/14623893/pexels-photo-14623893.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
+    servings: 1,
+    ingredients: [
+      { ingredientId: "pain-complet", grams: 60 },
+      { ingredientId: "avocat", grams: 80 },
+      { ingredientId: "oeuf", grams: 50 }
+    ],
+    steps: [
+      "Faire pocher l'œuf dans une eau frémissante additionnée d'un peu de vinaigre, 3 minutes.",
+      "Griller les tranches de pain complet.",
+      "Écraser l'avocat à la fourchette et l'étaler sur le pain, saler et poivrer.",
+      "Poser l'œuf poché par-dessus et servir immédiatement."
+    ],
+    notes: "Petit-déjeuner rapide et rassasiant grâce aux bonnes graisses de l'avocat et aux protéines de l'œuf.",
+    es: {
+      name: "Tostada de aguacate y huevo escalfado",
+      category: "Desayuno",
+      steps: [
+        "Escalfa el huevo en agua a fuego suave con un poco de vinagre, 3 minutos.",
+        "Tuesta las rebanadas de pan integral.",
+        "Aplasta el aguacate con un tenedor y extiéndelo sobre el pan, sala y añade pimienta al gusto.",
+        "Coloca el huevo escalfado encima y sirve de inmediato."
+      ],
+      notes: "Desayuno rápido y saciante gracias a las grasas buenas del aguacate y las proteínas del huevo."
+    }
+  },
+  {
+    id: "buddha-bowl-pois-chiches",
+    name: "Buddha bowl pois chiches & légumes",
+    category: "Déjeuner / Dîner",
+    photo: "https://images.pexels.com/photos/17597408/pexels-photo-17597408.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
+    servings: 1,
+    ingredients: [
+      { ingredientId: "pois-chiches", grams: 150 },
+      { ingredientId: "quinoa", grams: 80 },
+      { ingredientId: "poivron", grams: 80 },
+      { ingredientId: "concombre", grams: 80 },
+      { ingredientId: "huile-olive", grams: 10 }
+    ],
+    steps: [
+      "Cuire le quinoa selon les instructions du paquet.",
+      "Égoutter et rincer les pois chiches, les faire revenir 5 minutes à la poêle avec un peu d'huile d'olive.",
+      "Couper le poivron et le concombre en dés.",
+      "Assembler tous les éléments dans un bol et arroser du reste d'huile d'olive."
+    ],
+    notes: "Un bol complet et végétal, riche en fibres et en protéines — parfait pour un déjeuner qui tient au corps.",
+    es: {
+      name: "Buddha bowl de garbanzos y verduras",
+      category: "Almuerzo / Cena",
+      steps: [
+        "Cocina la quinoa según las instrucciones del paquete.",
+        "Escurre y enjuaga los garbanzos, saltéalos 5 minutos en la sartén con un poco de aceite de oliva.",
+        "Corta el pimiento y el pepino en dados.",
+        "Monta todos los elementos en un bol y riega con el resto del aceite de oliva."
+      ],
+      notes: "Un bol completo y vegetal, rico en fibra y en proteína — perfecto para un almuerzo que sacia de verdad."
+    }
+  },
+  {
+    id: "saumon-riz-haricots-verts",
+    name: "Saumon, riz complet & haricots verts",
+    category: "Déjeuner / Dîner",
+    photo: "https://images.pexels.com/photos/30674445/pexels-photo-30674445.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
+    servings: 1,
+    ingredients: [
+      { ingredientId: "saumon", grams: 150 },
+      { ingredientId: "riz-complet", grams: 100 },
+      { ingredientId: "haricots-verts", grams: 150 },
+      { ingredientId: "huile-olive", grams: 10 }
+    ],
+    steps: [
+      "Cuire le riz complet selon les instructions du paquet.",
+      "Cuire le pavé de saumon au four ou à la poêle, environ 12-15 minutes.",
+      "Cuire les haricots verts à la vapeur 8-10 minutes.",
+      "Assembler dans une assiette et arroser d'un filet d'huile d'olive."
+    ],
+    notes: "Riche en oméga-3 grâce au saumon — une bonne alternative au poulet pour varier les sources de protéines.",
+    es: {
+      name: "Salmón, arroz integral y judías verdes",
+      category: "Almuerzo / Cena",
+      steps: [
+        "Cocina el arroz integral según las instrucciones del paquete.",
+        "Cocina el filete de salmón al horno o a la plancha, unos 12-15 minutos.",
+        "Cocina las judías verdes al vapor 8-10 minutos.",
+        "Sirve todo en un plato y aliña con un chorrito de aceite de oliva."
+      ],
+      notes: "Rico en omega-3 gracias al salmón — una buena alternativa al pollo para variar las fuentes de proteína."
+    }
+  },
+  {
+    id: "wrap-poulet-avocat",
+    name: "Wrap poulet, avocat & crudités",
+    category: "Déjeuner / Dîner",
+    photo: "https://images.pexels.com/photos/9624298/pexels-photo-9624298.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
+    servings: 1,
+    ingredients: [
+      { ingredientId: "tortilla-ble-complet", grams: 60 },
+      { ingredientId: "poulet-blanc", grams: 120 },
+      { ingredientId: "avocat", grams: 60 },
+      { ingredientId: "tomate", grams: 50 },
+      { ingredientId: "concombre", grams: 50 }
+    ],
+    steps: [
+      "Cuire le blanc de poulet à la poêle et le couper en lamelles.",
+      "Écraser légèrement l'avocat et l'étaler sur la tortilla.",
+      "Ajouter le poulet, la tomate et le concombre coupés en morceaux.",
+      "Rouler fermement la tortilla et couper en deux."
+    ],
+    notes: "Pratique à emporter — un bon équilibre protéines/légumes pour un déjeuner sur le pouce.",
+    es: {
+      name: "Wrap de pollo, aguacate y crudités",
+      category: "Almuerzo / Cena",
+      steps: [
+        "Cocina la pechuga de pollo a la plancha y córtala en tiras.",
+        "Aplasta ligeramente el aguacate y extiéndelo sobre la tortilla.",
+        "Añade el pollo, el tomate y el pepino cortados en trozos.",
+        "Enrolla la tortilla con firmeza y córtala por la mitad."
+      ],
+      notes: "Práctico para llevar — un buen equilibrio proteína/verdura para un almuerzo rápido."
+    }
+  },
+  {
+    id: "yaourt-myrtilles-amandes",
+    name: "Yaourt grec, myrtilles & amandes",
+    category: "Collation",
+    photo: "https://images.pexels.com/photos/17927967/pexels-photo-17927967.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
+    servings: 1,
+    ingredients: [
+      { ingredientId: "yaourt-grec", grams: 200 },
+      { ingredientId: "myrtilles", grams: 80 },
+      { ingredientId: "amandes", grams: 15 },
+      { ingredientId: "miel", grams: 10 }
+    ],
+    steps: [
+      "Verser le yaourt grec dans un bol.",
+      "Ajouter les myrtilles et les amandes concassées par-dessus.",
+      "Terminer avec un filet de miel."
+    ],
+    notes: "Collation simple et rapide, riche en protéines grâce au yaourt grec.",
+    es: {
+      name: "Yogur griego, arándanos y almendras",
+      category: "Merienda",
+      steps: [
+        "Vierte el yogur griego en un bol.",
+        "Añade los arándanos y las almendras troceadas por encima.",
+        "Termina con un chorrito de miel."
+      ],
+      notes: "Merienda simple y rápida, rica en proteína gracias al yogur griego."
+    }
+  },
+  {
+    id: "boules-energie-dattes",
+    name: "Boules d'énergie dattes & cacahuète",
+    category: "Collation",
+    photo: "https://images.pexels.com/photos/27850074/pexels-photo-27850074.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
+    servings: 1,
+    ingredients: [
+      { ingredientId: "dattes", grams: 100 },
+      { ingredientId: "beurre-cacahuete", grams: 30 },
+      { ingredientId: "avoine", grams: 40 },
+      { ingredientId: "chocolat-noir", grams: 20 }
+    ],
+    steps: [
+      "Dénoyauter les dattes et les mixer avec le beurre de cacahuète et l'avoine jusqu'à obtenir une pâte collante.",
+      "Former des petites boules avec les mains.",
+      "Faire fondre le chocolat noir au bain-marie et y tremper les boules, ou le saupoudrer râpé par-dessus.",
+      "Réserver au réfrigérateur au moins 30 minutes avant de déguster."
+    ],
+    notes: "Se conservent une semaine au frigo — pratiques à préparer à l'avance pour une collation avant l'entraînement.",
+    es: {
+      name: "Bolitas energéticas de dátiles y cacahuete",
+      category: "Merienda",
+      steps: [
+        "Deshuesa los dátiles y mézclalos con la crema de cacahuete y la avena hasta obtener una pasta pegajosa.",
+        "Forma pequeñas bolitas con las manos.",
+        "Funde el chocolate negro al baño maría y sumerge las bolitas, o espolvoréalo rallado por encima.",
+        "Guarda en el frigorífico al menos 30 minutos antes de disfrutarlas."
+      ],
+      notes: "Se conservan una semana en el frigorífico — prácticas de preparar con antelación para una merienda antes de entrenar."
+    }
+  },
+  {
+    id: "bowl-banane-avoine-cacahuete",
+    name: "Bowl banane, avoine & beurre de cacahuète",
+    category: "Collation / Post-entraînement",
+    photo: "https://images.pexels.com/photos/19571076/pexels-photo-19571076.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
+    servings: 1,
+    ingredients: [
+      { ingredientId: "avoine", grams: 50 },
+      { ingredientId: "yaourt-grec", grams: 150 },
+      { ingredientId: "banane", grams: 120 },
+      { ingredientId: "beurre-cacahuete", grams: 20 }
+    ],
+    steps: [
+      "Mélanger l'avoine avec le yaourt grec et laisser reposer quelques minutes.",
+      "Couper la banane en rondelles et les disposer sur le dessus.",
+      "Ajouter une cuillère de beurre de cacahuète."
+    ],
+    notes: "Version 'overnight oats' express — encore meilleur préparé la veille au soir et laissé au frigo toute la nuit.",
+    es: {
+      name: "Bowl de plátano, avena y crema de cacahuete",
+      category: "Merienda / Post-entrenamiento",
+      steps: [
+        "Mezcla la avena con el yogur griego y deja reposar unos minutos.",
+        "Corta el plátano en rodajas y colócalas por encima.",
+        "Añade una cucharada de crema de cacahuete."
+      ],
+      notes: "Versión 'overnight oats' exprés — todavía mejor si se prepara la noche anterior y se deja en el frigorífico toda la noche."
+    }
   }
 ];
