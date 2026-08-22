@@ -1,27 +1,43 @@
 "use client";
 
-/* Nueva funcionalidad (pedida por el usuario): generador de dieta
-   semanal en la pagina Diete, hermano del generador de Programa mas
-   orientado a "que como cada dia" con calorias totales por jornada.
-   Reusa buildWeekPlan() (misma rotacion deterministica que la lista de
-   compras de Programme) y computeCalorieTarget() (mismas formulas que
-   el contador de calorias del Journal). */
+/* Generador de dieta semanal en la pagina Diete. Reusa buildWeekPlan()
+   (misma rotacion deterministica que la lista de compras de Programme)
+   y computeCalorieTarget() (mismas formulas que el contador de
+   calorias del Journal). Cada comida se puede cambiar por otra del
+   mismo tipo, igual que los ejercicios en el generador de Programa. */
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useI18n } from "@/lib/i18n/context";
-import { computeRecipeTotals } from "@/lib/format";
+import { computeRecipeTotals, findById } from "@/lib/format";
 import ExoThumb from "@/components/programme/ExoThumb";
-import { buildWeekPlan, type Goal, type WeekPlanDay } from "@/lib/programme";
+import {
+  buildWeekPlan,
+  BREAKFAST_RECIPES,
+  MEAL_RECIPES,
+  SNACK_RECIPES,
+  type Goal,
+  type WeekPlanDay,
+} from "@/lib/programme";
 import { computeCalorieTarget } from "@/lib/calorieTargets";
 import type { UIStringKey } from "@/lib/i18n/dictionary";
+import { RECIPES } from "@/content";
+
+type Slot = "breakfast" | "lunch" | "dinner" | "snack";
 
 const WEEKDAY_KEYS: UIStringKey[] = ["day.mon", "day.tue", "day.wed", "day.thu", "day.fri", "day.sat", "day.sun"];
 
-function dayTotals(day: WeekPlanDay) {
+const SLOTS: { slot: Slot; labelKey: UIStringKey; pool: typeof RECIPES }[] = [
+  { slot: "breakfast", labelKey: "label.breakfast", pool: BREAKFAST_RECIPES },
+  { slot: "lunch", labelKey: "label.lunch", pool: MEAL_RECIPES },
+  { slot: "dinner", labelKey: "label.dinner", pool: MEAL_RECIPES },
+  { slot: "snack", labelKey: "label.snack", pool: SNACK_RECIPES },
+];
+
+function dayTotals(meals: (WeekPlanDay["breakfast"] | null)[]) {
   let kcal = 0;
   let protein = 0;
-  for (const recipe of [day.breakfast, day.lunch, day.dinner, day.snack]) {
+  for (const recipe of meals) {
     if (!recipe) continue;
     const totals = computeRecipeTotals(recipe);
     const servings = recipe.servings || 1;
@@ -35,10 +51,20 @@ export default function DietPlanGenerator() {
   const { t, tData } = useI18n();
   const [weight, setWeight] = useState("");
   const [goal, setGoal] = useState<Goal>("maintien");
+  const [customCalories, setCustomCalories] = useState("");
   const [days, setDays] = useState(7);
   const [plan, setPlan] = useState<WeekPlanDay[] | null>(null);
+  // Cle "{jour}-{slot}" -> id de recette choisie a la main.
+  const [swaps, setSwaps] = useState<Record<string, string>>({});
 
-  const target = weight ? computeCalorieTarget(goal, Number(weight)) : null;
+  useEffect(() => {
+    setSwaps({});
+  }, [plan]);
+
+  const computedTarget = weight ? computeCalorieTarget(goal, Number(weight)) : null;
+  const target = customCalories
+    ? { kcal: Number(customCalories), protein: computedTarget?.protein ?? 0 }
+    : computedTarget;
 
   function handleGenerate(e: React.FormEvent) {
     e.preventDefault();
@@ -63,6 +89,19 @@ export default function DietPlanGenerator() {
             value={weight}
             onChange={(e) => setWeight(e.target.value)}
             required
+          />
+        </div>
+
+        <div className="field">
+          <label htmlFor="diet-custom-kcal">{t("diete.plan.customCalories")}</label>
+          <input
+            id="diet-custom-kcal"
+            type="number"
+            min="0"
+            step="50"
+            placeholder={computedTarget ? String(computedTarget.kcal) : "ex: 2000"}
+            value={customCalories}
+            onChange={(e) => setCustomCalories(e.target.value)}
           />
         </div>
 
@@ -96,9 +135,7 @@ export default function DietPlanGenerator() {
         <div className="stats-row">
           <div className="stat">
             <div className="value">{target.kcal}</div>
-            <div className="label">
-              {t("diete.plan.target")} · Kcal
-            </div>
+            <div className="label">{t("diete.plan.target")} · Kcal</div>
           </div>
           <div className="stat">
             <div className="value">{target.protein}g</div>
@@ -110,14 +147,15 @@ export default function DietPlanGenerator() {
       {plan ? (
         <div className="programme-days">
           {plan.map((day, i) => {
-            const totals = dayTotals(day);
             const weekdayLabel = t(WEEKDAY_KEYS[i % 7]);
-            const meals: { labelKey: UIStringKey; recipe: WeekPlanDay["breakfast"] }[] = [
-              { labelKey: "label.breakfast", recipe: day.breakfast },
-              { labelKey: "label.lunch", recipe: day.lunch },
-              { labelKey: "label.dinner", recipe: day.dinner },
-              { labelKey: "label.snack", recipe: day.snack },
-            ];
+            const resolvedMeals = SLOTS.map(({ slot, pool }) => {
+              const key = `${day.day}-${slot}`;
+              const swappedId = swaps[key];
+              const base = day[slot];
+              const recipe = swappedId ? findById(RECIPES, swappedId) ?? base : base;
+              return { slot, key, recipe, pool };
+            });
+            const totals = dayTotals(resolvedMeals.map((m) => m.recipe));
             return (
               <div className="card-box programme-day" key={day.day}>
                 <div className="programme-day-head">
@@ -131,19 +169,34 @@ export default function DietPlanGenerator() {
                     </div>
                   </div>
                 </div>
-                {meals.map(({ labelKey, recipe }) =>
-                  recipe ? (
-                    <div className="exo-row" key={labelKey}>
-                      <ExoThumb photo={recipe.photo} alt={tData(recipe, "name") as string} icon="fork" />
+                {resolvedMeals.map(({ slot, key, recipe, pool }) => {
+                  if (!recipe) return null;
+                  const name = tData(recipe, "name") as string;
+                  const slotInfo = SLOTS.find((s) => s.slot === slot)!;
+                  return (
+                    <div className="exo-row" key={key}>
+                      <ExoThumb photo={recipe.photo} alt={name} icon="fork" />
                       <div className="exo-row-info">
                         <div className="name">
-                          <Link href={`/diete/recettes/${recipe.id}`}>{tData(recipe, "name") as string}</Link>
+                          <Link href={`/diete/recettes/${recipe.id}`}>{name}</Link>
                         </div>
-                        <div className="scheme">{t(labelKey)}</div>
+                        <div className="scheme">{t(slotInfo.labelKey)}</div>
                       </div>
+                      <select
+                        className="exo-swap-select"
+                        value={recipe.id}
+                        aria-label={t("programme.chooseExercise")}
+                        onChange={(e) => setSwaps((prev) => ({ ...prev, [key]: e.target.value }))}
+                      >
+                        {pool.map((r) => (
+                          <option key={r.id} value={r.id}>
+                            {tData(r, "name") as string}
+                          </option>
+                        ))}
+                      </select>
                     </div>
-                  ) : null
-                )}
+                  );
+                })}
               </div>
             );
           })}
