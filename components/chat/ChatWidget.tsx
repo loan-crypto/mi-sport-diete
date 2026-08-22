@@ -12,9 +12,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useAuth } from "@/lib/auth/context";
+import { useI18n } from "@/lib/i18n/context";
 import { supabase } from "@/lib/supabase/client";
 
-const DEFAULT_MODEL = "claude-sonnet-4-5";
+const DEFAULT_MODEL = "claude-sonnet-5";
 const HISTORY_KEY = "mysportsite_claude_history";
 const MAX_HISTORY_MESSAGES = 20;
 
@@ -36,7 +37,18 @@ function saveLocalHistory(msgs: ChatMessage[]) {
   window.localStorage.setItem(HISTORY_KEY, JSON.stringify(msgs.slice(-MAX_HISTORY_MESSAGES)));
 }
 
-async function callClaude(apiKey: string, model: string, history: ChatMessage[]) {
+const SYSTEM_PROMPT_BY_LANG: Record<"fr" | "es", string> = {
+  fr: "Tu es un assistant utile intégré à un site personnel de suivi sport (callisthénie/musculation) et nutrition. Réponds en français, de façon concise et pratique.",
+  es: "Eres un asistente útil integrado en un sitio personal de seguimiento deportivo (calistenia/musculación) y nutrición. Responde en español, de forma concisa y práctica.",
+};
+
+async function callClaude(
+  apiKey: string,
+  model: string,
+  history: ChatMessage[],
+  emptyReplyText: string,
+  lang: "fr" | "es"
+) {
   const res = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
     headers: {
@@ -48,8 +60,7 @@ async function callClaude(apiKey: string, model: string, history: ChatMessage[])
     body: JSON.stringify({
       model,
       max_tokens: 1024,
-      system:
-        "Tu es un assistant utile intégré à un site personnel de suivi sport (callisthénie/musculation) et nutrition. Réponds en français, de façon concise et pratique.",
+      system: SYSTEM_PROMPT_BY_LANG[lang],
       messages: history.map((m) => ({ role: m.role, content: m.content })),
     }),
   });
@@ -71,12 +82,13 @@ async function callClaude(apiKey: string, model: string, history: ChatMessage[])
     ((data.content as ContentBlock[] | undefined) ?? [])
       .map((block) => block.text ?? "")
       .join("")
-      .trim() || "(réponse vide)"
+      .trim() || emptyReplyText
   );
 }
 
 export default function ChatWidget() {
   const { user } = useAuth();
+  const { t, lang } = useI18n();
   const [open, setOpen] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [apiKey, setApiKey] = useState("");
@@ -160,12 +172,12 @@ export default function ChatWidget() {
     setThinking(true);
     setError(null);
     try {
-      const reply = await callClaude(apiKey, model, next);
+      const reply = await callClaude(apiKey, model, next, t("chat.emptyReply"), lang);
       const updated = [...next, { role: "assistant" as const, content: reply }];
       setHistory(updated);
       saveLocalHistory(updated);
     } catch (err) {
-      setError(`Erreur : ${err instanceof Error ? err.message : String(err)}`);
+      setError(`${t("chat.errorPrefix")}${err instanceof Error ? err.message : String(err)}`);
     } finally {
       setThinking(false);
     }
@@ -177,7 +189,7 @@ export default function ChatWidget() {
     <>
       <button
         id="claude-chat-toggle"
-        aria-label="Ouvrir le chat Claude"
+        aria-label={t("chat.openLabel")}
         onClick={handleToggle}
       >
         💬
@@ -186,10 +198,10 @@ export default function ChatWidget() {
         <div className="claude-chat-header">
           <span>💬 Claude</span>
           <div className="actions">
-            <button title="Réglages" onClick={() => setShowSettings((s) => !s)}>
+            <button title={t("chat.settings")} onClick={() => setShowSettings((s) => !s)}>
               ⚙️
             </button>
-            <button title="Fermer" onClick={() => setOpen(false)}>
+            <button title={t("chat.close")} onClick={() => setOpen(false)}>
               ✕
             </button>
           </div>
@@ -215,7 +227,7 @@ export default function ChatWidget() {
             </div>
             <div className="claude-chat-footer">
               <textarea
-                placeholder="Écris ton message..."
+                placeholder={t("chat.inputPlaceholder")}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => {
@@ -245,19 +257,20 @@ function ChatSettingsPanel({
   onSave: (key: string, model: string) => void;
   onClearHistory: () => void;
 }) {
+  const { t } = useI18n();
   const [key, setKey] = useState(initialKey);
   const [model, setModel] = useState(initialModel);
 
   return (
     <div className="claude-settings" style={{ display: "flex" }}>
       <p>
-        Colle ta clé API Anthropic (créée sur{" "}
+        {t("chat.apiKeyIntro")}{" "}
         <a href="https://console.anthropic.com" target="_blank" rel="noopener">
           console.anthropic.com
         </a>
-        ). Elle est stockée sur ton compte, jamais ailleurs qu'a l&apos;API Anthropic.
+        ). {t("chat.apiKeyStorageNote")}
       </p>
-      <label htmlFor="claude-api-key">Clé API</label>
+      <label htmlFor="claude-api-key">{t("chat.apiKeyLabel")}</label>
       <input
         type="password"
         id="claude-api-key"
@@ -265,7 +278,7 @@ function ChatSettingsPanel({
         value={key}
         onChange={(e) => setKey(e.target.value)}
       />
-      <label htmlFor="claude-model">Modèle</label>
+      <label htmlFor="claude-model">{t("chat.modelLabel")}</label>
       <input
         type="text"
         id="claude-model"
@@ -273,10 +286,10 @@ function ChatSettingsPanel({
         value={model}
         onChange={(e) => setModel(e.target.value)}
       />
-      <p>Si le modèle indiqué ne fonctionne pas, vérifie l&apos;identifiant exact dans la doc Anthropic.</p>
-      <button onClick={() => onSave(key, model)}>Enregistrer</button>
+      <p>{t("chat.modelHint")}</p>
+      <button onClick={() => onSave(key, model)}>{t("chat.save")}</button>
       <button className="secondary" onClick={onClearHistory}>
-        Effacer la conversation
+        {t("chat.clearHistory")}
       </button>
     </div>
   );

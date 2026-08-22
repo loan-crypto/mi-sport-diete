@@ -61,11 +61,15 @@ function JournalContent() {
     reader.onload = async () => {
       try {
         const dump = JSON.parse(reader.result as string);
-        setImportMsg("Importando…");
+        setImportMsg(t("status.importing"));
         const result = await importLegacyDump(user.id, dump);
         setImportMsg(
-          `${t("alert.importSuccess")} (${result.exerciseLogs} entrenos, ${result.mealLogs} comidas, ${result.progressPhotos} fotos)` +
-            (result.errors.length ? ` — ${result.errors.length} error(es)` : "")
+          t("status.importDetail", {
+            success: t("alert.importSuccess"),
+            trainings: result.exerciseLogs,
+            meals: result.mealLogs,
+            photos: result.progressPhotos,
+          }) + (result.errors.length ? t("status.importErrors", { count: result.errors.length }) : "")
         );
         reload();
       } catch {

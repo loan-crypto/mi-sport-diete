@@ -43,7 +43,7 @@ export default function HomePage() {
         </div>
         <div className="stat">
           <div className="value">FR/ES</div>
-          <div className="label">Langues</div>
+          <div className="label">{t("label.languages")}</div>
         </div>
       </div>
 

@@ -132,7 +132,7 @@ export default function ExerciseLogWidget({ exerciseId }: { exerciseId: string }
 
             {!loading && (
               logs.length === 0 ? (
-                <p className="empty-state">{t("empty.sessionsForExercise")}</p>
+                <p className="empty-state">{t("empty.logsForExercise")}</p>
               ) : (
                 <div className="table-scroll">
                   <table className="log-table">
