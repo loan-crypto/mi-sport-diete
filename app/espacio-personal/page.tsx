@@ -16,9 +16,9 @@ import Tilt3D from "@/components/motion/Tilt3D";
 const photos = EXERCISES.filter((e) => e.photo).map((e) => e.photo);
 const HERO_PHOTO = photos[6];
 const JOURNAL_PHOTO = HERO_PHOTO;
-// Nota: evitamos tu foto propia (images/body/back.jpg) aqui — el recorte
-// automatico de una tarjeta chica cae mal sobre una foto de cuerpo
-// entero. Se queda solo en Progresion, mostrada completa en su galeria.
+// Nota: evitamos images/body/back.jpg aqui (foto de stock generica, no
+// tuya) — el recorte automatico de una tarjeta chica cae mal sobre una
+// foto de cuerpo entero. Se usa solo en la carte musculaire.
 const PROGRESSION_PHOTO = photos[11] ?? photos[2];
 const PLANNER_PHOTO = photos[9];
 

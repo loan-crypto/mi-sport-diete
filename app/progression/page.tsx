@@ -20,11 +20,10 @@ import {
 import { todayISO } from "@/lib/supabase/logs";
 import { EXERCISES } from "@/content";
 
-// Nota: on evite ta photo personnelle (images/body/back.jpg) ici — le
-// bandeau recadre en "cover" sur peu de hauteur, avec un degrade sombre
-// par-dessus (meme probleme deja corrige sur /sport, /espacio-personal et
-// la carte musculaire). Elle reste utilisee uniquement dans son propre
-// format complet, sur la carte musculaire.
+// Nota: on evite images/body/back.jpg ici (photo de stock generique, pas
+// la tienne) — le bandeau recadre en "cover" sur peu de hauteur. Cette
+// photo reste utilisee uniquement dans son propre format complet, sur la
+// carte musculaire.
 const HERO_PHOTO = EXERCISES.filter((e) => e.photo).map((e) => e.photo)[3];
 
 function ProgressionContent() {

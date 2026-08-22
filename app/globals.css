@@ -1589,6 +1589,20 @@ footer.site-footer {
   height: 100%;
   object-fit: cover;
   object-position: center top;
+  /* La photo source est chaude/ambree et tres claire (eclairage studio
+     brique orange) — jure avec l'identite sombre du reste du site.
+     On l'assombrit et on la desature fortement pour la ramener dans la
+     meme ambiance moody, sans toucher au cadrage (les positions en % de
+     MUSCLE_DOTS restent valables). */
+  filter: grayscale(55%) saturate(0.7) contrast(1.2) brightness(0.62);
+}
+
+.body-photo-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11, 12, 15, 0.35) 0%, rgba(11, 12, 15, 0.15) 50%, rgba(11, 12, 15, 0.6) 100%);
+  pointer-events: none;
 }
 
 .muscle-dots-layer {
