@@ -41,33 +41,35 @@ export default function SportPage() {
       </div>
 
       <div className="hub-grid">
-        <Link className="hub-card" href="/sport/exercices" style={{ backgroundImage: `url(${EXERCICES_PHOTO})` }}>
-          <div className="hub-card-overlay" />
-          <div className="icon-badge">
-            <Icon name="dumbbell" />
+        <Link className="hub-card" href="/sport/exercices">
+          <div className="hub-card-photo" style={{ backgroundImage: `url(${EXERCICES_PHOTO})` }} />
+          <div className="hub-card-body">
+            <div className="icon-badge">
+              <Icon name="dumbbell" />
+            </div>
+            <h2>{t("hub.exercices.title")}</h2>
+            <p>{t("hub.exercices.desc")}</p>
           </div>
-          <h2>{t("hub.exercices.title")}</h2>
-          <p>{t("hub.exercices.desc")}</p>
         </Link>
-        <Link className="hub-card" href="/sport/seances" style={{ backgroundImage: `url(${SEANCES_PHOTO})` }}>
-          <div className="hub-card-overlay" />
-          <div className="icon-badge">
-            <Icon name="clipboard" />
+        <Link className="hub-card" href="/sport/seances">
+          <div className="hub-card-photo" style={{ backgroundImage: `url(${SEANCES_PHOTO})` }} />
+          <div className="hub-card-body">
+            <div className="icon-badge">
+              <Icon name="clipboard" />
+            </div>
+            <h2>{t("hub.seances.title")}</h2>
+            <p>{t("hub.seances.desc")}</p>
           </div>
-          <h2>{t("hub.seances.title")}</h2>
-          <p>{t("hub.seances.desc")}</p>
         </Link>
-        <Link
-          className="hub-card"
-          href="/sport/carte-musculaire"
-          style={{ backgroundImage: `url(${MUSCLEMAP_PHOTO})` }}
-        >
-          <div className="hub-card-overlay" />
-          <div className="icon-badge">
-            <Icon name="chart" />
+        <Link className="hub-card" href="/sport/carte-musculaire">
+          <div className="hub-card-photo" style={{ backgroundImage: `url(${MUSCLEMAP_PHOTO})` }} />
+          <div className="hub-card-body">
+            <div className="icon-badge">
+              <Icon name="chart" />
+            </div>
+            <h2>{t("hub.musclemap.title")}</h2>
+            <p>{t("hub.musclemap.desc")}</p>
           </div>
-          <h2>{t("hub.musclemap.title")}</h2>
-          <p>{t("hub.musclemap.desc")}</p>
         </Link>
       </div>
     </>

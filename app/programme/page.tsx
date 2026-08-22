@@ -17,6 +17,7 @@ import { heroPhotoStyle } from "@/lib/heroStyle";
 import { EXERCISES } from "@/content";
 import {
   type Goal,
+  type DayKey,
   DAY_MUSCLES,
   DAY_LABEL_KEY,
   GOAL_SCHEME,
@@ -42,25 +43,63 @@ export default function ProgrammePage() {
   // Cle "{index du jour}-{position}" -> id d'exercice choisi a la main,
   // pour remplacer le pick automatique par une preference perso.
   const [swaps, setSwaps] = useState<Record<string, string>>({});
+  // Cle "{index du jour}-{position}" -> true si l'utilisateur a retire
+  // cet exercice du jour (sans forcement le remplacer).
+  const [removed, setRemoved] = useState<Record<string, boolean>>({});
+  // Exercices ajoutes a la main par jour (index du jour -> ids).
+  const [added, setAdded] = useState<Record<number, string[]>>({});
 
   useEffect(() => {
     setSwaps({});
+    setRemoved({});
+    setAdded({});
   }, [goal, days]);
+
+  type Row = { ex: (typeof EXERCISES)[number]; key: string; removable: boolean };
 
   const scheme = GOAL_SCHEME[goal];
   const rawProgramme = buildProgramme(goal, days);
-  const programme = rawProgramme.map((day) => ({
-    ...day,
-    exos: day.exos.map((ex, slot) => {
-      const swappedId = swaps[`${day.index}-${slot}`];
-      if (!swappedId) return ex;
-      return findById(EXERCISES, swappedId) ?? ex;
-    }),
-  }));
+  const programme = rawProgramme.map((day) => {
+    const autoRows: Row[] = day.exos
+      .map((ex, slot) => {
+        const key = `${day.index}-${slot}`;
+        if (removed[key]) return null;
+        const swappedId = swaps[key];
+        const finalEx = swappedId ? findById(EXERCISES, swappedId) ?? ex : ex;
+        return { ex: finalEx, key, removable: true };
+      })
+      .filter((row): row is Row => row !== null);
+    const extraRows: Row[] = (added[day.index] ?? [])
+      .map((id, i) => {
+        const ex = findById(EXERCISES, id);
+        return ex ? { ex, key: `${day.index}-added-${i}`, removable: true } : null;
+      })
+      .filter((row): row is Row => row !== null);
+    return { ...day, rows: [...autoRows, ...extraRows] };
+  });
   const weekPlan = buildWeekPlan(shoppingDays);
   const totals = aggregateIngredients(weekPlan);
   const shoppingGroups = groupShoppingByCategory(totals);
   const hasAnyRecipes = BREAKFAST_RECIPES.length || MEAL_RECIPES.length || SNACK_RECIPES.length;
+
+  function handleRemoveRow(key: string) {
+    if (key.includes("-added-")) {
+      const [dayIndexStr, , indexStr] = key.split("-");
+      const dayIndex = Number(dayIndexStr);
+      const i = Number(indexStr);
+      setAdded((prev) => ({
+        ...prev,
+        [dayIndex]: (prev[dayIndex] ?? []).filter((_, idx) => idx !== i),
+      }));
+    } else {
+      setRemoved((prev) => ({ ...prev, [key]: true }));
+    }
+  }
+
+  function handleAddExercise(dayIndex: number, exerciseId: string) {
+    if (!exerciseId) return;
+    setAdded((prev) => ({ ...prev, [dayIndex]: [...(prev[dayIndex] ?? []), exerciseId] }));
+  }
 
   function recipeCard(r: (typeof BREAKFAST_RECIPES)[number]) {
     const rTotals = computeRecipeTotals(r);
@@ -165,14 +204,15 @@ export default function ProgrammePage() {
                   </div>
                 </div>
               </div>
-              {day.exos.map((ex, slot) => {
+              {day.rows.map((row) => {
+                const { ex, key } = row;
                 const parts = schemeParts(ex, scheme);
                 const name = tData(ex, "name") as string;
                 const alternatives = EXERCISES.filter(
                   (cand) => cand.id === ex.id || cand.muscles.some((m) => ex.muscles.includes(m))
                 ).sort((a, b) => (tData(a, "name") as string).localeCompare(tData(b, "name") as string));
                 return (
-                  <div className="exo-row" key={`${day.index}-${slot}`}>
+                  <div className="exo-row" key={key}>
                     <ExoThumb photo={ex.photo} alt={name} />
                     <div className="exo-row-info">
                       <div className="name">
@@ -187,9 +227,14 @@ export default function ProgrammePage() {
                       className="exo-swap-select"
                       value={ex.id}
                       aria-label={t("programme.chooseExercise")}
-                      onChange={(e) =>
-                        setSwaps((prev) => ({ ...prev, [`${day.index}-${slot}`]: e.target.value }))
-                      }
+                      onChange={(e) => {
+                        if (key.includes("-added-")) {
+                          handleRemoveRow(key);
+                          handleAddExercise(day.index, e.target.value);
+                        } else {
+                          setSwaps((prev) => ({ ...prev, [key]: e.target.value }));
+                        }
+                      }}
                     >
                       {alternatives.map((alt) => (
                         <option key={alt.id} value={alt.id}>
@@ -197,9 +242,20 @@ export default function ProgrammePage() {
                         </option>
                       ))}
                     </select>
+                    <button
+                      type="button"
+                      className="exo-remove-btn"
+                      aria-label={t("programme.removeExercise")}
+                      title={t("programme.removeExercise")}
+                      onClick={() => handleRemoveRow(key)}
+                    >
+                      ✕
+                    </button>
                   </div>
                 );
               })}
+
+              <AddExerciseRow dayKey={day.dayKey} dayIndex={day.index} onAdd={handleAddExercise} />
             </div>
           ))}
         </div>
@@ -312,5 +368,51 @@ export default function ProgrammePage() {
         )}
       </div>
     </>
+  );
+}
+
+function AddExerciseRow({
+  dayKey,
+  dayIndex,
+  onAdd,
+}: {
+  dayKey: DayKey;
+  dayIndex: number;
+  onAdd: (dayIndex: number, exerciseId: string) => void;
+}) {
+  const { t, tData } = useI18n();
+  const [selected, setSelected] = useState("");
+  const targetMuscles = DAY_MUSCLES[dayKey];
+  const candidates = EXERCISES.filter((e) => e.muscles.some((m) => targetMuscles.includes(m))).sort((a, b) =>
+    (tData(a, "name") as string).localeCompare(tData(b, "name") as string)
+  );
+
+  return (
+    <div className="exo-row exo-add-row">
+      <select
+        className="exo-swap-select"
+        value={selected}
+        onChange={(e) => setSelected(e.target.value)}
+        aria-label={t("programme.pickExerciseToAdd")}
+      >
+        <option value="">{t("programme.pickExerciseToAdd")}</option>
+        {candidates.map((c) => (
+          <option key={c.id} value={c.id}>
+            {tData(c, "name") as string}
+          </option>
+        ))}
+      </select>
+      <button
+        type="button"
+        className="secondary"
+        disabled={!selected}
+        onClick={() => {
+          onAdd(dayIndex, selected);
+          setSelected("");
+        }}
+      >
+        {t("programme.addExercise")}
+      </button>
+    </div>
   );
 }

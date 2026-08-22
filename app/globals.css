@@ -405,35 +405,43 @@ header.site-header {
   margin: 40px 0 60px;
 }
 
-/* Cartes-affiche façon Nike Training/Strava : grande photo editoriale
-   en fond, texte en surimpression en bas — beaucoup plus de densite
-   visuelle qu'un icone + texte sur fond plat. */
+/* Cartes en 2 blocs nets — photo au-dessus, texte sur fond plein en
+   dessous (pas de degrade texte-sur-photo) : plus lisible, plus "pro"
+   que le texte flottant sur un degrade. */
 .hub-card {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  position: relative;
   overflow: hidden;
-  min-height: 300px;
   background-color: var(--bg-card);
-  background-size: cover;
-  background-position: center;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 26px;
   transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.hub-card-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: linear-gradient(180deg, rgba(11, 12, 15, 0.1) 0%, rgba(11, 12, 15, 0.55) 55%, rgba(11, 12, 15, 0.94) 100%);
+.hub-card-photo {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--bg-elevated);
 }
 
-.hub-card > *:not(.hub-card-overlay) {
-  position: relative;
-  z-index: 1;
+.hub-card-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11, 12, 15, 0) 60%, rgba(11, 12, 15, 0.5) 100%);
+}
+
+.hub-card-photo:empty {
+  background-color: var(--bg-elevated);
+}
+
+.hub-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 22px 24px 26px;
 }
 
 .hub-card:hover {
@@ -867,6 +875,38 @@ table.shopping-table td:last-child {
 .exo-swap-select:hover {
   color: var(--text);
   border-color: var(--accent);
+}
+
+.exo-remove-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  line-height: 1;
+  box-shadow: none;
+  flex-shrink: 0;
+}
+
+.exo-remove-btn:hover {
+  color: var(--danger);
+  border-color: var(--danger);
+  background: transparent;
+  transform: none;
+  box-shadow: none;
+}
+
+.exo-add-row {
+  border-bottom: none;
+  padding-top: 14px;
+}
+
+.exo-add-row .exo-swap-select {
+  flex: 1;
+  max-width: none;
 }
 
 /* Petite vignette compacte pour repérer un exercice d'un coup d'œil dans

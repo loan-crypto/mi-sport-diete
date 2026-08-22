@@ -15,12 +15,17 @@ const NAV_LINKS: { href: string; labelKey: UIStringKey }[] = [
   { href: "/diete", labelKey: "nav.diete" },
   { href: "/sport", labelKey: "nav.sport" },
   { href: "/programme", labelKey: "nav.programme" },
-  { href: "/planificateur", labelKey: "nav.planificateur" },
-  { href: "/progression", labelKey: "nav.progression" },
-  { href: "/journal", labelKey: "nav.journal" },
+  { href: "/espacio-personal", labelKey: "nav.espacePersonnel" },
 ];
 
+// Journal/Progression/Planificateur viven bajo /espacio-personal en el
+// menu aunque su URL no este anidada (para no romper enlaces existentes).
+const PERSONAL_PATHS = ["/espacio-personal", "/journal", "/progression", "/planificateur"];
+
 function isActive(pathname: string, href: string) {
+  if (href === "/espacio-personal") {
+    return PERSONAL_PATHS.some((p) => pathname === p || pathname.startsWith(`${p}/`));
+  }
   if (href === "/") return pathname === "/";
   return pathname === href || pathname.startsWith(`${href}/`);
 }
