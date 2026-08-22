@@ -173,6 +173,9 @@ export const UI_STRINGS = {
     "seances.title": "Séances",
     "seances.subtitle": "Mes séances types. Chaque exercice renvoie vers sa fiche détaillée.",
     "filter.byMuscle": "Filtré par muscle :",
+    "filter.styleAll": "Tous",
+    "filter.styleGym": "Salle de sport",
+    "filter.styleCalisthenics": "Calisthénie",
 
     "progression.kicker": "Discipline · Constance · Preuves",
     "progression.title": "Progression",
@@ -473,6 +476,9 @@ export const UI_STRINGS = {
     "seances.title": "Sesiones",
     "seances.subtitle": "Mis sesiones tipo. Cada ejercicio enlaza con su ficha detallada.",
     "filter.byMuscle": "Filtrado por músculo:",
+    "filter.styleAll": "Todos",
+    "filter.styleGym": "Gimnasio",
+    "filter.styleCalisthenics": "Calistenia",
 
     "progression.kicker": "Disciplina · Constancia · Pruebas",
     "progression.title": "Progreso",
